@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+venv/
+.env
+*.json
+!trend_analysis_data.json
+full_scan_*.csv
+scan_*.txt
+test_*.json
+.DS_Store

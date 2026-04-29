@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔍 Crypto Alpha · 第2层：趋势分析（实时数据）</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            min-height: 100vh;
+            padding: 30px 20px;
+            color: #e2e8f0;
+        }
+        
+        .container { max-width: 1500px; margin: 0 auto; }
+        
+        /* 头部 */
+        .header {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border-radius: 28px;
+            padding: 45px 40px;
+            margin-bottom: 35px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header h1 {
+            font-size: 2.8em;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, #06b6d4, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 800;
+        }
+        
+        .header .subtitle {
+            font-size: 1.15em;
+            color: #94a3b8;
+            margin-bottom: 25px;
+        }
+        
+        .layer-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #06b6d4, #0891b2);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 16px;
+            font-weight: 700;
+            font-size: 1.05em;
+            letter-spacing: 0.5px;
+            box-shadow: 0 8px 25px rgba(6, 182, 212, 0.3);
+            margin-bottom: 10px;
+        }
+        
+        .live-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            padding: 8px 18px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 0.88em;
+            margin-top: 15px;
+            animation: pulse-green 2s infinite;
+        }
+        
+        @keyframes pulse-green {
+            0%, 100% { box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4); }
+            50% { box-shadow: 0 4px 25px rgba(16, 185, 129, 0.7); }
+        }
+        
+        .meta-info {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 22px;
+        }
+        
+        .meta-tag {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 9px 18px;
+            border-radius: 12px;
+            font-size: 0.88em;
+            color: #94a3b8;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        
+        /* 统计卡片 */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 38px;
+        }
+        
+        .stat-card {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 26px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #06b6d4, #8b5cf6);
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 18px 50px rgba(6, 182, 212, 0.15);
+        }
+        
+        .stat-icon { font-size: 2.4em; margin-bottom: 10px; }
+        
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: 800;
+            background: linear-gradient(135deg, #06b6d4, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 6px;
+        }
+        
+        .stat-label {
+            color: #64748b;
+            font-size: 0.92em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+        
+        /* 趋势分布 */
+        .distribution-section {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(15px);
+            border-radius: 24px;
+            padding: 35px;
+            margin-bottom: 38px;
+            border: 1px solid rgba(255, 255, 255, 0.07);
+        }
+        
+        .section-title {
+            font-size: 1.7em;
+            font-weight: 700;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, #06b6d4, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .dist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 16px;
+        }
+        
+        .dist-item {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 20px;
+            border-radius: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .dist-item:hover {
+            background: rgba(255, 255, 255, 0.07);
+            transform: translateX(6px);
+            border-color: rgba(6, 182, 212, 0.2);
+        }
+        
+        .dist-info .dist-scenario {
+            font-size: 1.1em;
+            font-weight: 700;
+            color: #f1f5f9;
+            margin-bottom: 4px;
+        }
+        
+        .dist-coins { color: #64748b; font-size: 0.85em; }
+        
+        .dist-count {
+            background: linear-gradient(135deg, #06b6d4, #8b5cf6);
+            color: white;
+            padding: 7px 18px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.95em;
+            min-width: 55px;
+            text-align: center;
+        }
+        
+        /* 代币卡片 */
+        .coins-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 26px;
+            margin-bottom: 40px;
+        }
+        
+        .coin-card {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(15px);
+            border-radius: 24px;
+            padding: 32px;
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .coin-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--card-c1), var(--card-c2));
+        }
+        
+        .coin-card:hover {
+            transform: translateY(-10px) scale(1.01);
+            box-shadow: 0 22px 65px rgba(0, 0, 0, 0.35);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+        
+        .coin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            padding-bottom: 18px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.06);
+        }
+        
+        .coin-left { display: flex; align-items: center; gap: 14px; }
+        .coin-emoji { font-size: 2.5em; }
+        .coin-name { font-size: 1.75em; font-weight: 700; color: #f1f5f9; }
+        
+        .trend-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 11px 22px;
+            border-radius: 16px;
+            font-weight: 700;
+            font-size: 0.95em;
+            color: white;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .badge-S1 { background: linear-gradient(135deg, #10b981, #059669); }
+        .badge-S2 { background: linear-gradient(135deg, #f59e0b, #d97706); }
+        .badge-S3 { background: linear-gradient(135deg, #374151, #1f2937); }
+        .badge-S4 { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+        .badge-S5 { background: linear-gradient(135deg, #6b7280, #4b5563); }
+        .badge-S6 { background: linear-gradient(135deg, #a855f7, #9333ea); }
+        .badge-S7 { background: linear-gradient(135deg, #ef4444, #dc2626); }
+        .badge-other { background: linear-gradient(135deg, #64748b, #475569); }
+        
+        /* 数据网格 */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .metric-item {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 17px;
+            border-radius: 13px;
+            border-left: 4px solid var(--accent);
+            transition: all 0.3s ease;
+        }
+        
+        .metric-item:hover {
+            background: rgba(255, 255, 255, 0.06);
+            transform: translateX(4px);
+        }
+        
+        .metric-label {
+            font-size: 0.82em;
+            color: #64748b;
+            margin-bottom: 6px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.7px;
+        }
+        
+        .metric-value {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #f1f5f9;
+        }
+        
+        .metric-value.positive { color: #10b981; }
+        .metric-value.negative { color: #ef4444; }
+        .metric-value.neutral { color: #94a3b8; }
+        
+        /* 趋势解读区域 */
+        .trend-analysis-section {
+            margin-top: 24px;
+            padding: 22px;
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.08), rgba(139, 92, 246, 0.08));
+            border-radius: 18px;
+            border: 1px solid rgba(6, 182, 212, 0.15);
+        }
+        
+        .analysis-title {
+            font-size: 0.95em;
+            font-weight: 700;
+            color: #94a3b8;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .trend-type-display {
+            font-size: 1.35em;
+            font-weight: 800;
+            padding: 12px 22px;
+            border-radius: 14px;
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.2), rgba(139, 92, 246, 0.2));
+            color: #f1f5f9;
+            border: 1px solid rgba(6, 182, 212, 0.3);
+        }
+        
+        .risk-indicator {
+            margin-top: 12px;
+            font-size: 0.95em;
+            color: #94a3b8;
+        }
+        
+        .risk-level {
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 8px;
+            margin-left: 6px;
+            font-size: 0.9em;
+        }
+        
+        .risk-高, .risk-极高 { background: rgba(239, 68, 68, 0.2); color: #fca5a5; }
+        .risk-中 { background: rgba(245, 158, 11, 0.2); color: #fcd34d; }
+        .risk-低 { background: rgba(16, 185, 129, 0.2); color: #6ee7b7; }
+        .risk-极低 { background: rgba(148, 163, 184, 0.2); color: #cbd5e1; }
+        
+        /* 页脚 */
+        .footer {
+            text-align: center;
+            padding: 40px 30px;
+            color: #64748b;
+            font-size: 0.9em;
+            line-height: 1.8;
+        }
+        
+        .footer strong { color: #94a3b8; }
+        
+        @media (max-width: 960px) {
+            .coins-grid { grid-template-columns: 1fr; }
+            .metrics-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.02); }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #06b6d4, #8b5cf6); border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 头部 -->
+        <div class="header">
+            <div class="layer-badge">第2层：趋势分析</div>
+            <h1>Crypto Alpha 分析决策系统</h1>
+            <div class="subtitle">中长期趋势判断 · 8大OI场景判定框架</div>
+            <div class="live-badge">✓ 实时API扫描数据</div>
+            <div class="meta-info">
+                <span class="meta-tag">⏰ 扫描时间: 2026-04-29 11:37:35</span>
+                <span class="meta-tag">📊 数据源: Binance + CoinGlass 双源验证</span>
+                <span class="meta-tag">⏱️ 扫描耗时: 110.86秒 (1.8分钟)</span>
+            </div>
+        </div>
+
+        <!-- 统计概览 -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">📊</div>
+                <div class="stat-number">10</div>
+                <div class="stat-label">分析币种</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon">✅</div>
+                <div class="stat-number">10</div>
+                <div class="stat-label">数据完整</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon">📈</div>
+                <div class="stat-number">2</div>
+                <div class="stat-label">价格上涨</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon">📉</div>
+                <div class="stat-number">1</div>
+                <div class="stat-label">价格下跌</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon">➡️</div>
+                <div class="stat-number">7</div>
+                <div class="stat-label">价格横盘</div>
+            </div>
+        </div>
+
+        <!-- 趋势分布 -->
+        <div class="distribution-section">
+            <h2 class="section-title">📈 趋势状态分布（8大OI场景）</h2>
+            <div class="dist-grid">
+
+                <div class="dist-item">
+                    <div class="dist-info">
+                        <div class="dist-scenario">⬜ — 横盘</div>
+                        <div class="dist-coins">包含: FF, GRASS, HEMI, BSB, WET, RESOLV</div>
+                    </div>
+                    <div class="dist-count">7</div>
+                </div>
+
+                <div class="dist-item">
+                    <div class="dist-info">
+                        <div class="dist-scenario">🟣 S6 现货驱动</div>
+                        <div class="dist-coins">包含: US, ESPORTS</div>
+                    </div>
+                    <div class="dist-count">2</div>
+                </div>
+
+                <div class="dist-item">
+                    <div class="dist-info">
+                        <div class="dist-scenario">⚫ S3 多头投降</div>
+                        <div class="dist-coins">包含: TURTLE</div>
+                    </div>
+                    <div class="dist-count">1</div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 代币详细分析 -->
+        <h2 class="section-title" style="margin-bottom: 28px;">💎 代币趋势详细分析</h2>
+        <div class="coins-grid">
+
+            <div class="coin-card" style="--card-c1: #64748b; --card-c2: #475569; --accent: #64748b;">
+                <div class="coin-header">
+                    <div class="coin-left">
+                        <span class="coin-emoji">⬜</span>
+                        <span class="coin-name">FF</span>
+                    </div>
+                    <div class="trend-badge badge-other">
+                        — · 横盘
+                    </div>
+                </div>
+                
+                <div class="metrics-grid">
+                    <div class="metric-item" style="--accent: #64748b;">
+                        <div class="metric-label">💰 当前价格</div>
+                        <div class="metric-value">$0.065290</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #64748b;">
+                        <div class="metric-label">📈 24h价格变化</div>
+                        <div class="metric-value negative">-1.48%</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #64748b;">
+                        <div class="metric-label">🔄 OI变化率 (主)</div>
+                        <div class="metric-value negative">-0.39%</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #64748b;">
+                        <div class="metric-label">📊 总持仓量(OI)</div>
+                        <div class="metric-value neutral">$21.10M</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #64748b;">
+                        <div class="metric-label">🏛️ Binance OI</div>
+                        <div class="metric-value neutral">$21.10M</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #64748b;">
+                        <div class="metric-label">💸 资金费率</div>
+                        <div class="metric-value neutral">-1.5380%</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #64748b;">
+                        <div class="metric-label">👥 大户多空比</div>
+                        <div class="metric-value neutral">2.05</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #64748b;">
+                        <div class="metric-label">📦 24h成交量</div>
+                        <div class="metric-value neutral">$5.2M</div>
+                    </div>
+                </div>
+                
+                <div class="trend-analysis-section">
+                    <div class="analysis-title">🎯 趋势研判</div>
+                    <div class="trend-type-display">横盘整理</div>
+                    <div class="risk-indicator">
+                        风险等级:<span class="risk-level risk-极低">极低</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="coin-card" style="--card-c1: #a855f7; --card-c2: #9333ea; --accent: #a855f7;">
+                <div class="coin-header">
+                    <div class="coin-left">
+                        <span class="coin-emoji">🟣</span>
+                        <span class="coin-name">US</span>
+                    </div>
+                    <div class="trend-badge badge-S6">
+                        S6 · 现货驱动
+                    </div>
+                </div>
+                
+                <div class="metrics-grid">
+                    <div class="metric-item" style="--accent: #a855f7;">
+                        <div class="metric-label">💰 当前价格</div>
+                        <div class="metric-value">$0.005080</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #a855f7;">
+                        <div class="metric-label">📈 24h价格变化</div>
+                        <div class="metric-value positive">+22.35%</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #a855f7;">
+                        <div class="metric-label">🔄 OI变化率 (主)</div>
+                        <div class="metric-value negative">-0.33%</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #a855f7;">
+                        <div class="metric-label">📊 总持仓量(OI)</div>
+                        <div class="metric-value neutral">$2.42M</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #a855f7;">
+                        <div class="metric-label">🏛️ Binance OI</div>
+                        <div class="metric-value neutral">$2.43M</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #a855f7;">
+                        <div class="metric-label">💸 资金费率</div>
+                        <div class="metric-value neutral">6.1243%</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #a855f7;">
+                        <div class="metric-label">👥 大户多空比</div>
+                        <div class="metric-value neutral">1.59</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #a855f7;">
+                        <div class="metric-label">📦 24h成交量</div>
+                        <div class="metric-value neutral">$3.7M</div>
+                    </div>
+                </div>
+                
+                <div class="trend-analysis-section">
+                    <div class="analysis-title">🎯 趋势研判</div>
+                    <div class="trend-type-display">现货推动</div>
+                    <div class="risk-indicator">
+                        风险等级:<span class="risk-level risk-低">低</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="coin-card" style="--card-c1: #64748b; --card-c2: #475569; --accent: #64748b;">
+                <div class="coin-header">
+                    <div class="coin-left">
+                        <span class="coin-emoji">⬜</span>
+                        <span class="coin-name">GRASS</span>
+                    </div>
+                    <div class="trend-badge badge-other">
+                        — · 横盘
+                    </div>
+                </div>
+                
+                <div class="metrics-grid">
+                    <div class="metric-item" style="--accent: #64748b;">
+                        <div class="metric-label">💰 当前价格</div>
+                        <div class="metric-value">$0.354700</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #64748b;">
+                        <div class="metric-label">📈 24h价格变化</div>
+                        <div class="metric-value positive">+1.66%</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #64748b;">
+                        <div class="metric-label">🔄 OI变化率 (主)</div>
+                        <div class="metric-value positive">+1.62%</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #64748b;">
+                        <div class="metric-label">📊 总持仓量(OI)</div>
+                        <div class="metric-value neutral">$3.96M</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #64748b;">
+                        <div class="metric-label">🏛️ Binance OI</div>
+                        <div class="metric-value neutral">$3.96M</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #64748b;">
+                        <div class="metric-label">💸 资金费率</div>
+                        <div class="metric-value neutral">0.5000%</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #64748b;">
+                        <div class="metric-label">👥 大户多空比</div>
+                        <div class="metric-value neutral">1.50</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #64748b;">
+                        <div class="metric-label">📦 24h成交量</div>
+                        <div class="metric-value neutral">$5.4M</div>
+                    </div>
+                </div>
+                
+                <div class="trend-analysis-section">
+                    <div class="analysis-title">🎯 趋势研判</div>
+                    <div class="trend-type-display">横盘整理</div>
+                    <div class="risk-indicator">
+                        风险等级:<span class="risk-level risk-极低">极低</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="coin-card" style="--card-c1: #374151; --card-c2: #1f2937; --accent: #6b7280;">
+                <div class="coin-header">
+                    <div class="coin-left">
+                        <span class="coin-emoji">⚫</span>
+                        <span class="coin-name">TURTLE</span>
+                    </div>
+                    <div class="trend-badge badge-S3">
+                        S3 · 多头投降
+                    </div>
+                </div>
+                
+                <div class="metrics-grid">
+                    <div class="metric-item" style="--accent: #6b7280;">
+                        <div class="metric-label">💰 当前价格</div>
+                        <div class="metric-value">$0.053360</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #6b7280;">
+                        <div class="metric-label">📈 24h价格变化</div>
+                        <div class="metric-value negative">-10.56%</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #6b7280;">
+                        <div class="metric-label">🔄 OI变化率 (主)</div>
+                        <div class="metric-value negative">-8.27%</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #6b7280;">
+                        <div class="metric-label">📊 总持仓量(OI)</div>
+                        <div class="metric-value neutral">$1.97M</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #6b7280;">
+                        <div class="metric-label">🏛️ Binance OI</div>
+                        <div class="metric-value neutral">$1.97M</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #6b7280;">
+                        <div class="metric-label">💸 资金费率</div>
+                        <div class="metric-value neutral">0.5000%</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #6b7280;">
+                        <div class="metric-label">👥 大户多空比</div>
+                        <div class="metric-value neutral">3.06</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #6b7280;">
+                        <div class="metric-label">📦 24h成交量</div>
+                        <div class="metric-value neutral">$26.9M</div>
+                    </div>
+                </div>
+                
+                <div class="trend-analysis-section">
+                    <div class="analysis-title">🎯 趋势研判</div>
+                    <div class="trend-type-display">下降趋势</div>
+                    <div class="risk-indicator">
+                        风险等级:<span class="risk-level risk-高">高</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="coin-card" style="--card-c1: #a855f7; --card-c2: #9333ea; --accent: #a855f7;">
+                <div class="coin-header">
+                    <div class="coin-left">
+                        <span class="coin-emoji">🟣</span>
+                        <span class="coin-name">ESPORTS</span>
+                    </div>
+                    <div class="trend-badge badge-S6">
+                        S6 · 现货驱动
+                    </div>
+                </div>
+                
+                <div class="metrics-grid">
+                    <div class="metric-item" style="--accent: #a855f7;">
+                        <div class="metric-label">💰 当前价格</div>
+                        <div class="metric-value">$0.364100</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #a855f7;">
+                        <div class="metric-label">📈 24h价格变化</div>
+                        <div class="metric-value positive">+6.28%</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #a855f7;">
+                        <div class="metric-label">🔄 OI变化率 (主)</div>
+                        <div class="metric-value negative">-0.06%</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #a855f7;">
+                        <div class="metric-label">📊 总持仓量(OI)</div>
+                        <div class="metric-value neutral">$7.72M</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #a855f7;">
+                        <div class="metric-label">🏛️ Binance OI</div>
+                        <div class="metric-value neutral">$7.72M</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #a855f7;">
+                        <div class="metric-label">💸 资金费率</div>
+                        <div class="metric-value neutral">0.5000%</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #a855f7;">
+                        <div class="metric-label">👥 大户多空比</div>
+                        <div class="metric-value neutral">3.06</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #a855f7;">
+                        <div class="metric-label">📦 24h成交量</div>
+                        <div class="metric-value neutral">$2.3M</div>
+                    </div>
+                </div>
+                
+                <div class="trend-analysis-section">
+                    <div class="analysis-title">🎯 趋势研判</div>
+                    <div class="trend-type-display">现货推动</div>
+                    <div class="risk-indicator">
+                        风险等级:<span class="risk-level risk-低">低</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="coin-card" style="--card-c1: #64748b; --card-c2: #475569; --accent: #64748b;">
+                <div class="coin-header">
+                    <div class="coin-left">
+                        <span class="coin-emoji">⬜</span>
+                        <span class="coin-name">HEMI</span>
+                    </div>
+                    <div class="trend-badge badge-other">
+                        — · 横盘
+                    </div>
+                </div>
+                
+                <div class="metrics-grid">
+                    <div class="metric-item" style="--accent: #64748b;">
+                        <div class="metric-label">💰 当前价格</div>
+                        <div class="metric-value">$0.007925</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #64748b;">
+                        <div class="metric-label">📈 24h价格变化</div>
+                        <div class="metric-value positive">+0.08%</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #64748b;">
+                        <div class="metric-label">🔄 OI变化率 (主)</div>
+                        <div class="metric-value negative">-1.16%</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #64748b;">
+                        <div class="metric-label">📊 总持仓量(OI)</div>
+                        <div class="metric-value neutral">$2.34M</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #64748b;">
+                        <div class="metric-label">🏛️ Binance OI</div>
+                        <div class="metric-value neutral">$2.34M</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #64748b;">
+                        <div class="metric-label">💸 资金费率</div>
+                        <div class="metric-value neutral">0.5000%</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #64748b;">
+                        <div class="metric-label">👥 大户多空比</div>
+                        <div class="metric-value neutral">1.67</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #64748b;">
+                        <div class="metric-label">📦 24h成交量</div>
+                        <div class="metric-value neutral">$4.6M</div>
+                    </div>
+                </div>
+                
+                <div class="trend-analysis-section">
+                    <div class="analysis-title">🎯 趋势研判</div>
+                    <div class="trend-type-display">横盘整理</div>
+                    <div class="risk-indicator">
+                        风险等级:<span class="risk-level risk-极低">极低</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="coin-card" style="--card-c1: #64748b; --card-c2: #475569; --accent: #64748b;">
+                <div class="coin-header">
+                    <div class="coin-left">
+                        <span class="coin-emoji">⬜</span>
+                        <span class="coin-name">BSB</span>
+                    </div>
+                    <div class="trend-badge badge-other">
+                        — · 横盘
+                    </div>
+                </div>
+                
+                <div class="metrics-grid">
+                    <div class="metric-item" style="--accent: #64748b;">
+                        <div class="metric-label">💰 当前价格</div>
+                        <div class="metric-value">N/A</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #64748b;">
+                        <div class="metric-label">📈 24h价格变化</div>
+                        <div class="metric-value neutral">N/A</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #64748b;">
+                        <div class="metric-label">🔄 OI变化率 (主)</div>
+                        <div class="metric-value positive">+2.68%</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #64748b;">
+                        <div class="metric-label">📊 总持仓量(OI)</div>
+                        <div class="metric-value neutral">N/A</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #64748b;">
+                        <div class="metric-label">🏛️ Binance OI</div>
+                        <div class="metric-value neutral">$21.99M</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #64748b;">
+                        <div class="metric-label">💸 资金费率</div>
+                        <div class="metric-value neutral">N/A</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #64748b;">
+                        <div class="metric-label">👥 大户多空比</div>
+                        <div class="metric-value neutral">N/A</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #64748b;">
+                        <div class="metric-label">📦 24h成交量</div>
+                        <div class="metric-value neutral">N/A</div>
+                    </div>
+                </div>
+                
+                <div class="trend-analysis-section">
+                    <div class="analysis-title">🎯 趋势研判</div>
+                    <div class="trend-type-display">横盘整理</div>
+                    <div class="risk-indicator">
+                        风险等级:<span class="risk-level risk-极低">极低</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="coin-card" style="--card-c1: #64748b; --card-c2: #475569; --accent: #64748b;">
+                <div class="coin-header">
+                    <div class="coin-left">
+                        <span class="coin-emoji">⬜</span>
+                        <span class="coin-name">WET</span>
+                    </div>
+                    <div class="trend-badge badge-other">
+                        — · 横盘
+                    </div>
+                </div>
+                
+                <div class="metrics-grid">
+                    <div class="metric-item" style="--accent: #64748b;">
+                        <div class="metric-label">💰 当前价格</div>
+                        <div class="metric-value">N/A</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #64748b;">
+                        <div class="metric-label">📈 24h价格变化</div>
+                        <div class="metric-value neutral">N/A</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #64748b;">
+                        <div class="metric-label">🔄 OI变化率 (主)</div>
+                        <div class="metric-value negative">-1.54%</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #64748b;">
+                        <div class="metric-label">📊 总持仓量(OI)</div>
+                        <div class="metric-value neutral">N/A</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #64748b;">
+                        <div class="metric-label">🏛️ Binance OI</div>
+                        <div class="metric-value neutral">$1.99M</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #64748b;">
+                        <div class="metric-label">💸 资金费率</div>
+                        <div class="metric-value neutral">N/A</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #64748b;">
+                        <div class="metric-label">👥 大户多空比</div>
+                        <div class="metric-value neutral">N/A</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #64748b;">
+                        <div class="metric-label">📦 24h成交量</div>
+                        <div class="metric-value neutral">N/A</div>
+                    </div>
+                </div>
+                
+                <div class="trend-analysis-section">
+                    <div class="analysis-title">🎯 趋势研判</div>
+                    <div class="trend-type-display">横盘整理</div>
+                    <div class="risk-indicator">
+                        风险等级:<span class="risk-level risk-极低">极低</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="coin-card" style="--card-c1: #64748b; --card-c2: #475569; --accent: #64748b;">
+                <div class="coin-header">
+                    <div class="coin-left">
+                        <span class="coin-emoji">⬜</span>
+                        <span class="coin-name">RESOLV</span>
+                    </div>
+                    <div class="trend-badge badge-other">
+                        — · 横盘
+                    </div>
+                </div>
+                
+                <div class="metrics-grid">
+                    <div class="metric-item" style="--accent: #64748b;">
+                        <div class="metric-label">💰 当前价格</div>
+                        <div class="metric-value">N/A</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #64748b;">
+                        <div class="metric-label">📈 24h价格变化</div>
+                        <div class="metric-value neutral">N/A</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #64748b;">
+                        <div class="metric-label">🔄 OI变化率 (主)</div>
+                        <div class="metric-value negative">-1.25%</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #64748b;">
+                        <div class="metric-label">📊 总持仓量(OI)</div>
+                        <div class="metric-value neutral">N/A</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #64748b;">
+                        <div class="metric-label">🏛️ Binance OI</div>
+                        <div class="metric-value neutral">$2.16M</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #64748b;">
+                        <div class="metric-label">💸 资金费率</div>
+                        <div class="metric-value neutral">N/A</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #64748b;">
+                        <div class="metric-label">👥 大户多空比</div>
+                        <div class="metric-value neutral">N/A</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #64748b;">
+                        <div class="metric-label">📦 24h成交量</div>
+                        <div class="metric-value neutral">N/A</div>
+                    </div>
+                </div>
+                
+                <div class="trend-analysis-section">
+                    <div class="analysis-title">🎯 趋势研判</div>
+                    <div class="trend-type-display">横盘整理</div>
+                    <div class="risk-indicator">
+                        风险等级:<span class="risk-level risk-极低">极低</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="coin-card" style="--card-c1: #64748b; --card-c2: #475569; --accent: #64748b;">
+                <div class="coin-header">
+                    <div class="coin-left">
+                        <span class="coin-emoji">⬜</span>
+                        <span class="coin-name">JELLYJELLY</span>
+                    </div>
+                    <div class="trend-badge badge-other">
+                        — · 横盘
+                    </div>
+                </div>
+                
+                <div class="metrics-grid">
+                    <div class="metric-item" style="--accent: #64748b;">
+                        <div class="metric-label">💰 当前价格</div>
+                        <div class="metric-value">$0.052710</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #64748b;">
+                        <div class="metric-label">📈 24h价格变化</div>
+                        <div class="metric-value negative">-0.08%</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #64748b;">
+                        <div class="metric-label">🔄 OI变化率 (主)</div>
+                        <div class="metric-value negative">-0.77%</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #64748b;">
+                        <div class="metric-label">📊 总持仓量(OI)</div>
+                        <div class="metric-value neutral">$3.59M</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #64748b;">
+                        <div class="metric-label">🏛️ Binance OI</div>
+                        <div class="metric-value neutral">$3.60M</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #64748b;">
+                        <div class="metric-label">💸 资金费率</div>
+                        <div class="metric-value neutral">1.1850%</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #64748b;">
+                        <div class="metric-label">👥 大户多空比</div>
+                        <div class="metric-value neutral">1.50</div>
+                    </div>
+                    
+                    <div class="metric-item" style="--accent: #64748b;">
+                        <div class="metric-label">📦 24h成交量</div>
+                        <div class="metric-value neutral">$3.9M</div>
+                    </div>
+                </div>
+                
+                <div class="trend-analysis-section">
+                    <div class="analysis-title">🎯 趋势研判</div>
+                    <div class="trend-type-display">横盘整理</div>
+                    <div class="risk-indicator">
+                        风险等级:<span class="risk-level risk-极低">极低</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 页脚 -->
+        <div class="footer">
+            <p><strong>Crypto Alpha · 5层分析决策系统</strong></p>
+            <p>当前阶段: 第2层 —— 趋势分析（中长期趋势判断）</p>
+            <p>分析框架: 8大OI场景判定矩阵</p>
+            <p style="margin-top: 15px; color: #475569;">
+                ⚠️ 本报告为趋势分析工具输出，仅供研究参考<br>
+                数据来源: Binance API + CoinGlass V4 | 扫描时间: 2026-04-29 11:37:35
+            </p>
+        </div>
+    </div>
+</body>
+</html>
