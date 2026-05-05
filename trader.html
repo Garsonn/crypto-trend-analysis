@@ -1,778 +1,167 @@
 <!DOCTYPE html>
 <html lang="zh-CN"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>CryptoAlpha Deep Analysis v2.0</title>
-<style>
+<title>CryptoAlpha Report</title><style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{
-  background:#0a0e17;color:#e0e6ed;
-  font-family:-apple-system,'SF Pro','Segoe UI',Roboto,sans-serif;
-  font-size:14px;line-height:1.6;
-}
+body{background:#0a0e17;color:#e0e6ed;font-family:-apple-system,'SF Pro','Segoe UI',Roboto,sans-serif;font-size:14px;line-height:1.6}
 .container{max-width:1200px;margin:0 auto;padding:20px}
-
-/* ===== Header ===== */
-.header{
-  text-align:center;padding:28px 20px;
-  background:linear-gradient(135deg,#1a1f35,#0d1321);
-  border-radius:16px;margin-bottom:24px;
-  border:1px solid rgba(99,179,237,.15);
-}
-.header h1{
-  font-size:26px;font-weight:700;
-  background:linear-gradient(90deg,#63b3ed,#48bb78);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px;
-}
+.tab-nav{display:flex;gap:0;margin-bottom:24px;border-radius:12px;background:rgba(255,255,255,.03);border:1px solid rgba(99,179,237,.1);overflow:hidden}
+.tab-btn{flex:1;padding:14px 20px;font-size:15px;font-weight:700;background:transparent;border:none;color:#8899aa;cursor:pointer;transition:all .2s}
+.tab-btn:hover{background:rgba(99,179,237,.06);color:#c3dafe}
+.tab-btn.active{background:linear-gradient(135deg,rgba(72,187,120,.12),rgba(99,179,237,.10));color:#63b3ed;border-bottom:3px solid #48bb78}
+.tab-btn .tab-icon{margin-right:8px;font-size:16px}
+.tab-btn .tab-count{font-size:11px;background:rgba(255,255,255,.08);padding:2px 7px;border-radius:10px;margin-left:6px;vertical-align:middle}
+.tab-btn.active .tab-count{background:rgba(72,187,120,.18);color:#9ae6b4}
+.tab-panel{display:none}.tab-panel.active{display:block}
+.header{text-align:center;padding:28px 20px;background:linear-gradient(135deg,#1a1f35,#0d1321);border-radius:16px;margin-bottom:24px;border:1px solid rgba(99,179,237,.15)}
+.header h1{font-size:26px;font-weight:700;background:linear-gradient(90deg,#63b3ed,#48bb78);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px}
 .header .meta{font-size:13px;color:#8899aa}
 .stats{display:flex;justify-content:center;gap:14px;margin-top:15px;flex-wrap:wrap}
-.stat-box{
-  background:rgba(255,255,255,.04);border-radius:10px;padding:10px 18px;text-align:center;
-  border:1px solid rgba(255,255,255,.06);min-width:120px;flex:1 1 auto;max-width:100%;
-}
-.stat-box .num{font-size:22px;font-weight:700}
-.stat-box .label{font-size:11px;color:#8899aa;margin-top:2px}
-
-/* ===== Verdict Bar ===== */
+.stat-box{background:rgba(255,255,255,.04);border-radius:10px;padding:10px 18px;text-align:center;border:1px solid rgba(255,255,255,.06);min-width:130px;flex:1 1 auto;max-width:100%}
+.stat-box .num{font-size:22px;font-weight:700}.stat-box .label{font-size:11px;color:#8899aa;margin-top:2px}
 .verdict-bar{display:flex;gap:12px;margin-bottom:24px;flex-wrap:wrap;justify-content:center}
-.vchip{
-  padding:8px 18px;border-radius:20px;font-size:13px;font-weight:600;border:1px solid;cursor:default
-}
+.vchip{padding:8px 18px;border-radius:20px;font-size:13px;font-weight:600;border:1px solid;cursor:default}
 .vc-strong{background:rgba(72,187,120,.15);color:#68d391;border-color:rgba(72,187,120,.3)}
 .vc-buy{background:rgba(104,211,145,.12);color:#9ae6b4;border-color:rgba(104,211,145,.25)}
 .vc-watch{background:rgba(236,201,75,.12);color:#f6e05e;border-color:rgba(236,201,75,.25)}
-.vc-avoid{background:rgba(160,174,192,.1);color:#a0aec0;border-color:rgba(160,174,192,.2)}
-
-/* ===== Section Title ===== */
-.section-title{
-  display:flex;align-items:center;gap:10px;
-  font-size:16px;font-weight:700;color:#63b3ed;margin-bottom:18px;
-}
-.section-title::before{
-  content:'';width:4px;height:20px;background:linear-gradient(180deg,#63b3ed,#48bb78);border-radius:2px;
-}
+.section-title{display:flex;align-items:center;gap:10px;font-size:16px;font-weight:700;color:#63b3ed;margin-bottom:18px}
+.section-title::before{content:'';width:4px;height:20px;background:linear-gradient(180deg,#63b3ed,#48bb78);border-radius:2px}
 .section-title .count{font-size:13px;color:#8899aa;font-weight:400}
-
-/* ===== Elite Card ===== */
-.elite-card{
-  background:linear-gradient(145deg,#141b2d,#0f1520);
-  border-radius:16px;margin-bottom:22px;border:1px solid rgba(99,179,237,.08);
-  overflow:hidden;transition:border-color .2s;
-}
+.scan-stats{display:flex;gap:12px;margin-bottom:20px;flex-wrap:wrap}
+.scan-stat-card{flex:1 1 140px;padding:14px;border-radius:12px;text-align:center;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);min-width:130px}
+.ssc-val{font-size:22px;font-weight:800}.ssc-lbl{font-size:11px;color:#8899aa;margin-top:3px}
+.ssc-s1{border-left:3px solid #48bb78}.ssc-s1 .ssc-val{color:#68d391}
+.ssc-s2{border-left:3px solid #63b3ed}.ssc-s2 .ssc-val{color:#63b3ed}
+.ssc-s6{border-left:3px solid #667eea}.ssc-s6 .ssc-val{color:#a3bffa}
+.ssc-s4{border-left:3px solid #fc8181}.ssc-s4 .ssc-val{color:#feb2b2}
+.ssc-s5{border-left:3px solid #ecc94b}.ssc-s5 .ssc-val{color:#f6e05e}
+.ssc-s7{border-left:3px solid #a0aec0}.ssc-s7 .ssc-val{color:#a0aec0}
+.ssc-ok{border-left:3px solid #48bb78}.ssc-ok .ssc-val{color:#48bb78}
+.ssc-err{border-left:3px solid #fc8181}.ssc-err .ssc-val{color:#fc8181}
+.scene-tag{display:inline-block;padding:3px 10px;border-radius:5px;font-size:11px;font-weight:700}
+.st-s1{background:rgba(72,187,120,.15);color:#68d391;border:1px solid rgba(72,187,120,.25)}
+.st-s2{background:rgba(99,179,237,.15);color:#63b3ed;border:1px solid rgba(99,179,237,.25)}
+.st-s6{background:rgba(102,126,234,.15);color:#a3bffa;border:1px solid rgba(102,126,234,.25)}
+.st-s4{background:rgba(252,129,129,.15);color:#feb2b2;border:1px solid rgba(252,129,129,.25)}
+.st-s5{background:rgba(236,201,75,.15);color:#f6e05e;border:1px solid rgba(236,201,75,.25)}
+.st-s7{background:rgba(160,174,192,.12);color:#a0aec0;border:1px solid rgba(160,174,192,.2)}
+.elite-card{background:linear-gradient(145deg,#141b2d,#0f1520);border-radius:16px;margin-bottom:22px;border:1px solid rgba(99,179,237,.08);overflow:hidden;transition:border-color .2s}
 .elite-card:hover{border-color:rgba(99,179,237,.30)}
-.card-head{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:16px 20px;border-bottom:1px solid rgba(255,255,255,.05);flex-wrap:wrap;gap:8px;
-}
-.card-head .coin-name{font-size:19px;font-weight:700}
-.card-head .coin-meta{font-size:12px;color:#8899aa;margin-left:8px}
-.badge-v{
-  padding:5px 14px;border-radius:6px;font-size:12px;font-weight:700;letter-spacing:.5px
-}
+.card-head{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid rgba(255,255,255,.05);flex-wrap:wrap;gap:8px}
+.card-head .coin-name{font-size:19px;font-weight:700}.card-head .coin-meta{font-size:12px;color:#8899aa;margin-left:8px}
+.badge-v{padding:5px 14px;border-radius:6px;font-size:12px;font-weight:700;letter-spacing:.5px}
 .bv-sb{background:#276749;color:#9ae6b4}.bv-by{background:#22543d;color:#68d391}
 .bv-wa{background:#744210;color:#f6e05e}.bv-no{background:#2d3748;color:#a0aec0}
-.conf-pill{
-  background:rgba(99,179,237,.1);border:1px solid rgba(99,179,237,.2);
-  border-radius:12px;padding:4px 12px;font-size:12px;color:#63b3ed;
-}
+.conf-pill{background:rgba(99,179,237,.1);border:1px solid rgba(99,179,237,.2);border-radius:12px;padding:4px 12px;font-size:12px;color:#63b3ed}
 .card-body{padding:16px 20px;border-bottom:1px solid rgba(255,255,255,.03)}
-.sub-title{
-  font-size:11px;font-weight:600;color:#63b3ed;text-transform:uppercase;letter-spacing:1px;
-  margin-bottom:10px;display:flex;align-items:center;gap:5px;
-}
+.sub-title{font-size:11px;font-weight:600;color:#63b3ed;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;display:flex;align-items:center;gap:5px}
 .sub-title::before{content:'';width:3px;height:10px;background:#63b3ed;border-radius:2px}
-
-/* Score bars */
 .score-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:8px}
 .score-lbl{font-size:11px;color:#a0aec0;margin-bottom:3px;display:flex;justify-content:space-between}
 .score-bar-bg{height:6px;background:rgba(255,255,255,.08);border-radius:3px;overflow:hidden}
 .score-bar-fill{height:100%;border-radius:3px;transition:width .5s ease}
-.sg-good{background:linear-gradient(90deg,#276749,#48bb78)}
-.sg-mid{background:linear-gradient(90deg,#744210,#ecc94b)}
-.sg-bad{background:linear-gradient(90deg,#742a2a,#fc8181)}
-.ws-box{
-  font-size:28px;font-weight:800;text-align:center;padding:12px;
-  background:rgba(72,187,120,.08);border-radius:10px;margin-top:10px;
-  color:#48bb78;letter-spacing:-1px;
-}
-.ws-box.warn{color:#ecc94b;background:rgba(236,201,75,.06)}
-.ws-box.danger{color:#fc8181;background:rgba(252,129,129,.06)}
-
-/* Probability gauge */
+.sg-good{background:linear-gradient(90deg,#276749,#48bb78)}.sg-mid{background:linear-gradient(90deg,#744210,#ecc94b)}.sg-bad{background:linear-gradient(90deg,#742a2a,#fc8181)}
+.ws-box{font-size:28px;font-weight:800;text-align:center;padding:12px;background:rgba(72,187,120,.08);border-radius:10px;margin-top:10px;color:#48bb78;letter-spacing:-1px}
+.ws-box.warn{color:#ecc94b;background:rgba(236,201,75,.06)}.ws-box.danger{color:#fc8181;background:rgba(252,129,129,.06)}
 .prob-row{display:flex;align-items:center;gap:15px;flex-wrap:wrap}
-.prob-gauge{
-  width:80px;height:40px;position:relative;border-radius:20px;
-  background:conic-gradient(from 180deg at 50% 100%,#fc8181 0%,#ecc94b 45%,#48bb78 70%,#38a169 100%);
-  mask:radial-gradient(circle at 50% 100%,transparent 60%,black 61%);
-  -webkit-mask:radial-gradient(circle at 50% 100%,transparent 60%,black 61%);
-}
-.prob-val{font-size:24px;font-weight:700;min-width:65px}
-.prob-info{font-size:12px;color:#a0aec0}
-.prob-tags{font-size:11px;color:#8899aa;line-height:1.8}
-
-/* Price grid */
+.prob-gauge{width:80px;height:40px;position:relative;border-radius:20px;background:conic-gradient(from 180deg at 50% 100%,#fc8181 0%,#ecc94b 45%,#48bb78 70%,#38a169 100%);mask:radial-gradient(circle at 50% 100%,transparent 60%,black 61%);-webkit-mask:radial-gradient(circle at 50% 100%,transparent 60%,black 61%)}
+.prob-val{font-size:24px;font-weight:700;min-width:65px}.prob-info{font-size:12px;color:#a0aec0}.prob-tags{font-size:11px;color:#8899aa;line-height:1.8}
 .price-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px}
-.pc{
-  background:rgba(255,255,255,.03);border-radius:8px;padding:10px;border:1px solid rgba(255,255,255,.05)
-}
-.pc .pl{font-size:10px;color:#8899aa;text-transform:uppercase;letter-spacing:.5px}
-.pc .pv{font-size:15px;font-weight:700;margin-top:2px;font-family:'SF Mono',monospace}
-.pc-entry{border-color:rgba(99,179,237,.2)}.pc-entry .pv{color:#63b3ed}
-.pc-sl{border-color:rgba(252,129,129,.2)}.pc-sl .pv{color:#fc8181}
-.pc-tp{border-color:rgba(72,187,120,.2)}.pc-tp .pv{color:#68d391}
-
-/* Pattern tags */
+.pc{background:rgba(255,255,255,.03);border-radius:8px;padding:10px;border:1px solid rgba(255,255,255,.05)}
+.pc .pl{font-size:10px;color:#8899aa;text-transform:uppercase;letter-spacing:.5px}.pc .pv{font-size:15px;font-weight:700;margin-top:2px;font-family:'SF Mono',monospace}
+.pc-entry{border-color:rgba(99,179,237,.2)}.pc-entry .pv{color:#63b3ed}.pc-sl{border-color:rgba(252,129,129,.2)}.pc-sl .pv{color:#fc8181}.pc-tp{border-color:rgba(72,187,120,.2)}.pc-tp .pv{color:#68d391}
 .ptags{display:flex;flex-wrap:wrap;gap:6px}
-.ptag{
-  padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;border:1px solid
-}
+.ptag{padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;border:1px solid}
 .pt-up{background:rgba(72,187,120,.1);color:#68d391;border-color:rgba(72,187,120,.2)}
 .pt-dn{background:rgba(252,129,129,.1);color:#fc8181;border-color:rgba(252,129,129,.2)}
 .pt-ne{background:rgba(160,174,192,.08);color:#a0aec0;border-color:rgba(160,174,192,.15)}
-
-/* MC range */
 .mc-box{background:rgba(255,255,255,.03);border-radius:10px;padding:12px}
 .mc-r{display:flex;justify-content:space-between;align-items:center;padding:4px 0;font-size:12px}
-.mc-r .ml{color:#a0aec0}
-.mc-r .mv{font-family:'SF Mono',monospace;font-weight:600}
+.mc-r .ml{color:#a0aec0}.mc-r .mv{font-family:'SF Mono',monospace;font-weight:600}
 .mc-prob{height:8px;background:linear-gradient(90deg,#fc8181 0%,#ecc94b 35%,#fff 50%,#68d391 65%,#48bb78 100%);border-radius:4px;margin-top:6px;position:relative}
 .mc-dot{position:absolute;top:-2px;width:3px;height:14px;background:#fff;border-radius:2px;transform:translateX(-50%)}
-
-/* Tables */
 .tbl{width:100%;border-collapse:collapse;font-size:12px}
 .tbl th{text-align:left;color:#63b3ed;padding:7px 10px;border-bottom:1px solid rgba(99,179,237,.2);font-weight:600;white-space:nowrap}
-.tbl td{padding:7px 10px;border-bottom:1px solid rgba(255,255,255,.04)}
-.tbl tr:hover td{background:rgba(255,255,255,.02)}
+.tbl td{padding:7px 10px;border-bottom:1px solid rgba(255,255,255,.04)}.tbl tr:hover td{background:rgba(255,255,255,.02)}
 .tn{color:#fc8181}.tp{color:#68d391}
-
-/* Validation */
-.vw-item{
-  padding:5px 10px;border-radius:6px;font-size:11px;margin-bottom:4px;
-  background:rgba(252,129,129,.06);border-left:3px solid #fc8181;color:#feb2b2
-}
+.vw-item{padding:5px 10px;border-radius:6px;font-size:11px;margin-bottom:4px;background:rgba(252,129,129,.06);border-left:3px solid #fc8181;color:#feb2b2}
 .vw-item.wn{background:rgba(236,201,75,.06);border-left-color:#ecc94b;color:#faf089}
 .vw-ok{background:rgba(72,187,120,.06);border-left-color:#48bb78;color:#9ae6b4}
-
-/* ===== Signal Summary Table Section ===== */
-.table-section{
-  background:linear-gradient(145deg,#111827,#0c1017);border-radius:16px;
-  border:1px solid rgba(99,179,237,.08);margin-bottom:24px;overflow:hidden;
-}
-.table-section-head{
-  padding:16px 20px;border-bottom:1px solid rgba(255,255,255,.05);
-  background:rgba(99,179,237,.04);
-}
+.table-section{background:linear-gradient(145deg,#111827,#0c1017);border-radius:16px;border:1px solid rgba(99,179,237,.08);margin-bottom:24px;overflow:hidden}
+.table-section-head{padding:16px 20px;border-bottom:1px solid rgba(255,255,255,.05);background:rgba(99,179,237,.04)}
 .dim-legend{margin-top:12px;padding:14px 16px;background:rgba(255,255,255,.025);border-radius:12px;border:1px solid rgba(99,179,237,.06)}
 .dim-legend-title{font-weight:700;color:#63b3ed;margin-bottom:12px;font-size:13px}
 .dim-row{display:flex;align-items:flex-start;gap:12px;padding:8px 10px;margin-bottom:6px;background:rgba(255,255,255,.02);border-radius:8px;border-left:3px solid transparent;transition:border-color .15s}
-.dim-row:hover{border-color:#63b3ed;background:rgba(99,179,237,.04)}
-.dim-row:last-child{margin-bottom:0}
-.dim-name{font-size:12px;font-weight:700;color:#e2e8f0;white-space:nowrap;min-width:90px;padding-top:1px}
-.dim-wt{background:linear-gradient(135deg,#276749,#38a169);color:#c6f6d5;font-size:10px;font-weight:700;padding:2px 7px;border-radius:4px;letter-spacing:.5px;white-space:nowrap;height:fit-content;margin-top:2px}
+.dim-row:hover{border-color:#63b3ed;background:rgba(99,179,237,.04)}.dim-row:last-child{margin-bottom:0}
+.dim-name{font-size:12px;font-weight:700;color:#e2e8f0;white-space:nowrap;min-width:90px}
+.dim-wt{background:linear-gradient(135deg,#276749,#38a169);color:#c6f6d5;font-size:10px;font-weight:700;padding:2px 7px;border-radius:4px;white-space:nowrap;height:fit-content;margin-top:2px}
 .dim-desc{font-size:11px;color:#a0aec0;line-height:1.6;flex:1}
 .dim-rule{font-size:10px;color:#8899aa;font-style:italic;min-width:120px;text-align:right;white-space:nowrap}
 .dim-sig-bar{display:flex;gap:8px;margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,.06);flex-wrap:wrap;font-size:11px}
 .dim-sig-item{padding:4px 10px;border-radius:6px;font-weight:600}
-
 .table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.footer{text-align:center;padding:20px;color:#555;font-size:11px;border-top:1px solid rgba(255,255,255,.04);margin-top:20px}
+.empty-state{text-align:center;padding:60px 20px;color:#8899aa}
+.empty-state .emoji{font-size:48px;margin-bottom:16px}.empty-state .title{font-size:18px;font-weight:600;color:#a0aec0;margin-bottom:8px}.empty-state .desc{font-size:13px}
 
-/* Footer */
-.footer{
-  text-align:center;padding:20px;color:#555;font-size:11px;
-  border-top:1px solid rgba(255,255,255,.04);margin-top:20px;
-}
-
-/* Empty state */
-.empty-state{
-  text-align:center;padding:60px 20px;color:#8899aa;
-}
-.empty-state .emoji{font-size:48px;margin-bottom:16px}
-.empty-state .title{font-size:18px;font-weight:600;color:#a0aec0;margin-bottom:8px}
-.empty-state .desc{font-size:13px}
-
-/* ===== Responsive ===== */
-@media(max-width:1024px){
-  .container{max-width:100%;padding:16px}
-  .header h1{font-size:22px}
-  .score-grid{grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
-  .price-grid{grid-template-columns:repeat(auto-fit,minmax(120px,1fr))}
-  .dim-legend dl{grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}
-}
-@media(max-width:768px){
-  body{font-size:13px}.container{padding:10px}
-  .header{padding:20px 14px;border-radius:12px;margin-bottom:16px}
-  .header h1{font-size:18px}
-  .stats{flex-direction:column;align-items:center;gap:10px;width:100%}
-  .stat-box{width:100%;max-width:340px}
-  .card-head{flex-direction:column;align-items:flex-start;gap:10px}
-  .card-head > div:last-child{width:100%;flex-wrap:wrap}
-  .score-grid{grid-template-columns:1fr 1fr;gap:6px}
-  .ws-box{font-size:24px;padding:10px;border-radius:8px}
-  .prob-row{flex-direction:column;align-items:flex-start}
-  .price-grid{grid-template-columns:1fr 1fr;gap:6px}
-  .tbl{font-size:11px;display:block;overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch}
-  .tbl th,.tbl td{padding:5px 8px;min-width:55px}
-  .section-title{font-size:14px;margin-bottom:14px}
-  .card-body{padding:12px 14px}
-  .vw-item{font-size:10px}
-  .footer{padding:14px;font-size:10px}
-}
-@media(max-width:480px){
-  body{font-size:12px}.container{padding:8px}
-  .header{padding:16px 12px}.header h1{font-size:16px}
-  .stat-box{padding:10px 14px;min-width:unset!important;width:100%}
-  .stat-box .num{font-size:18px}
-  .vchip{padding:5px 9px;font-size:10px}
-  .card-head .coin-name{font-size:16px}
-  .badge-v{font-size:9px;padding:3px 8px}
-  .score-grid{grid-template-columns:1fr 1fr;gap:4px}
-  .ws-box{font-size:22px;padding:8px}
-  .price-grid{grid-template-columns:1fr 1fr;gap:4px}
-  .pc .pv{font-size:13px}.pc .pl{font-size:8px}
-  .section-title{font-size:13px}
-  .card-body{padding:10px 12px}
-  .dim-legend{padding:10px 12px}
-  .dim-name{min-width:75px;font-size:11px}
-  .dim-wt{font-size:9px;padding:1px 5px}
-  .dim-desc{font-size:10px}
-  .dim-rule{display:none}
-  .tbl{font-size:10px}.tbl th,.tbl td{padding:4px 6px;min-width:45px}
-  .ptag{font-size:9px;padding:2px 6px}
-  .footer{padding:12px 8px;font-size:9px}
-}
-@media(max-width:360px){
-  body{font-size:11.5px}.container{padding:6px}
-  .header h1{font-size:15px}
-  .score-grid{grid-template-columns:1fr}
-  .card-head .coin-name{font-size:14px}
-  .badge-v{font-size:8px;padding:2px 6px}
-  .section-title{font-size:12px}
-  .card-body{padding:8px 10px}
-}
+@media(max-width:1024px){.container{max-width:100%;padding:16px}.header h1{font-size:22px}.score-grid{grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}.price-grid{grid-template-columns:repeat(auto-fit,minmax(120px,1fr))}.scan-stats{gap:8px}}
+@media(max-width:768px){body{font-size:13px}.container{padding:10px}.header{padding:20px 14px;border-radius:12px;margin-bottom:16px}.header h1{font-size:18px}.stats{flex-direction:column;align-items:center;gap:10px;width:100%}.stat-box{width:100%;max-width:340px}.tab-nav{flex-direction:column;border-radius:10px}.tab-btn{padding:12px 16px;font-size:14px}.card-head{flex-direction:column;align-items:flex-start;gap:10px}.card-head>div:last-child{width:100%}.score-grid{grid-template-columns:1fr 1fr;gap:6px}.ws-box{font-size:24px;padding:10px}.prob-row{flex-direction:column;align-items:flex-start}.price-grid{grid-template-columns:1fr 1fr;gap:6px}.tbl{font-size:11px;display:block;overflow-x:auto;white-space:nowrap}.tbl th,.tbl td{padding:5px 8px;min-width:55px}.section-title{font-size:14px}.vw-item{font-size:10px}.footer{padding:14px;font-size:10px}.scan-stats{flex-direction:row}.scan-stat-card{flex:1 1 calc(33%-8px);min-width:90px;padding:8px}.dim-rule{display:none}}
+@media(max-width:480px){body{font-size:12px}.container{padding:8px}.header h1{font-size:16px}.stat-box{padding:10px 14px;width:100%}.stat-box .num{font-size:18px}.badge-v{font-size:9px;padding:3px 8px}.score-grid{grid-template-columns:1fr 1fr;gap:4px}.ws-box{font-size:22px;padding:8px}.section-title{font-size:13px}.dim-legend{padding:10px 12px}.tbl{font-size:10px}.tbl th,.tbl td{padding:4px 6px;min-width:45px}.ptag{font-size:9px}.footer{padding:12px 8px;font-size:9px}.scan-stat-card{flex:1 1 45%;padding:8px}}
+@media(max-width:360px){body{font-size:11.5px}.container{padding:6px}.header h1{font-size:15px}.score-grid{grid-template-columns:1fr}.badge-v{font-size:8px;padding:2px 6px}.section-title{font-size:12px}.scan-stat-card{flex:1 1 45%;padding:6px}}
 img,svg,canvas{max-width:100%;height:auto}
-@supports(padding:max(0px)){
-  .container{padding-left:max(10px,env(safe-area-inset-left));padding-right:max(10px,env(safe-area-inset-right))}
-}
 </style></head><body>
-<div class="container">
-<div class="header">
-  <h1>🧠 CryptoAlpha Deep Analysis v2.0</h1>
-  <div class="meta">2026-05-05 23:00 BJT | Pipeline耗时 80.04s | 分析29个信号</div>
-  <div class="stats">
-    <div style="background:rgba(72,187,120,.08);border-radius:10px;padding:10px 18px;border:1px solid rgba(72,187,120,.18);min-width:130px;max-width:100%;text-align:center;flex:1 1 auto;">
-      <div style="font-size:10px;color:#63b3ed;letter-spacing:.5px;">Total Signals</div>
-      <div style="font-size:22px;font-weight:800;color:#48bb78;">21<span style="font-size:11px;color:#8899aa;">/29</span></div>
-    </div>
-    <div style="background:rgba(99,179,237,.08);border-radius:10px;padding:10px 16px;border:1px solid rgba(99,179,237,.15);min-width:180px;max-width:100%;flex:1 1 auto;">
-      <div style="font-size:10px;color:#63b3ed;letter-spacing:.5px;">LAYER 1 : Simple Signal</div>
-      <div style="display:flex;gap:12px;justify-content:center;margin-top:4px;flex-wrap:wrap;">
-<div><span style="color:#48bb78;font-size:17px;font-weight:700;">0</span><span style="font-size:10px;color:#8899aa;margin-left:2px;">✅STRONG_BUY</span></div><div><span style="color:#68d391;font-size:17px;font-weight:700;">2</span><span style="font-size:10px;color:#8899aa;margin-left:2px;">✅BUY</span></div><div><span style="color:#ecc94b;font-size:17px;font-weight:700;">19</span><span style="font-size:10px;color:#8899aa;margin-left:2px;">??WATCH</span></div></div></div>
-    <div style="background:rgba(160,118,217,.08);border-radius:10px;padding:10px 16px;border:1px solid rgba(160,118,217,.15);min-width:200px;max-width:100%;flex:1 1 auto;">
-      <div style="font-size:10px;color:#63b3ed;letter-spacing:.5px;">Multi-System Signal</div>
-      <div style="display:flex;gap:12px;justify-content:center;margin-top:4px;flex-wrap:wrap;">
-<div><span style="color:#48bb78;font-size:17px;font-weight:700;">0</span><span style="font-size:10px;color:#8899aa;margin-left:2px;">✅STRONG_BUY</span></div><div><span style="color:#68d391;font-size:17px;font-weight:700;">0</span><span style="font-size:10px;color:#8899aa;margin-left:2px;">✅BUY</span></div><div><span style="color:#ecc94b;font-size:17px;font-weight:700;">1</span><span style="font-size:10px;color:#8899aa;margin-left:2px;">??WATCH</span></div></div>
-  </div>
-</div></div></div><div class="verdict-bar"><div class="vchip vc-watch">WATCH: 1</div><div class="vchip vc-avoid">NO_TRADE: 20</div></div><div class="section-title">&#x1F4CA; All Signals <span class="count">21 (non-elite)</span></div><div class="table-section"><div class="table-section-head">
-<div class="dim-legend">
-<div class="dim-legend-title">&#x1F4D6; Layer 1 评分体系 (7维度加权 + R:R 门控)</div>
-<div class="dim-row" style="border-left-color:#48bb78;">
-<span class="dim-name">OI Matrix</span><span class="dim-wt">25%</span>
-<span class="dim-desc">OI场景评分 &mdash; S1/S2/S6为做多信号(S1=爆多仓回补,S2=多头增仓,S6=空头减仓)，权重最高</span>
-<span class="dim-rule">S1/S2/S6 &rarr; 80-100</span>
-</div>
-<div class="dim-row" style="border-left-color:#63b3ed;">
-<span class="dim-name">L/S Ratio</span><span class="dim-wt">15%</span>
-<span class="dim-desc">大户/散户多空比 &mdash; 大户净多头占比&gt;1.2且大户与散户方向一致时给高分</span>
-<span class="dim-rule">&gt;1.2 一致偏多 &rarr; 75-90</span>
-</div>
-<div class="dim-row" style="border-left-color:#68d391;">
-<span class="dim-name">Volume</span><span class="dim-wt">13%</span>
-<span class="dim-desc">量比VR &mdash; VR&gt;1.4x表示放量资金进场，结合OBV趋势方向修正得分</span>
-<span class="dim-rule">VR&gt;1.4+OBV升 &rarr; 70-85</span>
-</div>
-<div class="dim-row" style="border-left-color:#ecc94b;">
-<span class="dim-name">Trend</span><span class="dim-wt">13%</span>
-<span class="dim-desc">EMA趋势排列 &mdash; 价格在EMA50之上且EMA9&gt;EMA21&gt;EMA50形成多头排列</span>
-<span class="dim-rule">完整多头排列 &rarr; 80-95</span>
-</div>
-<div class="dim-row" style="border-left-color:#f6e05e;">
-<span class="dim-name">RSI-14</span><span class="dim-wt">12%</span>
-<span class="dim-desc">RSI相对强度 &mdash; 45-65健康区间得高分，&gt;75超买惩罚扣分，多时间框架一致性检查</span>
-<span class="dim-rule">45-65健康 &rarr; 70-88</span>
-</div>
-<div class="dim-row" style="border-left-color:#fc8181;">
-<span class="dim-name">MACD</span><span class="dim-wt">12%</span>
-<span class="dim-desc">MACD柱状图 &mdash; 金叉+柱状正值=看多(88分)，零轴附近中性(58分)，柱状负值=看空(38分)</span>
-<span class="dim-rule">金叉正柱 &rarr; 82-92</span>
-</div>
-<div class="dim-row" style="border-left-color:#a0aec0;">
-<span class="dim-name">Bollinger</span><span class="dim-wt">10%</span>
-<span class="dim-desc">布林带位置bpp &mdash; 价格触及下轨后反弹=强支撑信号(88分)，接近上轨有回调风险(40分)</span>
-<span class="dim-rule">下轨反弹 &rarr; 78-90</span>
-</div>
+<div class="container"><div class="header">
+<h1>&#x1F9E0; CryptoAlpha Automated Report</h1>
+<div class="meta">2026-05-05 23:11 BJT | Pipeline 55.3s</div>
+<div class="stats">
+<div class="stat-box"><div class="label">Scan</div><div class="num" style="color:#63b3ed">169 coins</div></div>
+<div class="stat-box"><div class="label">L1 Simple</div><div style="display:flex;gap:8px;justify-content:center;margin-top:4px;">
+<span style="color:#48bb78;font-weight:700;">0</span><span style="color:#68d391;font-weight:700;">4</span><span style="color:#ecc94b;font-weight:700;">29</span>
+</div><div style="font-size:9px;color:#555;margin-top:2px">SB / B / W</div></div>
+<div class="stat-box"><div class="label">L2 Multi</div><div style="display:flex;gap:8px;justify-content:center;margin-top:4px;">
+<span style="color:#48bb78;font-weight:700;">0</span><span style="color:#68d391;font-weight:700;">0</span><span style="color:#ecc94b;font-weight:700;">0</span>
+</div><div style="font-size:9px;color:#555;margin-top:2px">SB / B / W</div></div>
+</div></div><div class="tab-nav"><button class="tab-btn active" onclick="switchTab('scan',this)"><span class="tab-icon">&#x1F50D;</span>Crypto Scan<span class="tab-count">169 coins</span></button><button class="tab-btn" onclick="switchTab('deep',this)"><span class="tab-icon">&#x1F9EA;</span>Deep Analysis<span class="tab-count">33 signals</span></button></div><div id="panel-scan" class="tab-panel active"><div class="scan-stats"><div class="scan-stat-card ssc-s1"><div class="ssc-val">1</div><div class="ssc-lbl">S1 Long (爆多仓回补)</div></div><div class="scan-stat-card ssc-s2"><div class="ssc-val">1</div><div class="ssc-lbl">S2 Long (多头增仓)</div></div><div class="scan-stat-card ssc-s6"><div class="ssc-val">31</div><div class="ssc-lbl">S6 Long (空头减仓)</div></div><div class="scan-stat-card ssc-s4"><div class="ssc-val">1</div><div class="ssc-lbl">S4 Short (空单增加)</div></div><div class="scan-stat-card ssc-s5"><div class="ssc-val">1</div><div class="ssc-lbl">S5 Caution (散户追多)</div></div><div class="scan-stat-card ssc-s7"><div class="ssc-val">0</div><div class="ssc-lbl">S7 Neutral</div></div><div class="scan-stat-card ssc-ok"><div class="ssc-val">158</div><div class="ssc-lbl">158 OK</div></div><div class="scan-stat-card ssc-err"><div class="ssc-val">11</div><div class="ssc-lbl">11 Errors</div></div></div><div class="table-section"><div class="table-section-head"><div style="font-size:13px;color:#8899aa;">Scan Results &mdash; 2026-05-05 23:10 | Sorted by OI Score</div></div><div class="table-scroll"><table class="tbl"><thead><tr><th>#</th><th>Coin</th><th>Scene</th><th>OI Score</th><th>P Chg%</th><th>Price</th></tr></thead><tbody><tr><td>1</td><td style="font-weight:700">RAVE</td><td><span class="scene-tag st-s1">S1</span></td><td style="font-weight:600;color:#68d391">100</td><td style="color:#68d391">+23.5%</td><td style="font-family:monospace">$0.750900</td></tr><tr><td>2</td><td style="font-weight:700">MMT</td><td><span class="scene-tag st-s2">S2</span></td><td style="font-weight:600;color:#68d391">90</td><td style="color:#68d391">+0.2%</td><td style="font-family:monospace">$0.134800</td></tr><tr><td>3</td><td style="font-weight:700">CLANKER</td><td><span class="scene-tag st-s6">S6</span></td><td style="font-weight:600;color:#68d391">85</td><td style="color:#68d391">+7.3%</td><td style="font-family:monospace">$25.5500</td></tr><tr><td>4</td><td style="font-weight:700">ACU</td><td><span class="scene-tag st-s6">S6</span></td><td style="font-weight:600;color:#68d391">85</td><td style="color:#68d391">+7.1%</td><td style="font-family:monospace">$0.113440</td></tr><tr><td>5</td><td style="font-weight:700">FIGHT</td><td><span class="scene-tag st-s6">S6</span></td><td style="font-weight:600;color:#68d391">85</td><td style="color:#68d391">+6.6%</td><td style="font-family:monospace">$0.004621</td></tr><tr><td>6</td><td style="font-weight:700">SPX</td><td><span class="scene-tag st-s6">S6</span></td><td style="font-weight:600;color:#68d391">85</td><td style="color:#68d391">+6.2%</td><td style="font-family:monospace">$0.403900</td></tr><tr><td>7</td><td style="font-weight:700">HANA</td><td><span class="scene-tag st-s6">S6</span></td><td style="font-weight:600;color:#68d391">85</td><td style="color:#68d391">+5.2%</td><td style="font-family:monospace">$0.037400</td></tr><tr><td>8</td><td style="font-weight:700">NAORIS</td><td><span class="scene-tag st-s6">S6</span></td><td style="font-weight:600;color:#68d391">85</td><td style="color:#68d391">+4.8%</td><td style="font-family:monospace">$0.134110</td></tr><tr><td>9</td><td style="font-weight:700">DOOD</td><td><span class="scene-tag st-s6">S6</span></td><td style="font-weight:600;color:#68d391">85</td><td style="color:#68d391">+4.4%</td><td style="font-family:monospace">$0.003251</td></tr><tr><td>10</td><td style="font-weight:700">BLUAI</td><td><span class="scene-tag st-s6">S6</span></td><td style="font-weight:600;color:#68d391">85</td><td style="color:#68d391">+4.3%</td><td style="font-family:monospace">$0.014974</td></tr><tr><td>11</td><td style="font-weight:700">FARTCOIN</td><td><span class="scene-tag st-s6">S6</span></td><td style="font-weight:600;color:#68d391">85</td><td style="color:#68d391">+4.1%</td><td style="font-family:monospace">$0.221500</td></tr><tr><td>12</td><td style="font-weight:700">ESPORTS</td><td><span class="scene-tag st-s6">S6</span></td><td style="font-weight:600;color:#68d391">85</td><td style="color:#68d391">+3.9%</td><td style="font-family:monospace">$0.400600</td></tr><tr><td>13</td><td style="font-weight:700">OPN</td><td><span class="scene-tag st-s6">S6</span></td><td style="font-weight:600;color:#68d391">85</td><td style="color:#68d391">+3.8%</td><td style="font-family:monospace">$0.182600</td></tr><tr><td>14</td><td style="font-weight:700">MOODENG</td><td><span class="scene-tag st-s6">S6</span></td><td style="font-weight:600;color:#68d391">85</td><td style="color:#68d391">+3.5%</td><td style="font-family:monospace">$0.063690</td></tr><tr><td>15</td><td style="font-weight:700">ZORA</td><td><span class="scene-tag st-s6">S6</span></td><td style="font-weight:600;color:#68d391">85</td><td style="color:#68d391">+3.3%</td><td style="font-family:monospace">$0.013000</td></tr><tr><td>16</td><td style="font-weight:700">FHE</td><td><span class="scene-tag st-s6">S6</span></td><td style="font-weight:600;color:#68d391">80</td><td style="color:#68d391">+34.4%</td><td style="font-family:monospace">$0.029410</td></tr><tr><td>17</td><td style="font-weight:700">EVAA</td><td><span class="scene-tag st-s6">S6</span></td><td style="font-weight:600;color:#68d391">80</td><td style="color:#68d391">+10.7%</td><td style="font-family:monospace">$0.612500</td></tr><tr><td>18</td><td style="font-weight:700">PRL</td><td><span class="scene-tag st-s6">S6</span></td><td style="font-weight:600;color:#68d391">80</td><td style="color:#68d391">+9.5%</td><td style="font-family:monospace">$0.292600</td></tr><tr><td>19</td><td style="font-weight:700">PUMPBTC</td><td><span class="scene-tag st-s6">S6</span></td><td style="font-weight:600;color:#68d391">80</td><td style="color:#68d391">+9.4%</td><td style="font-family:monospace">$0.016470</td></tr><tr><td>20</td><td style="font-weight:700">GRASS</td><td><span class="scene-tag st-s6">S6</span></td><td style="font-weight:600;color:#68d391">80</td><td style="color:#68d391">+6.5%</td><td style="font-family:monospace">$0.362200</td></tr><tr><td>21</td><td style="font-weight:700">RESOLV</td><td><span class="scene-tag st-s6">S6</span></td><td style="font-weight:600;color:#68d391">80</td><td style="color:#68d391">+6.0%</td><td style="font-family:monospace">$0.031150</td></tr><tr><td>22</td><td style="font-weight:700">ARIA</td><td><span class="scene-tag st-s6">S6</span></td><td style="font-weight:600;color:#68d391">80</td><td style="color:#68d391">+5.2%</td><td style="font-family:monospace">$0.060500</td></tr><tr><td>23</td><td style="font-weight:700">INX</td><td><span class="scene-tag st-s6">S6</span></td><td style="font-weight:600;color:#68d391">80</td><td style="color:#68d391">+4.0%</td><td style="font-family:monospace">$0.010173</td></tr><tr><td>24</td><td style="font-weight:700">MAGMA</td><td><span class="scene-tag st-s6">S6</span></td><td style="font-weight:600;color:#68d391">80</td><td style="color:#68d391">+3.3%</td><td style="font-family:monospace">$0.237370</td></tr><tr><td>25</td><td style="font-weight:700">JELLYJELLY</td><td><span class="scene-tag st-s6">S6</span></td><td style="font-weight:600;color:#68d391">80</td><td style="color:#68d391">+3.3%</td><td style="font-family:monospace">$0.055010</td></tr><tr><td>26</td><td style="font-weight:700">LAB</td><td><span class="scene-tag st-s6">S6</span></td><td style="font-weight:600;color:#68d391">75</td><td style="color:#68d391">+59.2%</td><td style="font-family:monospace">$2.4783</td></tr><tr><td>27</td><td style="font-weight:700">CFG</td><td><span class="scene-tag st-s6">S6</span></td><td style="font-weight:600;color:#68d391">75</td><td style="color:#68d391">+11.8%</td><td style="font-family:monospace">$0.251900</td></tr><tr><td>28</td><td style="font-weight:700">SKYAI</td><td><span class="scene-tag st-s6">S6</span></td><td style="font-weight:600;color:#68d391">75</td><td style="color:#68d391">+7.2%</td><td style="font-family:monospace">$0.734230</td></tr><tr><td>29</td><td style="font-weight:700">PARTI</td><td><span class="scene-tag st-s6">S6</span></td><td style="font-weight:600;color:#68d391">75</td><td style="color:#68d391">+6.7%</td><td style="font-family:monospace">$0.050970</td></tr><tr><td>30</td><td style="font-weight:700">VVV</td><td><span class="scene-tag st-s6">S6</span></td><td style="font-weight:600;color:#68d391">75</td><td style="color:#68d391">+5.8%</td><td style="font-family:monospace">$9.9360</td></tr><tr><td>31</td><td style="font-weight:700">XPL</td><td><span class="scene-tag st-s6">S6</span></td><td style="font-weight:600;color:#68d391">75</td><td style="color:#68d391">+3.4%</td><td style="font-family:monospace">$0.091900</td></tr><tr><td>32</td><td style="font-weight:700">ESP</td><td><span class="scene-tag st-s6">S6</span></td><td style="font-weight:600;color:#68d391">70</td><td style="color:#68d391">+4.1%</td><td style="font-family:monospace">$0.070760</td></tr><tr><td>33</td><td style="font-weight:700">PLAY</td><td><span class="scene-tag st-s6">S6</span></td><td style="font-weight:600;color:#68d391">70</td><td style="color:#68d391">+3.3%</td><td style="font-family:monospace">$0.104960</td></tr><tr><td>34</td><td style="font-weight:700">GWEI</td><td><span class="scene-tag st-s4">S4</span></td><td style="font-weight:600;color:#a0aec0">45</td><td style="color:#68d391">+12.4%</td><td style="font-family:monospace">$0.127210</td></tr><tr><td>35</td><td style="font-weight:700">ZEREBRO</td><td><span class="scene-tag ">S1b</span></td><td style="font-weight:600;color:#a0aec0">40</td><td style="color:#fc8181">-3.4%</td><td style="font-family:monospace">$0.031115</td></tr><tr><td>36</td><td style="font-weight:700">STABLE</td><td><span class="scene-tag ">S0</span></td><td style="font-weight:600;color:#a0aec0">30</td><td style="color:#68d391">+2.8%</td><td style="font-family:monospace">$0.033840</td></tr><tr><td>37</td><td style="font-weight:700">GUA</td><td><span class="scene-tag ">S0</span></td><td style="font-weight:600;color:#a0aec0">30</td><td style="color:#fc8181">-2.7%</td><td style="font-family:monospace">$0.850400</td></tr><tr><td>38</td><td style="font-weight:700">UAI</td><td><span class="scene-tag ">S0</span></td><td style="font-weight:600;color:#a0aec0">30</td><td style="color:#fc8181">-2.5%</td><td style="font-family:monospace">$0.326300</td></tr><tr><td>39</td><td style="font-weight:700">MYX</td><td><span class="scene-tag ">S0</span></td><td style="font-weight:600;color:#a0aec0">30</td><td style="color:#68d391">+2.5%</td><td style="font-family:monospace">$0.245900</td></tr><tr><td>40</td><td style="font-weight:700">KOMA</td><td><span class="scene-tag ">S0</span></td><td style="font-weight:600;color:#a0aec0">30</td><td style="color:#fc8181">-2.4%</td><td style="font-family:monospace">$0.007340</td></tr><tr><td>41</td><td style="font-weight:700">KAT</td><td><span class="scene-tag ">S0</span></td><td style="font-weight:600;color:#a0aec0">30</td><td style="color:#fc8181">-2.3%</td><td style="font-family:monospace">$0.009390</td></tr><tr><td>42</td><td style="font-weight:700">TOWNS</td><td><span class="scene-tag ">S0</span></td><td style="font-weight:600;color:#a0aec0">30</td><td style="color:#fc8181">-2.3%</td><td style="font-family:monospace">$0.003615</td></tr><tr><td>43</td><td style="font-weight:700">TRIA</td><td><span class="scene-tag ">S0</span></td><td style="font-weight:600;color:#a0aec0">30</td><td style="color:#fc8181">-2.2%</td><td style="font-family:monospace">$0.043970</td></tr><tr><td>44</td><td style="font-weight:700">OPEN</td><td><span class="scene-tag ">S0</span></td><td style="font-weight:600;color:#a0aec0">30</td><td style="color:#fc8181">-2.2%</td><td style="font-family:monospace">$0.205500</td></tr><tr><td>45</td><td style="font-weight:700">GPS</td><td><span class="scene-tag ">S0</span></td><td style="font-weight:600;color:#a0aec0">30</td><td style="color:#68d391">+2.2%</td><td style="font-family:monospace">$0.008055</td></tr><tr><td>46</td><td style="font-weight:700">AIA</td><td><span class="scene-tag ">S0</span></td><td style="font-weight:600;color:#a0aec0">30</td><td style="color:#68d391">+2.2%</td><td style="font-family:monospace">$0.052950</td></tr><tr><td>47</td><td style="font-weight:700">SQD</td><td><span class="scene-tag ">S0</span></td><td style="font-weight:600;color:#a0aec0">30</td><td style="color:#68d391">+2.2%</td><td style="font-family:monospace">$0.034580</td></tr><tr><td>48</td><td style="font-weight:700">C</td><td><span class="scene-tag ">S0</span></td><td style="font-weight:600;color:#a0aec0">30</td><td style="color:#68d391">+2.2%</td><td style="font-family:monospace">$0.080860</td></tr><tr><td>49</td><td style="font-weight:700">USELESS</td><td><span class="scene-tag ">S0</span></td><td style="font-weight:600;color:#a0aec0">30</td><td style="color:#68d391">+2.2%</td><td style="font-family:monospace">$0.044000</td></tr><tr><td>50</td><td style="font-weight:700">COAI</td><td><span class="scene-tag ">S0</span></td><td style="font-weight:600;color:#a0aec0">30</td><td style="color:#68d391">+2.1%</td><td style="font-family:monospace">$0.358100</td></tr><tr><td>51</td><td style="font-weight:700">XNY</td><td><span class="scene-tag ">S0</span></td><td style="font-weight:600;color:#a0aec0">30</td><td style="color:#fc8181">-2.1%</td><td style="font-family:monospace">$0.006880</td></tr><tr><td>52</td><td style="font-weight:700">TRUTH</td><td><span class="scene-tag ">S0</span></td><td style="font-weight:600;color:#a0aec0">30</td><td style="color:#68d391">+2.0%</td><td style="font-family:monospace">$0.009660</td></tr><tr><td>53</td><td style="font-weight:700">ZAMA</td><td><span class="scene-tag ">S0</span></td><td style="font-weight:600;color:#a0aec0">30</td><td style="color:#fc8181">-1.9%</td><td style="font-family:monospace">$0.029070</td></tr><tr><td>54</td><td style="font-weight:700">ARC</td><td><span class="scene-tag ">S0</span></td><td style="font-weight:600;color:#a0aec0">30</td><td style="color:#68d391">+1.9%</td><td style="font-family:monospace">$0.068470</td></tr><tr><td>55</td><td style="font-weight:700">VIRTUAL</td><td><span class="scene-tag ">S0</span></td><td style="font-weight:600;color:#a0aec0">30</td><td style="color:#68d391">+1.9%</td><td style="font-family:monospace">$0.764800</td></tr><tr><td>56</td><td style="font-weight:700">STO</td><td><span class="scene-tag ">S0</span></td><td style="font-weight:600;color:#a0aec0">30</td><td style="color:#fc8181">-1.8%</td><td style="font-family:monospace">$0.087480</td></tr><tr><td>57</td><td style="font-weight:700">BULLA</td><td><span class="scene-tag ">S0</span></td><td style="font-weight:600;color:#a0aec0">30</td><td style="color:#fc8181">-1.7%</td><td style="font-family:monospace">$0.007067</td></tr><tr><td>58</td><td style="font-weight:700">AVAAI</td><td><span class="scene-tag ">S0</span></td><td style="font-weight:600;color:#a0aec0">30</td><td style="color:#fc8181">-1.6%</td><td style="font-family:monospace">$0.007182</td></tr><tr><td>59</td><td style="font-weight:700">HEMI</td><td><span class="scene-tag ">S0</span></td><td style="font-weight:600;color:#a0aec0">30</td><td style="color:#fc8181">-1.6%</td><td style="font-family:monospace">$0.007785</td></tr><tr><td>60</td><td style="font-weight:700">BLESS</td><td><span class="scene-tag ">S0</span></td><td style="font-weight:600;color:#a0aec0">30</td><td style="color:#68d391">+1.6%</td><td style="font-family:monospace">$0.006147</td></tr><tr><td>61</td><td style="font-weight:700">SPK</td><td><span class="scene-tag ">S0</span></td><td style="font-weight:600;color:#a0aec0">30</td><td style="color:#fc8181">-1.5%</td><td style="font-family:monospace">$0.036210</td></tr><tr><td>62</td><td style="font-weight:700">UB</td><td><span class="scene-tag ">S0</span></td><td style="font-weight:600;color:#a0aec0">30</td><td style="color:#68d391">+1.4%</td><td style="font-family:monospace">$0.138280</td></tr><tr><td>63</td><td style="font-weight:700">KITE</td><td><span class="scene-tag ">S0</span></td><td style="font-weight:600;color:#a0aec0">30</td><td style="color:#fc8181">-1.4%</td><td style="font-family:monospace">$0.150590</td></tr><tr><td>64</td><td style="font-weight:700">ROBO</td><td><span class="scene-tag ">S0</span></td><td style="font-weight:600;color:#a0aec0">30</td><td style="color:#68d391">+1.3%</td><td style="font-family:monospace">$0.019960</td></tr><tr><td>65</td><td style="font-weight:700">SOMI</td><td><span class="scene-tag ">S0</span></td><td style="font-weight:600;color:#a0aec0">30</td><td style="color:#68d391">+1.3%</td><td style="font-family:monospace">$0.186200</td></tr><tr><td>66</td><td style="font-weight:700">BTR</td><td><span class="scene-tag ">S0</span></td><td style="font-weight:600;color:#a0aec0">30</td><td style="color:#68d391">+1.3%</td><td style="font-family:monospace">$0.029080</td></tr><tr><td>67</td><td style="font-weight:700">EUL</td><td><span class="scene-tag ">S0</span></td><td style="font-weight:600;color:#a0aec0">30</td><td style="color:#fc8181">-1.3%</td><td style="font-family:monospace">$1.3973</td></tr><tr><td>68</td><td style="font-weight:700">G</td><td><span class="scene-tag ">S0</span></td><td style="font-weight:600;color:#a0aec0">30</td><td style="color:#68d391">+1.3%</td><td style="font-family:monospace">$0.003685</td></tr><tr><td>69</td><td style="font-weight:700">HOLO</td><td><span class="scene-tag ">S0</span></td><td style="font-weight:600;color:#a0aec0">30</td><td style="color:#68d391">+1.2%</td><td style="font-family:monospace">$0.065750</td></tr><tr><td>70</td><td style="font-weight:700">PROVE</td><td><span class="scene-tag ">S0</span></td><td style="font-weight:600;color:#a0aec0">30</td><td style="color:#68d391">+1.2%</td><td style="font-family:monospace">$0.249100</td></tr><tr><td>71</td><td style="font-weight:700">BREV</td><td><span class="scene-tag ">S0</span></td><td style="font-weight:600;color:#a0aec0">30</td><td style="color:#68d391">+1.2%</td><td style="font-family:monospace">$0.119200</td></tr><tr><td>72</td><td style="font-weight:700">TOSHI</td><td><span class="scene-tag ">S0</span></td><td style="font-weight:600;color:#a0aec0">30</td><td style="color:#68d391">+1.2%</td><td style="font-family:monospace">$0.00018290</td></tr><tr><td>73</td><td style="font-weight:700">XAN</td><td><span class="scene-tag ">S0</span></td><td style="font-weight:600;color:#a0aec0">30</td><td style="color:#fc8181">-1.1%</td><td style="font-family:monospace">$0.008858</td></tr><tr><td>74</td><td style="font-weight:700">APR</td><td><span class="scene-tag ">S0</span></td><td style="font-weight:600;color:#a0aec0">30</td><td style="color:#fc8181">-1.1%</td><td style="font-family:monospace">$0.171420</td></tr><tr><td>75</td><td style="font-weight:700">SIGN</td><td><span class="scene-tag ">S0</span></td><td style="font-weight:600;color:#a0aec0">30</td><td style="color:#fc8181">-1.1%</td><td style="font-family:monospace">$0.015890</td></tr><tr><td>76</td><td style="font-weight:700">ZKC</td><td><span class="scene-tag ">S0</span></td><td style="font-weight:600;color:#a0aec0">30</td><td style="color:#68d391">+1.1%</td><td style="font-family:monospace">$0.075660</td></tr><tr><td>77</td><td style="font-weight:700">AKE</td><td><span class="scene-tag ">S0</span></td><td style="font-weight:600;color:#a0aec0">30</td><td style="color:#68d391">+1.1%</td><td style="font-family:monospace">$0.00033630</td></tr><tr><td>78</td><td style="font-weight:700">FF</td><td><span class="scene-tag ">S0</span></td><td style="font-weight:600;color:#a0aec0">30</td><td style="color:#68d391">+1.0%</td><td style="font-family:monospace">$0.062720</td></tr><tr><td>79</td><td style="font-weight:700">ALLO</td><td><span class="scene-tag ">S0</span></td><td style="font-weight:600;color:#a0aec0">30</td><td style="color:#fc8181">-1.0%</td><td style="font-family:monospace">$0.117430</td></tr><tr><td>80</td><td style="font-weight:700">TURTLE</td><td><span class="scene-tag ">S0</span></td><td style="font-weight:600;color:#a0aec0">30</td><td style="color:#fc8181">-1.0%</td><td style="font-family:monospace">$0.052540</td></tr><tr><td colspan="6" style="text-align:center;color:#444;padding:12px;">... and 78 more coins</td></tr></tbody></table></div></div></div><div id="panel-deep" class="tab-panel"><div class="verdict-bar"><div class="vchip ">NO_TRADE: 33</div></div><div class="section-title">&#x1F4CA; All Signals <span class="count">33</span></div><div class="table-section"><div class="table-section-head"><div class="dim-legend">
+<div class="dim-legend-title">&#x1F4D6; Layer 1 + Layer 2 评分体系</div>
+<div class="dim-row" style="border-left-color:#48bb78;"><span class="dim-name">OI Matrix</span><span class="dim-wt">25%</span><span class="dim-desc">S1/S2/S6做多信号，权重最高</span><span class="dim-rule">S1/S2/S6 -> 80-100</span></div>
+<div class="dim-row" style="border-left-color:#63b3ed;"><span class="dim-name">L/S Ratio</span><span class="dim-wt">15%</span><span class="dim-desc">大户/散户多空比</span><span class="dim-rule">&gt;1.2一致偏多 -> 75-90</span></div>
+<div class="dim-row" style="border-left-color:#68d391;"><span class="dim-name">Volume</span><span class="dim-wt">13%</span><span class="dim-desc">量比VR+OBV趋势</span><span class="dim-rule">VR&gt;1.4+OBV升 -> 70-85</span></div>
+<div class="dim-row" style="border-left-color:#ecc94b;"><span class="dim-name">Trend</span><span class="dim-wt">13%</span><span class="dim-desc">EMA趋势排列</span><span class="dim-rule">完整多头 -> 80-95</span></div>
+<div class="dim-row" style="border-left-color:#f6e05e;"><span class="dim-name">RSI-14</span><span class="dim-wt">12%</span><span class="desc">RSI相对强度</span><span class="dim-rule">45-65健康 -> 70-88</span></div>
+<div class="dim-row" style="border-left-color:#fc8181;"><span class="dim-name">MACD</span><span class="dim-wt">12%</span><span class="dim-desc">金叉柱状正负</span><span class="dim-rule">金叉正柱 -> 82-92</span></div>
+<div class="dim-row" style="border-left-color:#a0aec0;"><span class="dim-name">Bollinger</span><span class="dim-wt">10%</span><span class="dim-desc">布林带位置bpp</span><span class="dim-rule">下轨反弹 -> 78-90</span></div>
 
-<div class="dim-sig-bar">
-<b style="color:#63b3ed;">Signal Gate (R:R 双重门控):</b>
-<span class="dim-sig-item" style="background:rgba(72,187,120,.15);color:#68d391;border:1px solid rgba(72,187,120,.25);">STRONG_BUY = WS&ge;75 + R:R&ge;1.2</span>
-<span class="dim-sig-item" style="background:rgba(104,211,145,.10);color:#9ae6b4;border:1px solid rgba(104,211,145,.20);">BUY = WS&ge;63 + R:R&ge;1.0</span>
-<span class="dim-sig-item" style="background:rgba(236,201,75,.10);color:#f6e05e;border:1px solid rgba(236,201,75,.20);">WATCH = WS&ge;50</span>
-<span class="dim-sig-item" style="background:rgba(160,174,192,.08);color:#a0aec0;border:1px solid rgba(160,174,192,.15);">NO_TRADE = 不满足以上条件</span>
-</div>
+<div class="dim-sig-bar"><b>L1 Signal:</b>
+<span class="dim-sig-item" style="background:rgba(72,187,120,.15);color:#68d391;border:1px solid rgba(72,187,120,.25)">SB=WS>=75+RR>=1.2</span>
+<span class="dim-sig-item" style="background:rgba(104,211,145,.10);color:#9ae6b4;border:1px solid rgba(104,211,145,.20)">BY=WS>=63+RR>=1.0</span>
+<span class="dim-sig-item" style="background:rgba(236,201,75,.10);color:#f6e05e;border:1px solid rgba(236,201,75,.20)">WA=WS>=50</span></div>
 
-<div class="dim-legend-title" style="margin-top:16px;">&#x1F9EA; Multi-System Signal : Layer 2 综合裁决</div>
-<div style="font-size:11px;color:#8899aa;margin-bottom:10px;padding-left:2px;">
-综合裁决 = WS加权分 + 贝叶斯概率 + R:R 三重门控 &mdash; 任一不满足即降级
-</div>
+<div class="dim-row" style="border-left-color:#9f7aea;"><span class="dim-name" style="color:#d6bcfa;">Bayesian</span><span class="dim-wt" style="background:linear-gradient(135deg,#553c9a,#805ad5);color:#e9d8fd;">Core</span><span class="dim-desc">19-20证据贝叶斯融合</span><span class="dim-rule">&gt;55%=SB/&gt;53%=BUY</span></div>
+<div class="dim-row" style="border-left-color:#ed8936;"><span class="dim-name" style="color:#fbd38d;">Monte Carlo</span><span class="dim-wt" style="background:linear-gradient(135deg,#c05621,#dd6b20);color:#feebc8;">Val</span><span class="dim-desc">GBM 10000路径交叉验证</span><span class="dim-rule">P&gt;62%确认/&lt;38%警告</span></div>
+<div class="dim-row" style="border-left-color:#e53e3e;"><span class="dim-name" style="color:#feb2b2;">VaR/CVaR</span><span class="dim-wt" style="background:linear-gradient(135deg,#742a2a,#c53030);color:#fed7d7;">Risk</span><span class="dim-desc">95%置信尾部风险度量</span><span class="dim-rule">&lt;-15%扣分/&lt;-20%降级</span></div>
+<div class="dim-row" style="border-left-color:#38b2ac;"><span class="dim-name" style="color:#81e6d9;">GARCH</span><span class="dim-wt" style="background:linear-gradient(135deg,#234e52,#285e61);color:#b2f5ea;">Vol</span><span class="dim-desc">GARCH(1,1)波动率预测</span><span class="dim-rule">上升扣5分</span></div>
+<div class="dim-row" style="border-left-color:#667eea;"><span class="dim-name" style="color:#c3dafe;">Performance</span><span class="dim-wt" style="background:linear-gradient(135deg,#434190,#5a67d8);color:#e0e7ff;">Metric</span><span class="dim-desc">Sharpe/Sortino/Calmar</span><span class="dim-rule">Sh&gt;1.5+6/&lt;-0.5-12</span></div>
+<div class="dim-row" style="border-left-color:#48bb78;"><span class="dim-name" style="color:#9ae6b4;">Kelly</span><span class="dim-wt" style="background:linear-gradient(135deg,#22543d,#276749);color:#c6f6d5;">Size</span><span class="dim-desc">1/4 Kelly保守仓位</span><span class="dim-rule">min(2%风控,Kelly,20%)</span></div>
 
-<div class="dim-row" style="border-left-color:#9f7aea;">
-<span class="dim-name" style="color:#d6bcfa;">Bayesian</span><span class="dim-wt" style="background:linear-gradient(135deg,#553c9a,#805ad5);color:#e9d8fd;">Core</span>
-<span class="dim-desc">贝叶斯多证据概率融合 &mdash; 融合19-20个技术指标证据(RSI/MACD/BB/Volume/Trend/Pattern等)，每项带先验准确率(Trend=70%最高, Pattern=55%最低)，后验更新输出看涨概率+信号强度</span>
-<span class="dim-rule">&ge;55%=SB / &ge;53%=BUY / &ge;51%=WATCH</span>
-</div>
-
-<div class="dim-row" style="border-left-color:#ed8936;">
-<span class="dim-name" style="color:#fbd38d;">Monte Carlo</span><span class="dim-wt" style="background:linear-gradient(135deg,#c05621,#dd6b20);color:#feebc8;">Validate</span>
-<span class="dim-desc">蒙特卡洛模拟 &mdash; GBM几何布朗运动10000条路径&times;5步向前模拟，交叉验证L1结论。MC盈利概率&gt;62%则加分确认，&lt;38%则重度扣分警告</span>
-<span class="dim-rule">P(profit)&gt;62% &rarr; +6确认 / &lt;38% &rarr; -10警告</span>
-</div>
-
-<div class="dim-row" style="border-left-color:#e53e3e;">
-<span class="dim-name" style="color:#feb2b2;">VaR / CVaR</span><span class="dim-wt" style="background:linear-gradient(135deg,#742a2a,#c53030);color:#fed7d7;">Risk</span>
-<span class="dim-desc">风险价值度量 &mdash; 95%置信度下3种方法(历史模拟/参数法/Cornish-Fisher)计算VaR和CVaR尾部风险。单期可能亏损&gt;15%扣分，&gt;20%自动将SB/BY降级为WATCH</span>
-<span class="dim-rule">VaR&lt;-15% &rarr; -8分 / &lt;-20% &rarr; 强制降级</span>
-</div>
-
-<div class="dim-row" style="border-left-color:#38b2ac;">
-<span class="dim-name" style="color:#81e6d9;">GARCH</span><span class="dim-wt" style="background:linear-gradient(135deg,#234e52,#285e61);color:#b2f5ea;">Vol</span>
-<span class="dim-desc">GARCH(1,1)波动率预测 &mdash; &alpha;=0.10, &beta;=0.85, 预测未来5步波动率走势。若预测波动率上升则扣5分(高波动增加止损触发概率)</span>
-<span class="dim-rule">上升趋势 &rarr; -5分 / 稳定/下降 &rarr; 中性</span>
-</div>
-
-<div class="dim-row" style="border-left-color:#667eea;">
-<span class="dim-name" style="color:#c3dafe;">Performance</span><span class="dim-wt" style="background:linear-gradient(135deg,#434190,#5a67d8);color:#e0e7ff;">Metric</span>
-<span class="dim-desc">绩效指标评估 &mdash; Sharpe比率(风险调整收益)+Sortino(下行风险)+Calmar(回撤调整)。Sharpe&gt;1.5强加分，&gt;0.8微加分，&lt;-0.5重度扣分</span>
-<span class="dim-rule">Sharpe&gt;1.5 &rarr; +6 / &lt;-0.5 &rarr; -12</span>
-</div>
-
-<div class="dim-row" style="border-left-color:#48bb78;">
-<span class="dim-name" style="color:#9ae6b4;">Kelly Criterion</span><span class="dim-wt" style="background:linear-gradient(135deg,#22543d,#276749);color:#c6f6d5;">Size</span>
-<span class="dim-desc">Kelly增强版仓位 &mdash; 数学最优仓位公式取1/4 Kelly(保守系数)，与2%单笔风控仓位取较小者，上限20%。防止过度杠杆同时追求资金效率最大化</span>
-<span class="dim-rule">min(2%风控仓, Kelly&times;0.25, 20%上限)</span>
-</div>
-
-<div class="dim-sig-bar">
-<b style="color:#9f7aea;">Verdict (L3 综合裁决 三重门控):</b>
-<span class="dim-sig-item" style="background:rgba(72,187,120,.15);color:#68d391;border:1px solid rgba(72,187,120,.25);">SB = WS&ge;72 + Bayes&ge;55% + RR&ge;1.5</span>
-<span class="dim-sig-item" style="background:rgba(104,211,145,.10);color:#9ae6b4;border:1px solid rgba(104,211,145,.20);">BUY = WS&ge;62 + Bayes&ge;53% + RR&ge;1.3</span>
-<span class="dim-sig-item" style="background:rgba(236,201,75,.10);color:#f6e05e;border:1px solid rgba(236,201,75,.20);">WATCH = WS&ge;52 + Bayes&ge;51%</span>
-<span class="dim-sig-item" style="background:rgba(160,174,192,.08);color:#a0aec0;border:1px solid rgba(160,174,192,.15);">NO_TRADE = 不满足以上任一条件</span>
-</div>
-</div></div><div class="table-scroll"><table class="tbl">
-<thead><tr><th>#</th><th>Coin</th><th>Scene</th><th>WS</th><th>R:R</th>
-<th>OI</th><th>RSI</th><th>MACD</th><th>BB</th><th>Vol</th><th>Ratio</th><th>Trend</th>
-<th>L1 Sig</th><th>L2 Verdict</th><th>Bayes%</th><th>MC%</th><th>Entry</th><th>SL</th><th>TP1</th><th>Pos%</th></tr></thead>
-<tbody><tr>
-<td>1</td><td style="font-weight:700">MMT</td><td>S2</td>
-<td style="font-weight:600;color:#48bb78">80.1</td>
-<td style="color:#fc8181">-0.24</td>
-<td>90</td>
-<td>85</td>
-<td>88</td>
-<td>65</td>
-<td>51</td>
-<td>92</td>
-<td>76</td>
-<td><span class="badge-v bv-wa" style="font-size:10px;padding:3px 8px;">WATCH</span></td>
-<td><span class="badge-v bv-no" style="font-size:10px;padding:3px 8px;">NO_TRADE</span></td>
-<td style="color:#fc8181">22.2</td>
-<td>53.5</td>
-<td style="font-family:'SF Mono',monospace">$0.134800</td>
-<td style="font-family:'SF Mono',monospace;color:#fc8181">$0.130500</td>
-<td style="font-family:'SF Mono',monospace;color:#68d391">$0.133758</td>
-<td>7.95</td>
-</tr><tr>
-<td>2</td><td style="font-weight:700">RAVE</td><td>S1</td>
-<td style="font-weight:600;color:#48bb78">78.0</td>
-<td style="color:#ecc94b">1.00</td>
-<td>100</td>
-<td>85</td>
-<td>88</td>
-<td>40</td>
-<td>35</td>
-<td>92</td>
-<td>76</td>
-<td><span class="badge-v bv-by" style="font-size:10px;padding:3px 8px;">BUY</span></td>
-<td><span class="badge-v bv-no" style="font-size:10px;padding:3px 8px;">NO_TRADE</span></td>
-<td style="color:#fc8181">4.6</td>
-<td>52.9</td>
-<td style="font-family:'SF Mono',monospace">$0.764000</td>
-<td style="font-family:'SF Mono',monospace;color:#fc8181">$0.742217</td>
-<td style="font-family:'SF Mono',monospace;color:#68d391">$0.785783</td>
-<td>8.48</td>
-</tr><tr>
-<td>3</td><td style="font-weight:700">GRASS</td><td>S6</td>
-<td style="font-weight:600;color:#48bb78">76.9</td>
-<td style="color:#fc8181">-0.41</td>
-<td>80</td>
-<td>85</td>
-<td>88</td>
-<td>40</td>
-<td>65</td>
-<td>92</td>
-<td>76</td>
-<td><span class="badge-v bv-wa" style="font-size:10px;padding:3px 8px;">WATCH</span></td>
-<td><span class="badge-v bv-no" style="font-size:10px;padding:3px 8px;">NO_TRADE</span></td>
-<td style="color:#48bb78">67.1</td>
-<td>54.9</td>
-<td style="font-family:'SF Mono',monospace">$0.362800</td>
-<td style="font-family:'SF Mono',monospace;color:#fc8181">$0.346329</td>
-<td style="font-family:'SF Mono',monospace;color:#68d391">$0.356006</td>
-<td>7.05</td>
-</tr><tr>
-<td>4</td><td style="font-weight:700">HANA</td><td>S6</td>
-<td style="font-weight:600;color:#48bb78">76.6</td>
-<td style="color:#fc8181">-0.41</td>
-<td>85</td>
-<td>85</td>
-<td>88</td>
-<td>40</td>
-<td>65</td>
-<td>92</td>
-<td>64</td>
-<td><span class="badge-v bv-wa" style="font-size:10px;padding:3px 8px;">WATCH</span></td>
-<td><span class="badge-v bv-no" style="font-size:10px;padding:3px 8px;">NO_TRADE</span></td>
-<td style="color:#fc8181">12.3</td>
-<td>48.1</td>
-<td style="font-family:'SF Mono',monospace">$0.037500</td>
-<td style="font-family:'SF Mono',monospace;color:#fc8181">$0.036121</td>
-<td style="font-family:'SF Mono',monospace;color:#68d391">$0.036935</td>
-<td>5.64</td>
-</tr><tr>
-<td>5</td><td style="font-weight:700">CLANKER</td><td>S6</td>
-<td style="font-weight:600;color:#48bb78">76.1</td>
-<td style="color:#fc8181">-1.36</td>
-<td>85</td>
-<td>68</td>
-<td>88</td>
-<td>40</td>
-<td>65</td>
-<td>92</td>
-<td>76</td>
-<td><span class="badge-v bv-wa" style="font-size:10px;padding:3px 8px;">WATCH</span></td>
-<td><span class="badge-v bv-no" style="font-size:10px;padding:3px 8px;">NO_TRADE</span></td>
-<td style="color:#fc8181">3.2</td>
-<td>51.6</td>
-<td style="font-family:'SF Mono',monospace">$25.4800</td>
-<td style="font-family:'SF Mono',monospace;color:#fc8181">$24.6071</td>
-<td style="font-family:'SF Mono',monospace;color:#68d391">$24.2933</td>
-<td>7.05</td>
-</tr><tr>
-<td>6</td><td style="font-weight:700">SPX</td><td>S6</td>
-<td style="font-weight:600;color:#48bb78">76.1</td>
-<td style="color:#fc8181">-0.74</td>
-<td>85</td>
-<td>68</td>
-<td>88</td>
-<td>40</td>
-<td>65</td>
-<td>92</td>
-<td>76</td>
-<td><span class="badge-v bv-wa" style="font-size:10px;padding:3px 8px;">WATCH</span></td>
-<td><span class="badge-v bv-no" style="font-size:10px;padding:3px 8px;">NO_TRADE</span></td>
-<td style="color:#fc8181">25.9</td>
-<td>58.0</td>
-<td style="font-family:'SF Mono',monospace">$0.402100</td>
-<td style="font-family:'SF Mono',monospace;color:#fc8181">$0.392029</td>
-<td style="font-family:'SF Mono',monospace;color:#68d391">$0.394613</td>
-<td>7.78</td>
-</tr><tr>
-<td>7</td><td style="font-weight:700">ESPORTS</td><td>S6</td>
-<td style="font-weight:600;color:#48bb78">74.6</td>
-<td style="color:#fc8181">-0.20</td>
-<td>85</td>
-<td>85</td>
-<td>88</td>
-<td>40</td>
-<td>38</td>
-<td>92</td>
-<td>76</td>
-<td><span class="badge-v bv-wa" style="font-size:10px;padding:3px 8px;">WATCH</span></td>
-<td><span class="badge-v bv-no" style="font-size:10px;padding:3px 8px;">NO_TRADE</span></td>
-<td style="color:#ecc94b">49.6</td>
-<td>50.8</td>
-<td style="font-family:'SF Mono',monospace">$0.402100</td>
-<td style="font-family:'SF Mono',monospace;color:#fc8181">$0.369519</td>
-<td style="font-family:'SF Mono',monospace;color:#68d391">$0.395658</td>
-<td>6.70</td>
-</tr><tr>
-<td>8</td><td style="font-weight:700">INX</td><td>S6</td>
-<td style="font-weight:600;color:#48bb78">74.3</td>
-<td style="color:#fc8181">0.01</td>
-<td>80</td>
-<td>85</td>
-<td>88</td>
-<td>65</td>
-<td>38</td>
-<td>92</td>
-<td>64</td>
-<td><span class="badge-v bv-wa" style="font-size:10px;padding:3px 8px;">WATCH</span></td>
-<td><span class="badge-v bv-no" style="font-size:10px;padding:3px 8px;">NO_TRADE</span></td>
-<td style="color:#fc8181">23.2</td>
-<td>49.3</td>
-<td style="font-family:'SF Mono',monospace">$0.010175</td>
-<td style="font-family:'SF Mono',monospace;color:#fc8181">$0.009577</td>
-<td style="font-family:'SF Mono',monospace;color:#68d391">$0.010180</td>
-<td>6.70</td>
-</tr><tr>
-<td>9</td><td style="font-weight:700">LAB</td><td>S6</td>
-<td style="font-weight:600;color:#48bb78">73.5</td>
-<td style="color:#ecc94b">1.00</td>
-<td>75</td>
-<td>85</td>
-<td>88</td>
-<td>65</td>
-<td>95</td>
-<td>35</td>
-<td>76</td>
-<td><span class="badge-v bv-by" style="font-size:10px;padding:3px 8px;">BUY</span></td>
-<td><span class="badge-v bv-wa" style="font-size:10px;padding:3px 8px;">WATCH</span></td>
-<td style="color:#ecc94b">54.6</td>
-<td>60.3</td>
-<td style="font-family:'SF Mono',monospace">$2.3586</td>
-<td style="font-family:'SF Mono',monospace;color:#fc8181">$2.3392</td>
-<td style="font-family:'SF Mono',monospace;color:#68d391">$2.3780</td>
-<td>9.00</td>
-</tr><tr>
-<td>10</td><td style="font-weight:700">PUMPBTC</td><td>S6</td>
-<td style="font-weight:600;color:#48bb78">73.5</td>
-<td style="color:#fc8181">-0.46</td>
-<td>80</td>
-<td>85</td>
-<td>88</td>
-<td>40</td>
-<td>51</td>
-<td>92</td>
-<td>64</td>
-<td><span class="badge-v bv-wa" style="font-size:10px;padding:3px 8px;">WATCH</span></td>
-<td><span class="badge-v bv-no" style="font-size:10px;padding:3px 8px;">NO_TRADE</span></td>
-<td style="color:#48bb78">57.8</td>
-<td>49.6</td>
-<td style="font-family:'SF Mono',monospace">$0.016480</td>
-<td style="font-family:'SF Mono',monospace;color:#fc8181">$0.015137</td>
-<td style="font-family:'SF Mono',monospace;color:#68d391">$0.015859</td>
-<td>7.05</td>
-</tr><tr>
-<td>11</td><td style="font-weight:700">PARTI</td><td>S6</td>
-<td style="font-weight:600;color:#48bb78">73.1</td>
-<td style="color:#fc8181">0.62</td>
-<td>75</td>
-<td>68</td>
-<td>88</td>
-<td>65</td>
-<td>88</td>
-<td>52</td>
-<td>76</td>
-<td><span class="badge-v bv-wa" style="font-size:10px;padding:3px 8px;">WATCH</span></td>
-<td><span class="badge-v bv-no" style="font-size:10px;padding:3px 8px;">NO_TRADE</span></td>
-<td style="color:#fc8181">37.2</td>
-<td>45.0</td>
-<td style="font-family:'SF Mono',monospace">$0.050740</td>
-<td style="font-family:'SF Mono',monospace;color:#fc8181">$0.046681</td>
-<td style="font-family:'SF Mono',monospace;color:#68d391">$0.053249</td>
-<td>5.47</td>
-</tr><tr>
-<td>12</td><td style="font-weight:700">RESOLV</td><td>S6</td>
-<td style="font-weight:600;color:#48bb78">73.0</td>
-<td style="color:#fc8181">-0.18</td>
-<td>80</td>
-<td>68</td>
-<td>88</td>
-<td>40</td>
-<td>51</td>
-<td>92</td>
-<td>76</td>
-<td><span class="badge-v bv-wa" style="font-size:10px;padding:3px 8px;">WATCH</span></td>
-<td><span class="badge-v bv-no" style="font-size:10px;padding:3px 8px;">NO_TRADE</span></td>
-<td style="color:#fc8181">16.7</td>
-<td>43.8</td>
-<td style="font-family:'SF Mono',monospace">$0.031380</td>
-<td style="font-family:'SF Mono',monospace;color:#fc8181">$0.027791</td>
-<td style="font-family:'SF Mono',monospace;color:#68d391">$0.030729</td>
-<td>6.00</td>
-</tr><tr>
-<td>13</td><td style="font-weight:700">PRL</td><td>S6</td>
-<td style="font-weight:600;color:#48bb78">72.6</td>
-<td style="color:#fc8181">0.57</td>
-<td>80</td>
-<td>80</td>
-<td>88</td>
-<td>65</td>
-<td>38</td>
-<td>74</td>
-<td>76</td>
-<td><span class="badge-v bv-wa" style="font-size:10px;padding:3px 8px;">WATCH</span></td>
-<td><span class="badge-v bv-no" style="font-size:10px;padding:3px 8px;">NO_TRADE</span></td>
-<td style="color:#fc8181">5.6</td>
-<td>54.2</td>
-<td style="font-family:'SF Mono',monospace">$0.294500</td>
-<td style="font-family:'SF Mono',monospace;color:#fc8181">$0.269457</td>
-<td style="font-family:'SF Mono',monospace;color:#68d391">$0.308720</td>
-<td>7.61</td>
-</tr><tr>
-<td>14</td><td style="font-weight:700">ACU</td><td>S6</td>
-<td style="font-weight:600;color:#48bb78">72.1</td>
-<td style="color:#fc8181">-0.37</td>
-<td>85</td>
-<td>35</td>
-<td>88</td>
-<td>40</td>
-<td>65</td>
-<td>92</td>
-<td>76</td>
-<td><span class="badge-v bv-wa" style="font-size:10px;padding:3px 8px;">WATCH</span></td>
-<td><span class="badge-v bv-no" style="font-size:10px;padding:3px 8px;">NO_TRADE</span></td>
-<td style="color:#fc8181">37.2</td>
-<td>53.8</td>
-<td style="font-family:'SF Mono',monospace">$0.114280</td>
-<td style="font-family:'SF Mono',monospace;color:#fc8181">$0.109260</td>
-<td style="font-family:'SF Mono',monospace;color:#68d391">$0.112437</td>
-<td>6.52</td>
-</tr><tr>
-<td>15</td><td style="font-weight:700">ARIA</td><td>S6</td>
-<td style="font-weight:600;color:#ecc94b">71.8</td>
-<td style="color:#fc8181">-0.16</td>
-<td>80</td>
-<td>85</td>
-<td>88</td>
-<td>40</td>
-<td>38</td>
-<td>92</td>
-<td>64</td>
-<td><span class="badge-v bv-wa" style="font-size:10px;padding:3px 8px;">WATCH</span></td>
-<td><span class="badge-v bv-no" style="font-size:10px;padding:3px 8px;">NO_TRADE</span></td>
-<td style="color:#fc8181">11.9</td>
-<td>46.6</td>
-<td style="font-family:'SF Mono',monospace">$0.060800</td>
-<td style="font-family:'SF Mono',monospace;color:#fc8181">$0.055919</td>
-<td style="font-family:'SF Mono',monospace;color:#68d391">$0.060015</td>
-<td>6.70</td>
-</tr><tr>
-<td>16</td><td style="font-weight:700">FIGHT</td><td>S6</td>
-<td style="font-weight:600;color:#ecc94b">71.1</td>
-<td style="color:#fc8181">0.42</td>
-<td>85</td>
-<td>85</td>
-<td>38</td>
-<td>65</td>
-<td>38</td>
-<td>92</td>
-<td>76</td>
-<td><span class="badge-v bv-wa" style="font-size:10px;padding:3px 8px;">WATCH</span></td>
-<td><span class="badge-v bv-no" style="font-size:10px;padding:3px 8px;">NO_TRADE</span></td>
-<td style="color:#fc8181">8.2</td>
-<td>54.5</td>
-<td style="font-family:'SF Mono',monospace">$0.004599</td>
-<td style="font-family:'SF Mono',monospace;color:#fc8181">$0.004192</td>
-<td style="font-family:'SF Mono',monospace;color:#68d391">$0.004769</td>
-<td>9.88</td>
-</tr><tr>
-<td>17</td><td style="font-weight:700">PLAY</td><td>S6</td>
-<td style="font-weight:600;color:#ecc94b">71.0</td>
-<td style="color:#fc8181">0.91</td>
-<td>70</td>
-<td>85</td>
-<td>88</td>
-<td>82</td>
-<td>65</td>
-<td>52</td>
-<td>64</td>
-<td><span class="badge-v bv-wa" style="font-size:10px;padding:3px 8px;">WATCH</span></td>
-<td><span class="badge-v bv-no" style="font-size:10px;padding:3px 8px;">NO_TRADE</span></td>
-<td style="color:#fc8181">1.1</td>
-<td>51.2</td>
-<td style="font-family:'SF Mono',monospace">$0.105120</td>
-<td style="font-family:'SF Mono',monospace;color:#fc8181">$0.098340</td>
-<td style="font-family:'SF Mono',monospace;color:#68d391">$0.111260</td>
-<td>6.35</td>
-</tr><tr>
-<td>18</td><td style="font-weight:700">MAGMA</td><td>S6</td>
-<td style="font-weight:600;color:#ecc94b">68.3</td>
-<td style="color:#fc8181">0.81</td>
-<td>80</td>
-<td>80</td>
-<td>38</td>
-<td>82</td>
-<td>38</td>
-<td>74</td>
-<td>76</td>
-<td><span class="badge-v bv-wa" style="font-size:10px;padding:3px 8px;">WATCH</span></td>
-<td><span class="badge-v bv-no" style="font-size:10px;padding:3px 8px;">NO_TRADE</span></td>
-<td style="color:#fc8181">0.7</td>
-<td>55.1</td>
-<td style="font-family:'SF Mono',monospace">$0.239000</td>
-<td style="font-family:'SF Mono',monospace;color:#fc8181">$0.217607</td>
-<td style="font-family:'SF Mono',monospace;color:#68d391">$0.256298</td>
-<td>6.00</td>
-</tr><tr>
-<td>19</td><td style="font-weight:700">CFG</td><td>S6</td>
-<td style="font-weight:600;color:#ecc94b">63.6</td>
-<td style="color:#fc8181">-1.58</td>
-<td>75</td>
-<td>35</td>
-<td>88</td>
-<td>40</td>
-<td>65</td>
-<td>52</td>
-<td>76</td>
-<td><span class="badge-v bv-wa" style="font-size:10px;padding:3px 8px;">WATCH</span></td>
-<td><span class="badge-v bv-no" style="font-size:10px;padding:3px 8px;">NO_TRADE</span></td>
-<td style="color:#fc8181">4.7</td>
-<td>57.2</td>
-<td style="font-family:'SF Mono',monospace">$0.254600</td>
-<td style="font-family:'SF Mono',monospace;color:#fc8181">$0.241043</td>
-<td style="font-family:'SF Mono',monospace;color:#68d391">$0.233209</td>
-<td>7.78</td>
-</tr><tr>
-<td>20</td><td style="font-weight:700">VVV</td><td>S6</td>
-<td style="font-weight:600;color:#ecc94b">62.8</td>
-<td style="color:#fc8181">-0.56</td>
-<td>75</td>
-<td>68</td>
-<td>88</td>
-<td>40</td>
-<td>48</td>
-<td>35</td>
-<td>76</td>
-<td><span class="badge-v bv-wa" style="font-size:10px;padding:3px 8px;">WATCH</span></td>
-<td><span class="badge-v bv-no" style="font-size:10px;padding:3px 8px;">NO_TRADE</span></td>
-<td style="color:#fc8181">14.7</td>
-<td>56.4</td>
-<td style="font-family:'SF Mono',monospace">$9.9110</td>
-<td style="font-family:'SF Mono',monospace;color:#fc8181">$9.2457</td>
-<td style="font-family:'SF Mono',monospace;color:#68d391">$9.5412</td>
-<td>8.83</td>
-</tr><tr>
-<td>21</td><td style="font-weight:700">ESP</td><td>S6</td>
-<td style="font-weight:600;color:#ecc94b">62.8</td>
-<td style="color:#fc8181">-0.49</td>
-<td>70</td>
-<td>68</td>
-<td>88</td>
-<td>40</td>
-<td>38</td>
-<td>52</td>
-<td>76</td>
-<td><span class="badge-v bv-wa" style="font-size:10px;padding:3px 8px;">WATCH</span></td>
-<td><span class="badge-v bv-no" style="font-size:10px;padding:3px 8px;">NO_TRADE</span></td>
-<td style="color:#fc8181">37.2</td>
-<td>49.1</td>
-<td style="font-family:'SF Mono',monospace">$0.070120</td>
-<td style="font-family:'SF Mono',monospace;color:#fc8181">$0.066565</td>
-<td style="font-family:'SF Mono',monospace;color:#68d391">$0.068368</td>
-<td>6.17</td>
-</tr></tbody></table></div></div>
+<div class="dim-sig-bar"><b>L2 Verdict:</b>
+<span class="dim-sig-item" style="background:rgba(72,187,120,.15);color:#68d391;border:1px solid rgba(72,187,120,.25)">SB=WS>=72+Bayes>=55%+RR>=1.5</span>
+<span class="dim-sig-item" style="background:rgba(104,211,145,.10);color:#9ae6b4;border:1px solid rgba(104,211,145,.20)">BY=WS>=62+Bayes>=53%+RR>=1.3</span>
+<span class="dim-sig-item" style="background:rgba(236,201,75,.10);color:#f6e05e;border:1px solid rgba(236,201,75,.20)">WA=WS>=52+Bayes>=51%</span></div>
+</div></div><div class="table-scroll"><table class="tbl"><thead><tr><th>#</th><th>Coin</th><th>Scene</th><th>WS</th><th>R:R</th><th>OI</th><th>RSI</th><th>MACD</th><th>BB</th><th>Vol</th><th>Ratio</th><th>Trend</th><th>L1</th><th>L2</th><th>B%%</th><th>MC%%</th><th>Entry</th><th>SL</th><th>TP1</th><th>P%%</th></tr></thead><tbody><tr><td>1</td><td style="font-weight:700">EVAA</td><td>S6</td><td style="font-weight:600;color:#48bb78">81.2</td><td style="color:#fc8181">0.45</td><td>80</td><td>85</td><td>88</td><td>65</td><td>79</td><td>92</td><td>76</td><td><span class="badge-v bv-wa" style="font-size:10px;padding:3px 8px;">WATCH</span></td><td><span class="badge-v bv-no" style="font-size:10px;padding:3px 8px;">NO_TRADE</span></td><td style="color:#fc8181">5.9</td><td>52.3</td><td style="font-family:monospace">$0.612500</td><td style="font-family:monospace;color:#fc8181">$0.580429</td><td style="font-family:monospace;color:#68d391">$0.626929</td><td>7.22</td></tr><tr><td>2</td><td style="font-weight:700">MMT</td><td>S2</td><td style="font-weight:600;color:#48bb78">80.1</td><td style="color:#fc8181">-0.24</td><td>90</td><td>85</td><td>88</td><td>65</td><td>51</td><td>92</td><td>76</td><td><span class="badge-v bv-wa" style="font-size:10px;padding:3px 8px;">WATCH</span></td><td><span class="badge-v bv-no" style="font-size:10px;padding:3px 8px;">NO_TRADE</span></td><td style="color:#fc8181">11.3</td><td>53.3</td><td style="font-family:monospace">$0.134800</td><td style="font-family:monospace;color:#fc8181">$0.130500</td><td style="font-family:monospace;color:#68d391">$0.133758</td><td>7.95</td></tr><tr><td>3</td><td style="font-weight:700">FHE</td><td>S6</td><td style="font-weight:600;color:#48bb78">78.8</td><td style="color:#fc8181">-1.07</td><td>80</td><td>68</td><td>88</td><td>40</td><td>95</td><td>92</td><td>76</td><td><span class="badge-v bv-wa" style="font-size:10px;padding:3px 8px;">WATCH</span></td><td><span class="badge-v bv-no" style="font-size:10px;padding:3px 8px;">NO_TRADE</span></td><td style="color:#48bb78">57.1</td><td>56.2</td><td style="font-family:monospace">$0.029410</td><td style="font-family:monospace;color:#fc8181">$0.028351</td><td style="font-family:monospace;color:#68d391">$0.028282</td><td>9.00</td></tr><tr><td>4</td><td style="font-weight:700">HANA</td><td>S6</td><td style="font-weight:600;color:#48bb78">78.4</td><td style="color:#fc8181">-0.35</td><td>85</td><td>85</td><td>88</td><td>40</td><td>79</td><td>92</td><td>64</td><td><span class="badge-v bv-wa" style="font-size:10px;padding:3px 8px;">WATCH</span></td><td><span class="badge-v bv-no" style="font-size:10px;padding:3px 8px;">NO_TRADE</span></td><td style="color:#fc8181">24.0</td><td>48.5</td><td style="font-family:monospace">$0.037400</td><td style="font-family:monospace;color:#fc8181">$0.036021</td><td style="font-family:monospace;color:#68d391">$0.036916</td><td>5.64</td></tr><tr><td>5</td><td style="font-weight:700">RAVE</td><td>S1</td><td style="font-weight:600;color:#48bb78">78.0</td><td style="color:#ecc94b">1.00</td><td>100</td><td>85</td><td>88</td><td>40</td><td>35</td><td>92</td><td>76</td><td><span class="badge-v bv-by" style="font-size:10px;padding:3px 8px;">BUY</span></td><td><span class="badge-v bv-no" style="font-size:10px;padding:3px 8px;">NO_TRADE</span></td><td style="color:#fc8181">14.1</td><td>52.8</td><td style="font-family:monospace">$0.750900</td><td style="font-family:monospace;color:#fc8181">$0.729117</td><td style="font-family:monospace;color:#68d391">$0.772683</td><td>8.48</td></tr><tr><td>6</td><td style="font-weight:700">NAORIS</td><td>S6</td><td style="font-weight:600;color:#48bb78">77.3</td><td style="color:#ecc94b">1.00</td><td>85</td><td>80</td><td>88</td><td>65</td><td>65</td><td>74</td><td>76</td><td><span class="badge-v bv-by" style="font-size:10px;padding:3px 8px;">BUY</span></td><td><span class="badge-v bv-no" style="font-size:10px;padding:3px 8px;">NO_TRADE</span></td><td style="color:#fc8181">0.8</td><td>55.8</td><td style="font-family:monospace">$0.134110</td><td style="font-family:monospace;color:#fc8181">$0.127929</td><td style="font-family:monospace;color:#68d391">$0.140291</td><td>7.05</td></tr><tr><td>7</td><td style="font-weight:700">GRASS</td><td>S6</td><td style="font-weight:600;color:#48bb78">76.9</td><td style="color:#fc8181">-0.39</td><td>80</td><td>85</td><td>88</td><td>40</td><td>65</td><td>92</td><td>76</td><td><span class="badge-v bv-wa" style="font-size:10px;padding:3px 8px;">WATCH</span></td><td><span class="badge-v bv-no" style="font-size:10px;padding:3px 8px;">NO_TRADE</span></td><td style="color:#48bb78">67.1</td><td>54.8</td><td style="font-family:monospace">$0.362200</td><td style="font-family:monospace;color:#fc8181">$0.345729</td><td style="font-family:monospace;color:#68d391">$0.355724</td><td>7.05</td></tr><tr><td>8</td><td style="font-weight:700">DOOD</td><td>S6</td><td style="font-weight:600;color:#48bb78">76.3</td><td style="color:#fc8181">-0.61</td><td>85</td><td>85</td><td>88</td><td>40</td><td>51</td><td>92</td><td>76</td><td><span class="badge-v bv-wa" style="font-size:10px;padding:3px 8px;">WATCH</span></td><td><span class="badge-v bv-no" style="font-size:10px;padding:3px 8px;">NO_TRADE</span></td><td style="color:#fc8181">27.0</td><td>53.2</td><td style="font-family:monospace">$0.003251</td><td style="font-family:monospace;color:#fc8181">$0.003151</td><td style="font-family:monospace;color:#68d391">$0.003190</td><td>7.05</td></tr><tr><td>9</td><td style="font-weight:700">MOODENG</td><td>S6</td><td style="font-weight:600;color:#48bb78">76.3</td><td style="color:#fc8181">-0.20</td><td>85</td><td>85</td><td>88</td><td>40</td><td>51</td><td>92</td><td>76</td><td><span class="badge-v bv-wa" style="font-size:10px;padding:3px 8px;">WATCH</span></td><td><span class="badge-v bv-no" style="font-size:10px;padding:3px 8px;">NO_TRADE</span></td><td style="color:#fc8181">16.7</td><td>56.0</td><td style="font-family:monospace">$0.063690</td><td style="font-family:monospace;color:#fc8181">$0.061891</td><td style="font-family:monospace;color:#68d391">$0.063331</td><td>7.61</td></tr><tr><td>10</td><td style="font-weight:700">ZORA</td><td>S6</td><td style="font-weight:600;color:#48bb78">76.3</td><td style="color:#fc8181">-0.52</td><td>85</td><td>85</td><td>88</td><td>40</td><td>51</td><td>92</td><td>76</td><td><span class="badge-v bv-wa" style="font-size:10px;padding:3px 8px;">WATCH</span></td><td><span class="badge-v bv-no" style="font-size:10px;padding:3px 8px;">NO_TRADE</span></td><td style="color:#fc8181">4.9</td><td>47.9</td><td style="font-family:monospace">$0.013000</td><td style="font-family:monospace;color:#fc8181">$0.012431</td><td style="font-family:monospace;color:#68d391">$0.012703</td><td>4.95</td></tr><tr><td>11</td><td style="font-weight:700">CLANKER</td><td>S6</td><td style="font-weight:600;color:#48bb78">76.1</td><td style="color:#fc8181">-1.25</td><td>85</td><td>68</td><td>88</td><td>40</td><td>65</td><td>92</td><td>76</td><td><span class="badge-v bv-wa" style="font-size:10px;padding:3px 8px;">WATCH</span></td><td><span class="badge-v bv-no" style="font-size:10px;padding:3px 8px;">NO_TRADE</span></td><td style="color:#fc8181">3.9</td><td>51.8</td><td style="font-family:monospace">$25.5500</td><td style="font-family:monospace;color:#fc8181">$24.6771</td><td style="font-family:monospace;color:#68d391">$24.4573</td><td>7.05</td></tr><tr><td>12</td><td style="font-weight:700">ACU</td><td>S6</td><td style="font-weight:600;color:#48bb78">76.1</td><td style="color:#fc8181">-0.25</td><td>85</td><td>68</td><td>88</td><td>40</td><td>65</td><td>92</td><td>76</td><td><span class="badge-v bv-wa" style="font-size:10px;padding:3px 8px;">WATCH</span></td><td><span class="badge-v bv-no" style="font-size:10px;padding:3px 8px;">NO_TRADE</span></td><td style="color:#fc8181">37.2</td><td>54.8</td><td style="font-family:monospace">$0.113440</td><td style="font-family:monospace;color:#fc8181">$0.108420</td><td style="font-family:monospace;color:#68d391">$0.112205</td><td>6.52</td></tr><tr><td>13</td><td style="font-weight:700">SPX</td><td>S6</td><td style="font-weight:600;color:#48bb78">76.1</td><td style="color:#fc8181">-0.89</td><td>85</td><td>68</td><td>88</td><td>40</td><td>65</td><td>92</td><td>76</td><td><span class="badge-v bv-wa" style="font-size:10px;padding:3px 8px;">WATCH</span></td><td><span class="badge-v bv-no" style="font-size:10px;padding:3px 8px;">NO_TRADE</span></td><td style="color:#ecc94b">54.6</td><td>57.1</td><td style="font-family:monospace">$0.403900</td><td style="font-family:monospace;color:#fc8181">$0.393829</td><td style="font-family:monospace;color:#68d391">$0.394960</td><td>7.78</td></tr><tr><td>14</td><td style="font-weight:700">FARTCOIN</td><td>S6</td><td style="font-weight:600;color:#48bb78">76.1</td><td style="color:#fc8181">-0.67</td><td>85</td><td>68</td><td>88</td><td>40</td><td>65</td><td>92</td><td>76</td><td><span class="badge-v bv-wa" style="font-size:10px;padding:3px 8px;">WATCH</span></td><td><span class="badge-v bv-no" style="font-size:10px;padding:3px 8px;">NO_TRADE</span></td><td style="color:#48bb78">67.1</td><td>55.3</td><td style="font-family:monospace">$0.221500</td><td style="font-family:monospace;color:#fc8181">$0.211457</td><td style="font-family:monospace;color:#68d391">$0.214745</td><td>8.13</td></tr><tr><td>15</td><td style="font-weight:700">BLUAI</td><td>S6</td><td style="font-weight:600;color:#48bb78">76.1</td><td style="color:#fc8181">0.02</td><td>85</td><td>68</td><td>88</td><td>40</td><td>65</td><td>92</td><td>76</td><td><span class="badge-v bv-wa" style="font-size:10px;padding:3px 8px;">WATCH</span></td><td><span class="badge-v bv-no" style="font-size:10px;padding:3px 8px;">NO_TRADE</span></td><td style="color:#fc8181">28.7</td><td>58.5</td><td style="font-family:monospace">$0.014974</td><td style="font-family:monospace;color:#fc8181">$0.014438</td><td style="font-family:monospace;color:#68d391">$0.014987</td><td>8.65</td></tr><tr><td>16</td><td style="font-weight:700">RESOLV</td><td>S6</td><td style="font-weight:600;color:#48bb78">75.1</td><td style="color:#fc8181">-0.13</td><td>80</td><td>85</td><td>88</td><td>40</td><td>51</td><td>92</td><td>76</td><td><span class="badge-v bv-wa" style="font-size:10px;padding:3px 8px;">WATCH</span></td><td><span class="badge-v bv-no" style="font-size:10px;padding:3px 8px;">NO_TRADE</span></td><td style="color:#ecc94b">47.6</td><td>44.7</td><td style="font-family:monospace">$0.031150</td><td style="font-family:monospace;color:#fc8181">$0.027621</td><td style="font-family:monospace;color:#68d391">$0.030678</td><td>6.00</td></tr><tr><td>17</td><td style="font-weight:700">JELLYJELLY</td><td>S6</td><td style="font-weight:600;color:#48bb78">75.1</td><td style="color:#fc8181">-0.05</td><td>80</td><td>85</td><td>88</td><td>40</td><td>51</td><td>92</td><td>76</td><td><span class="badge-v bv-wa" style="font-size:10px;padding:3px 8px;">WATCH</span></td><td><span class="badge-v bv-no" style="font-size:10px;padding:3px 8px;">NO_TRADE</span></td><td style="color:#fc8181">34.9</td><td>54.5</td><td style="font-family:monospace">$0.055010</td><td style="font-family:monospace;color:#fc8181">$0.050189</td><td style="font-family:monospace;color:#68d391">$0.054790</td><td>7.40</td></tr><tr><td>18</td><td style="font-weight:700">ESPORTS</td><td>S6</td><td style="font-weight:600;color:#48bb78">74.6</td><td style="color:#fc8181">-0.16</td><td>85</td><td>85</td><td>88</td><td>40</td><td>38</td><td>92</td><td>76</td><td><span class="badge-v bv-wa" style="font-size:10px;padding:3px 8px;">WATCH</span></td><td><span class="badge-v bv-no" style="font-size:10px;padding:3px 8px;">NO_TRADE</span></td><td style="color:#fc8181">5.9</td><td>49.8</td><td style="font-family:monospace">$0.400600</td><td style="font-family:monospace;color:#fc8181">$0.368019</td><td style="font-family:monospace;color:#68d391">$0.395256</td><td>6.70</td></tr><tr><td>19</td><td style="font-weight:700">OPN</td><td>S6</td><td style="font-weight:600;color:#48bb78">74.3</td><td style="color:#fc8181">-0.27</td><td>85</td><td>68</td><td>88</td><td>40</td><td>51</td><td>92</td><td>76</td><td><span class="badge-v bv-wa" style="font-size:10px;padding:3px 8px;">WATCH</span></td><td><span class="badge-v bv-no" style="font-size:10px;padding:3px 8px;">NO_TRADE</span></td><td style="color:#fc8181">42.6</td><td>49.9</td><td style="font-family:monospace">$0.182600</td><td style="font-family:monospace;color:#fc8181">$0.166571</td><td style="font-family:monospace;color:#68d391">$0.178206</td><td>6.87</td></tr><tr><td>20</td><td style="font-weight:700">INX</td><td>S6</td><td style="font-weight:600;color:#48bb78">74.3</td><td style="color:#fc8181">0.01</td><td>80</td><td>85</td><td>88</td><td>65</td><td>38</td><td>92</td><td>64</td><td><span class="badge-v bv-wa" style="font-size:10px;padding:3px 8px;">WATCH</span></td><td><span class="badge-v bv-no" style="font-size:10px;padding:3px 8px;">NO_TRADE</span></td><td style="color:#fc8181">23.2</td><td>48.6</td><td style="font-family:monospace">$0.010173</td><td style="font-family:monospace;color:#fc8181">$0.009577</td><td style="font-family:monospace;color:#68d391">$0.010178</td><td>6.70</td></tr><tr><td>21</td><td style="font-weight:700">PUMPBTC</td><td>S6</td><td style="font-weight:600;color:#48bb78">73.5</td><td style="color:#fc8181">-0.44</td><td>80</td><td>85</td><td>88</td><td>40</td><td>51</td><td>92</td><td>64</td><td><span class="badge-v bv-wa" style="font-size:10px;padding:3px 8px;">WATCH</span></td><td><span class="badge-v bv-no" style="font-size:10px;padding:3px 8px;">NO_TRADE</span></td><td style="color:#48bb78">57.8</td><td>50.3</td><td style="font-family:monospace">$0.016470</td><td style="font-family:monospace;color:#fc8181">$0.015127</td><td style="font-family:monospace;color:#68d391">$0.015879</td><td>7.05</td></tr><tr><td>22</td><td style="font-weight:700">PARTI</td><td>S6</td><td style="font-weight:600;color:#48bb78">73.1</td><td style="color:#fc8181">0.57</td><td>75</td><td>68</td><td>88</td><td>65</td><td>88</td><td>52</td><td>76</td><td><span class="badge-v bv-wa" style="font-size:10px;padding:3px 8px;">WATCH</span></td><td><span class="badge-v bv-no" style="font-size:10px;padding:3px 8px;">NO_TRADE</span></td><td style="color:#fc8181">37.2</td><td>44.6</td><td style="font-family:monospace">$0.050970</td><td style="font-family:monospace;color:#fc8181">$0.046911</td><td style="font-family:monospace;color:#68d391">$0.053279</td><td>5.47</td></tr><tr><td>23</td><td style="font-weight:700">PRL</td><td>S6</td><td style="font-weight:600;color:#48bb78">72.6</td><td style="color:#fc8181">0.64</td><td>80</td><td>80</td><td>88</td><td>65</td><td>38</td><td>74</td><td>76</td><td><span class="badge-v bv-wa" style="font-size:10px;padding:3px 8px;">WATCH</span></td><td><span class="badge-v bv-no" style="font-size:10px;padding:3px 8px;">NO_TRADE</span></td><td style="color:#fc8181">5.6</td><td>54.0</td><td style="font-family:monospace">$0.292600</td><td style="font-family:monospace;color:#fc8181">$0.267557</td><td style="font-family:monospace;color:#68d391">$0.308566</td><td>7.61</td></tr><tr><td>24</td><td style="font-weight:700">ARIA</td><td>S6</td><td style="font-weight:600;color:#ecc94b">71.8</td><td style="color:#fc8181">-0.13</td><td>80</td><td>85</td><td>88</td><td>40</td><td>38</td><td>92</td><td>64</td><td><span class="badge-v bv-wa" style="font-size:10px;padding:3px 8px;">WATCH</span></td><td><span class="badge-v bv-no" style="font-size:10px;padding:3px 8px;">NO_TRADE</span></td><td style="color:#fc8181">11.9</td><td>45.5</td><td style="font-family:monospace">$0.060500</td><td style="font-family:monospace;color:#fc8181">$0.055919</td><td style="font-family:monospace;color:#68d391">$0.059915</td><td>6.70</td></tr><tr><td>25</td><td style="font-weight:700">FIGHT</td><td>S6</td><td style="font-weight:600;color:#ecc94b">71.1</td><td style="color:#fc8181">0.37</td><td>85</td><td>85</td><td>38</td><td>65</td><td>38</td><td>92</td><td>76</td><td><span class="badge-v bv-wa" style="font-size:10px;padding:3px 8px;">WATCH</span></td><td><span class="badge-v bv-no" style="font-size:10px;padding:3px 8px;">NO_TRADE</span></td><td style="color:#fc8181">8.2</td><td>55.4</td><td style="font-family:monospace">$0.004621</td><td style="font-family:monospace;color:#fc8181">$0.004214</td><td style="font-family:monospace;color:#68d391">$0.004771</td><td>9.88</td></tr><tr><td>26</td><td style="font-weight:700">LAB</td><td>S6</td><td style="font-weight:600;color:#ecc94b">71.0</td><td style="color:#ecc94b">1.00</td><td>75</td><td>85</td><td>88</td><td>40</td><td>95</td><td>35</td><td>76</td><td><span class="badge-v bv-by" style="font-size:10px;padding:3px 8px;">BUY</span></td><td><span class="badge-v bv-no" style="font-size:10px;padding:3px 8px;">NO_TRADE</span></td><td style="color:#fc8181">31.1</td><td>60.2</td><td style="font-family:monospace">$2.4783</td><td style="font-family:monospace;color:#fc8181">$2.4589</td><td style="font-family:monospace;color:#68d391">$2.4977</td><td>9.00</td></tr><tr><td>27</td><td style="font-weight:700">PLAY</td><td>S6</td><td style="font-weight:600;color:#ecc94b">71.0</td><td style="color:#fc8181">0.93</td><td>70</td><td>85</td><td>88</td><td>82</td><td>65</td><td>52</td><td>64</td><td><span class="badge-v bv-wa" style="font-size:10px;padding:3px 8px;">WATCH</span></td><td><span class="badge-v bv-no" style="font-size:10px;padding:3px 8px;">NO_TRADE</span></td><td style="color:#fc8181">1.1</td><td>52.0</td><td style="font-family:monospace">$0.104960</td><td style="font-family:monospace;color:#fc8181">$0.098180</td><td style="font-family:monospace;color:#68d391">$0.111265</td><td>6.35</td></tr><tr><td>28</td><td style="font-weight:700">MAGMA</td><td>S6</td><td style="font-weight:600;color:#ecc94b">68.3</td><td style="color:#fc8181">0.96</td><td>80</td><td>80</td><td>38</td><td>82</td><td>38</td><td>74</td><td>76</td><td><span class="badge-v bv-wa" style="font-size:10px;padding:3px 8px;">WATCH</span></td><td><span class="badge-v bv-no" style="font-size:10px;padding:3px 8px;">NO_TRADE</span></td><td style="color:#fc8181">0.7</td><td>53.4</td><td style="font-family:monospace">$0.237370</td><td style="font-family:monospace;color:#fc8181">$0.217607</td><td style="font-family:monospace;color:#68d391">$0.256290</td><td>6.00</td></tr><tr><td>29</td><td style="font-weight:700">SKYAI</td><td>S6</td><td style="font-weight:600;color:#ecc94b">66.0</td><td style="color:#ecc94b">1.00</td><td>75</td><td>68</td><td>88</td><td>40</td><td>72</td><td>35</td><td>76</td><td><span class="badge-v bv-by" style="font-size:10px;padding:3px 8px;">BUY</span></td><td><span class="badge-v bv-no" style="font-size:10px;padding:3px 8px;">NO_TRADE</span></td><td style="color:#fc8181">37.2</td><td>62.3</td><td style="font-family:monospace">$0.734230</td><td style="font-family:monospace;color:#fc8181">$0.721099</td><td style="font-family:monospace;color:#68d391">$0.747361</td><td>8.65</td></tr><tr><td>30</td><td style="font-weight:700">XPL</td><td>S6</td><td style="font-weight:600;color:#ecc94b">63.7</td><td style="color:#fc8181">-0.18</td><td>75</td><td>85</td><td>88</td><td>40</td><td>51</td><td>35</td><td>64</td><td><span class="badge-v bv-wa" style="font-size:10px;padding:3px 8px;">WATCH</span></td><td><span class="badge-v bv-no" style="font-size:10px;padding:3px 8px;">NO_TRADE</span></td><td style="color:#fc8181">27.0</td><td>46.5</td><td style="font-family:monospace">$0.091900</td><td style="font-family:monospace;color:#fc8181">$0.086664</td><td style="font-family:monospace;color:#68d391">$0.090940</td><td>4.95</td></tr><tr><td>31</td><td style="font-weight:700">CFG</td><td>S6</td><td style="font-weight:600;color:#ecc94b">63.6</td><td style="color:#fc8181">-1.44</td><td>75</td><td>35</td><td>88</td><td>40</td><td>65</td><td>52</td><td>76</td><td><span class="badge-v bv-wa" style="font-size:10px;padding:3px 8px;">WATCH</span></td><td><span class="badge-v bv-no" style="font-size:10px;padding:3px 8px;">NO_TRADE</span></td><td style="color:#fc8181">14.7</td><td>58.4</td><td style="font-family:monospace">$0.251900</td><td style="font-family:monospace;color:#fc8181">$0.238343</td><td style="font-family:monospace;color:#68d391">$0.232417</td><td>7.78</td></tr><tr><td>32</td><td style="font-weight:700">VVV</td><td>S6</td><td style="font-weight:600;color:#ecc94b">63.2</td><td style="color:#fc8181">-0.59</td><td>75</td><td>68</td><td>88</td><td>40</td><td>51</td><td>35</td><td>76</td><td><span class="badge-v bv-wa" style="font-size:10px;padding:3px 8px;">WATCH</span></td><td><span class="badge-v bv-no" style="font-size:10px;padding:3px 8px;">NO_TRADE</span></td><td style="color:#fc8181">14.7</td><td>56.5</td><td style="font-family:monospace">$9.9360</td><td style="font-family:monospace;color:#fc8181">$9.2707</td><td style="font-family:monospace;color:#68d391">$9.5433</td><td>8.83</td></tr><tr><td>33</td><td style="font-weight:700">ESP</td><td>S6</td><td style="font-weight:600;color:#ecc94b">62.8</td><td style="color:#fc8181">-0.62</td><td>70</td><td>68</td><td>88</td><td>40</td><td>38</td><td>52</td><td>76</td><td><span class="badge-v bv-wa" style="font-size:10px;padding:3px 8px;">WATCH</span></td><td><span class="badge-v bv-no" style="font-size:10px;padding:3px 8px;">NO_TRADE</span></td><td style="color:#fc8181">14.7</td><td>49.3</td><td style="font-family:monospace">$0.070760</td><td style="font-family:monospace;color:#fc8181">$0.067199</td><td style="font-family:monospace;color:#68d391">$0.068551</td><td>6.17</td></tr></tbody></table></div></div></div>
 <div class="footer">
-  CryptoAlpha Deep Analysis Engine v2.0 | Generated 2026-05-05 23:00 BJT
-  <br>Data: Binance Futures API | Algo: Monte Carlo + Bayesian + GARCH + VaR/CVaR + Kelly
-  <br>&#x26A0;&#xFE0F; This is NOT financial advice. DYOR.
-</div>
-</div></body></html>
+CryptoAlpha Engine v4.0 | Generated 2026-05-05 23:11 BJT<br>
+Data: Binance Futures API | Algo: MC + Bayesian + GARCH + VaR/CVaR + Kelly<br>
+&#x26A0;&#xFE0F; NOT financial advice. DYOR.
+</div></div>
+
+<script>
+function switchTab(tab,btn){
+document.querySelectorAll('.tab-panel').forEach(function(p){p.classList.remove('active')});
+document.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('active')});
+document.getElementById('panel-'+tab).classList.add('active');
+btn.classList.add('active');
+}
+// Auto-parse URL hash for tab switching
+if(window.location.hash==='#deep'){switchTab(document.querySelector('[onclick*=deep]'));}
+</script>
+</body></html>
