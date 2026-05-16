@@ -65,6 +65,7 @@ body {
   background: var(--accent-light); color: #A78BFA;
 }
 .nav-badge.hot { background: var(--red-bg); color: var(--red); }
+.nav-badge.green { background: var(--green-bg); color: var(--green); }
 
 /* KPI Row */
 .kpi-row {
@@ -154,12 +155,26 @@ tr:hover td { background: var(--bg-hover); }
 .section-count { font-size: 12px; color: var(--text-secondary); }
 .section-count span { color: var(--text); font-weight: 600; }
 
+/* Sim trade */
+.sim-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 24px; }
+.sim-section { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; }
+.sim-section-title { font-size: 15px; font-weight: 700; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+.sim-kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 16px; }
+.sim-kpi { background: var(--bg-hover); border-radius: var(--radius); padding: 12px; text-align: center; }
+.sim-kpi-val { font-size: 20px; font-weight: 700; }
+.sim-kpi-label { font-size: 10px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: .5px; margin-top: 2px; }
+.equity-sparkline { display: flex; align-items: flex-end; gap: 2px; height: 60px; padding: 4px 0; }
+.equity-bar { flex: 1; min-width: 2px; border-radius: 1px 1px 0 0; background: var(--accent); opacity: 0.7; }
+.equity-bar.up { background: var(--green); }
+.equity-bar.down { background: var(--red); }
+
 /* Responsive */
 @media (max-width: 768px) {
   body { padding: 0 12px 24px; }
   .kpi-row { grid-template-columns: repeat(2, 1fr); }
   .nav { gap: 0; overflow-x: auto; margin: 16px -12px 20px; padding: 0 12px; }
   .nav a { padding: 10px 12px; font-size: 12px; }
+  .sim-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 480px) {
   .kpi-row { grid-template-columns: 1fr 1fr; }
@@ -171,13 +186,14 @@ tr:hover td { background: var(--bg-hover); }
 <div class="header-logo">C</div>
 <div><div class="header-title">Crypto Alpha</div><div class="header-sub">多周期OI矩阵 + 深度分析</div></div>
 </div>
-<div class="header-time">生成时间<br><strong>2026-05-16 16:02 BJT</strong></div>
+<div class="header-time">生成时间<br><strong>2026-05-16 16:29 BJT</strong></div>
 </div>
 <nav class="nav">
 <a href="#scan" class="active" onclick="switchTab('scan')">扫描 <span class="nav-badge">531</span></a>
 <a href="#deep" class="" onclick="switchTab('deep')">深度 </a>
 <a href="#watch" class="" onclick="switchTab('watch')">观察 <span class="nav-badge">44</span></a>
 <a href="#opp" class="" onclick="switchTab('opp')">机会 <span class="nav-badge hot">15</span></a>
+<a href="#sim" class="" onclick="switchTab('sim')">模拟 <span class="nav-badge">16</span></a>
 <a href="#status" class="" onclick="switchTab('status')">状态 <span class="nav-badge">0</span></a>
 </nav>
 <div class="kpi-row"><div class="kpi"><div class="kpi-label">代币</div><div class="kpi-value">496</div><div class="kpi-sub">/ 531 已扫描</div></div><div class="kpi"><div class="kpi-label">信号</div><div class="kpi-value">20</div><div class="kpi-sub">S1:3 S2:1 S6:15</div></div><div class="kpi"><div class="kpi-label">观察池</div><div class="kpi-value">44</div><div class="kpi-sub">追踪中</div></div><div class="kpi"><div class="kpi-label">机会池</div><div class="kpi-value" style="color:var(--red)">15</div><div class="kpi-sub">待入场</div></div></div>
@@ -5750,7 +5766,7 @@ tr:hover td { background: var(--bg-hover); }
 <tr>
 <td><strong>HEMI</strong></td>
 <td style="color:var(--text-muted);font-size:11px">2026-05-15 08:02</td>
-<td>1.3天</td>
+<td>1.4天</td>
 <td><span class="scene-badge scene-S6">S6</span></td>
 <td style="font-family:var(--mono)">0.008469</td>
 <td style="font-family:var(--mono)">0.008321</td>
@@ -6102,7 +6118,7 @@ tr:hover td { background: var(--bg-hover); }
 <tr>
 <td><strong>LYN</strong></td>
 <td style="color:var(--text-muted);font-size:11px">2026-05-15 08:02</td>
-<td>1.3天</td>
+<td>1.4天</td>
 <td><span class="scene-badge scene-S6">S6</span></td>
 <td style="font-family:var(--mono)">0.049570</td>
 <td style="font-family:var(--mono)">0.050950</td>
@@ -6493,6 +6509,204 @@ tr:hover td { background: var(--bg-hover); }
 </div>
 </div>
 </div>
+<div id="tab-sim" class="tab-panel" style="display:none">
+<div class="sim-grid">
+<div class="sim-section">
+<div class="sim-section-title"><span style="color:var(--accent)">观察池模拟</span><span style="font-size:12px;color:var(--text-muted)">2026-05-15 00:26</span></div>
+<div class="sim-kpis"><div class="sim-kpi"><div class="sim-kpi-val" style="color:var(--green)"> +3.9U</div><div class="sim-kpi-label">总盈亏</div></div><div class="sim-kpi"><div class="sim-kpi-val" style="color:var(--green)"> +0.4%</div><div class="sim-kpi-label">收益率</div></div><div class="sim-kpi"><div class="sim-kpi-val">1003.9U</div><div class="sim-kpi-label">净值 (可用2U)</div></div><div class="sim-kpi"><div class="sim-kpi-val">13</div><div class="sim-kpi-label">持仓中</div></div><div class="sim-kpi"><div class="sim-kpi-val">0</div><div class="sim-kpi-label">总交易</div></div><div class="sim-kpi"><div class="sim-kpi-val" style="color:var(--red)">0%</div><div class="sim-kpi-label">胜率</div></div></div>
+<div style="margin-bottom:12px;font-size:11px;color:var(--text-secondary)">净值曲线 (72h)</div><div class="equity-sparkline"><div class="equity-bar up" style="height:4px" title="1000.0U"></div><div class="equity-bar up" style="height:4px" title="1000.0U"></div><div class="equity-bar up" style="height:4px" title="1000.0U"></div><div class="equity-bar up" style="height:4px" title="1000.0U"></div><div class="equity-bar up" style="height:4px" title="1000.0U"></div><div class="equity-bar up" style="height:4px" title="1000.0U"></div><div class="equity-bar up" style="height:4px" title="1000.0U"></div><div class="equity-bar up" style="height:4px" title="1000.0U"></div><div class="equity-bar up" style="height:4px" title="1000.0U"></div><div class="equity-bar up" style="height:4px" title="1000.0U"></div><div class="equity-bar up" style="height:4px" title="1000.0U"></div><div class="equity-bar up" style="height:4px" title="1000.0U"></div><div class="equity-bar up" style="height:4px" title="1000.0U"></div></div>
+<div style="font-size:13px;font-weight:600;margin:16px 0 8px;color:var(--text-secondary)">当前持仓</div>
+<div class="table-wrap"><table>
+<thead><tr><th>代币</th><th>入场价</th><th>现价</th><th>数量</th><th>保证金</th><th>未实现盈亏</th><th>止损</th><th>止盈</th><th>场景</th></tr></thead><tbody>
+<tr>
+<td><strong>CLO</strong></td>
+<td style="font-family:var(--mono)">0.109890</td>
+<td style="font-family:var(--mono)">0.112140</td>
+<td>1807</td>
+<td>66U</td>
+<td style="color:var(--green);font-weight:600">+4.07U (+6.1%)</td>
+<td style="font-family:var(--mono);color:var(--red)">0.101749</td>
+<td style="font-family:var(--mono);color:var(--green)">0.125011</td>
+<td>S6</td>
+</tr>
+<tr>
+<td><strong>TAIKO</strong></td>
+<td style="font-family:var(--mono)">0.117500</td>
+<td style="font-family:var(--mono)">0.118400</td>
+<td>1871</td>
+<td>73U</td>
+<td style="color:var(--green);font-weight:600">+1.68U (+2.3%)</td>
+<td style="font-family:var(--mono);color:var(--red)">0.116017</td>
+<td style="font-family:var(--mono);color:var(--green)">0.121043</td>
+<td>S2</td>
+</tr>
+<tr>
+<td><strong>MANA</strong></td>
+<td style="font-family:var(--mono)">0.095200</td>
+<td style="font-family:var(--mono)">0.095700</td>
+<td>2530</td>
+<td>80U</td>
+<td style="color:var(--green);font-weight:600">+1.27U (+1.6%)</td>
+<td style="font-family:var(--mono);color:var(--red)">0.093828</td>
+<td style="font-family:var(--mono);color:var(--green)">0.098414</td>
+<td>S2</td>
+</tr>
+<tr>
+<td><strong>KAITO</strong></td>
+<td style="font-family:var(--mono)">0.470000</td>
+<td style="font-family:var(--mono)">0.465000</td>
+<td>626</td>
+<td>98U</td>
+<td style="color:var(--red);font-weight:600">-3.13U (-3.2%)</td>
+<td style="font-family:var(--mono);color:var(--red)">0.450238</td>
+<td style="font-family:var(--mono);color:var(--green)">0.492000</td>
+<td>S6</td>
+</tr>
+<tr>
+<td><strong>MANTRA</strong></td>
+<td style="font-family:var(--mono)">0.010920</td>
+<td style="font-family:var(--mono)">0.010920</td>
+<td>21071</td>
+<td>77U</td>
+<td style="color:var(--green);font-weight:600">+0.00U (+0.0%)</td>
+<td style="font-family:var(--mono);color:var(--red)">0.010428</td>
+<td style="font-family:var(--mono);color:var(--green)">0.011501</td>
+<td>S6</td>
+</tr>
+<tr>
+<td><strong>GRASS</strong></td>
+<td style="font-family:var(--mono)">0.337000</td>
+<td style="font-family:var(--mono)">0.337000</td>
+<td>589</td>
+<td>66U</td>
+<td style="color:var(--green);font-weight:600">+0.00U (+0.0%)</td>
+<td style="font-family:var(--mono);color:var(--red)">0.317703</td>
+<td style="font-family:var(--mono);color:var(--green)">0.359843</td>
+<td>S6</td>
+</tr>
+<tr>
+<td><strong>EDU</strong></td>
+<td style="font-family:var(--mono)">0.051030</td>
+<td style="font-family:var(--mono)">0.051030</td>
+<td>3692</td>
+<td>63U</td>
+<td style="color:var(--green);font-weight:600">+0.00U (+0.0%)</td>
+<td style="font-family:var(--mono);color:var(--red)">0.048307</td>
+<td style="font-family:var(--mono);color:var(--green)">0.054270</td>
+<td>S6</td>
+</tr>
+<tr>
+<td><strong>OPG</strong></td>
+<td style="font-family:var(--mono)">0.270800</td>
+<td style="font-family:var(--mono)">0.270800</td>
+<td>850</td>
+<td>77U</td>
+<td style="color:var(--green);font-weight:600">+0.00U (+0.0%)</td>
+<td style="font-family:var(--mono);color:var(--red)">0.244770</td>
+<td style="font-family:var(--mono);color:var(--green)">0.305786</td>
+<td>S1</td>
+</tr>
+<tr>
+<td><strong>EPIC</strong></td>
+<td style="font-family:var(--mono)">0.321800</td>
+<td style="font-family:var(--mono)">0.321800</td>
+<td>715</td>
+<td>77U</td>
+<td style="color:var(--green);font-weight:600">+0.00U (+0.0%)</td>
+<td style="font-family:var(--mono);color:var(--red)">0.301187</td>
+<td style="font-family:var(--mono);color:var(--green)">0.350571</td>
+<td>S6</td>
+</tr>
+<tr>
+<td><strong>DOLO</strong></td>
+<td style="font-family:var(--mono)">0.035340</td>
+<td style="font-family:var(--mono)">0.035340</td>
+<td>8328</td>
+<td>98U</td>
+<td style="color:var(--green);font-weight:600">+0.00U (+0.0%)</td>
+<td style="font-family:var(--mono);color:var(--red)">0.033800</td>
+<td style="font-family:var(--mono);color:var(--green)">0.038305</td>
+<td>S6</td>
+</tr>
+<tr>
+<td><strong>VELODROME</strong></td>
+<td style="font-family:var(--mono)">0.017470</td>
+<td style="font-family:var(--mono)">0.017470</td>
+<td>11368</td>
+<td>66U</td>
+<td style="color:var(--green);font-weight:600">+0.00U (+0.0%)</td>
+<td style="font-family:var(--mono);color:var(--red)">0.016447</td>
+<td style="font-family:var(--mono);color:var(--green)">0.018713</td>
+<td>S6</td>
+</tr>
+<tr>
+<td><strong>H</strong></td>
+<td style="font-family:var(--mono)">0.243270</td>
+<td style="font-family:var(--mono)">0.243270</td>
+<td>1120</td>
+<td>91U</td>
+<td style="color:var(--green);font-weight:600">+0.00U (+0.0%)</td>
+<td style="font-family:var(--mono);color:var(--red)">0.222353</td>
+<td style="font-family:var(--mono);color:var(--green)">0.269579</td>
+<td>S6</td>
+</tr>
+<tr>
+<td><strong>HAEDAL</strong></td>
+<td style="font-family:var(--mono)">0.035170</td>
+<td style="font-family:var(--mono)">0.035170</td>
+<td>5647</td>
+<td>66U</td>
+<td style="color:var(--green);font-weight:600">+0.00U (+0.0%)</td>
+<td style="font-family:var(--mono);color:var(--red)">0.033711</td>
+<td style="font-family:var(--mono);color:var(--green)">0.036851</td>
+<td>S6</td>
+</tr>
+</tbody></table></div>
+</div>
+<div class="sim-section">
+<div class="sim-section-title"><span style="color:var(--red)">机会池模拟</span><span style="font-size:12px;color:var(--text-muted)">2026-05-15 00:26</span></div>
+<div class="sim-kpis"><div class="sim-kpi"><div class="sim-kpi-val" style="color:var(--green)"> +7.0U</div><div class="sim-kpi-label">总盈亏</div></div><div class="sim-kpi"><div class="sim-kpi-val" style="color:var(--green)"> +0.7%</div><div class="sim-kpi-label">收益率</div></div><div class="sim-kpi"><div class="sim-kpi-val">1007.0U</div><div class="sim-kpi-label">净值 (可用780U)</div></div><div class="sim-kpi"><div class="sim-kpi-val">3</div><div class="sim-kpi-label">持仓中</div></div><div class="sim-kpi"><div class="sim-kpi-val">0</div><div class="sim-kpi-label">总交易</div></div><div class="sim-kpi"><div class="sim-kpi-val" style="color:var(--red)">0%</div><div class="sim-kpi-label">胜率</div></div></div>
+<div style="margin-bottom:12px;font-size:11px;color:var(--text-secondary)">净值曲线 (72h)</div><div class="equity-sparkline"><div class="equity-bar up" style="height:4px" title="1000.0U"></div><div class="equity-bar up" style="height:4px" title="1000.0U"></div><div class="equity-bar up" style="height:4px" title="1000.0U"></div></div>
+<div style="font-size:13px;font-weight:600;margin:16px 0 8px;color:var(--text-secondary)">当前持仓</div>
+<div class="table-wrap"><table>
+<thead><tr><th>代币</th><th>入场价</th><th>现价</th><th>数量</th><th>保证金</th><th>未实现盈亏</th><th>止损</th><th>止盈</th><th>场景</th></tr></thead><tbody>
+<tr>
+<td><strong>CLO</strong></td>
+<td style="font-family:var(--mono)">0.109890</td>
+<td style="font-family:var(--mono)">0.112140</td>
+<td>1807</td>
+<td>66U</td>
+<td style="color:var(--green);font-weight:600">+4.07U (+6.1%)</td>
+<td style="font-family:var(--mono);color:var(--red)">0.101749</td>
+<td style="font-family:var(--mono);color:var(--green)">0.125011</td>
+<td>S6</td>
+</tr>
+<tr>
+<td><strong>TAIKO</strong></td>
+<td style="font-family:var(--mono)">0.117500</td>
+<td style="font-family:var(--mono)">0.118400</td>
+<td>1871</td>
+<td>73U</td>
+<td style="color:var(--green);font-weight:600">+1.68U (+2.3%)</td>
+<td style="font-family:var(--mono);color:var(--red)">0.116017</td>
+<td style="font-family:var(--mono);color:var(--green)">0.121043</td>
+<td>S2</td>
+</tr>
+<tr>
+<td><strong>MANA</strong></td>
+<td style="font-family:var(--mono)">0.095200</td>
+<td style="font-family:var(--mono)">0.095700</td>
+<td>2530</td>
+<td>80U</td>
+<td style="color:var(--green);font-weight:600">+1.27U (+1.6%)</td>
+<td style="font-family:var(--mono);color:var(--red)">0.093828</td>
+<td style="font-family:var(--mono);color:var(--green)">0.098414</td>
+<td>S2</td>
+</tr>
+</tbody></table></div>
+</div>
+</div>
+</div>
 <div id="tab-status" class="tab-panel" style="display:none">
 <div class="status-grid">
 <div class="status-card"><div class="status-title">数据文件</div>
@@ -6502,6 +6716,8 @@ tr:hover td { background: var(--bg-hover); }
 <div class="status-item"><span class="status-label">观察池</span><span class="status-val" style="color:var(--green)">163.8 KB</span></div>
 <div class="status-item"><span class="status-label">观察扫描</span><span class="status-val" style="color:var(--green)">8.1 KB</span></div>
 <div class="status-item"><span class="status-label">机会池</span><span class="status-val" style="color:var(--green)">41.3 KB</span></div>
+<div class="status-item"><span class="status-label">模拟-观察</span><span class="status-val" style="color:var(--green)">7.5 KB</span></div>
+<div class="status-item"><span class="status-label">模拟-机会</span><span class="status-val" style="color:var(--green)">1.9 KB</span></div>
 </div>
 <div class="status-card"><div class="status-title">最近运行</div>
 <div class="status-item"><span class="status-label">全量扫描</span><span class="status-val">2026-05-16 16:02</span></div>
@@ -6511,7 +6727,7 @@ tr:hover td { background: var(--bg-hover); }
 <div class="status-item"><span class="status-label">机会池</span><span class="status-val">更新: 2026-05-16 16:02</span></div>
 </div>
 <div class="status-card"><div class="status-title">系统</div>
-<div class="status-item"><span class="status-label">面板生成时间</span><span class="status-val">2026-05-16 16:02</span></div>
+<div class="status-item"><span class="status-label">面板生成时间</span><span class="status-val">2026-05-16 16:29</span></div>
 <div class="status-item"><span class="status-label">Python版本</span><span class="status-val">3.13.13</span></div>
 </div>
 </div>
