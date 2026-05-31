@@ -224,17 +224,17 @@ tr:hover td { background: var(--bg-hover); }
 <div class="header-logo">C</div>
 <div><div class="header-title">Crypto Alpha</div><div class="header-sub">多周期OI矩阵 + 深度分析</div></div>
 </div>
-<div class="header-time">生成时间<br><strong>2026-05-31 17:01 BJT</strong></div>
+<div class="header-time">生成时间<br><strong>2026-05-31 18:01 BJT</strong></div>
 </div>
 <nav class="nav">
 <a href="#scan" class="active" onclick="switchTab('scan')">扫描 <span class="nav-badge">528</span></a>
 <a href="#deep" class="" onclick="switchTab('deep')">深度 <span class="nav-badge">6</span></a>
-<a href="#watch" class="" onclick="switchTab('watch')">观察 <span class="nav-badge">19</span></a>
-<a href="#opp" class="" onclick="switchTab('opp')">机会 <span class="nav-badge hot">10</span></a>
-<a href="#sim" class="" onclick="switchTab('sim')">模拟 <span class="nav-badge">24</span></a>
+<a href="#watch" class="" onclick="switchTab('watch')">观察 <span class="nav-badge">9</span></a>
+<a href="#opp" class="" onclick="switchTab('opp')">机会 <span class="nav-badge hot">6</span></a>
+<a href="#sim" class="" onclick="switchTab('sim')">模拟 <span class="nav-badge">13</span></a>
 <a href="#status" class="" onclick="switchTab('status')">状态 <span class="nav-badge">0</span></a>
 </nav>
-<div class="kpi-row"><div class="kpi"><div class="kpi-label">代币</div><div class="kpi-value">528</div><div class="kpi-sub">/ 528 已扫描</div></div><div class="kpi"><div class="kpi-label">信号</div><div class="kpi-value">78</div><div class="kpi-sub">S1:6 S2:8 S6:48</div></div><div class="kpi"><div class="kpi-label">观察池</div><div class="kpi-value">19</div><div class="kpi-sub">追踪中</div></div><div class="kpi"><div class="kpi-label">机会池</div><div class="kpi-value" style="color:var(--red)">10</div><div class="kpi-sub">待入场</div></div></div>
+<div class="kpi-row"><div class="kpi"><div class="kpi-label">代币</div><div class="kpi-value">528</div><div class="kpi-sub">/ 528 已扫描</div></div><div class="kpi"><div class="kpi-label">信号</div><div class="kpi-value">78</div><div class="kpi-sub">S1:6 S2:8 S6:48</div></div><div class="kpi"><div class="kpi-label">观察池</div><div class="kpi-value">9</div><div class="kpi-sub">追踪中</div></div><div class="kpi"><div class="kpi-label">机会池</div><div class="kpi-value" style="color:var(--red)">6</div><div class="kpi-sub">待入场</div></div></div>
 <div id="tab-scan" class="tab-panel" style="display:block">
 <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
 <input class="search-box" id="scanSearch" placeholder="搜索代币..." oninput="filterScanTables()">
@@ -6716,67 +6716,51 @@ tr:hover td { background: var(--bg-hover); }
 <div class="table-wrap"><table>
 <thead><tr><th>代币</th><th>首次入选</th><th>在池</th><th>场景</th><th>入场价</th><th>现价</th><th>偏移</th><th>回踩状态</th><th>信号</th><th>信号趋势</th><th>止损</th><th>止盈1</th><th>盈亏比</th><th># 无交易</th></tr></thead><tbody>
 <tr>
+<td><strong>SAPIEN</strong></td>
+<td style="color:var(--text-muted);font-size:11px">2026-05-30 04:02</td>
+<td>1.6天</td>
+<td><span class="scene-badge scene-S6">S6</span></td>
+<td style="font-family:var(--mono)">0.100720</td>
+<td style="font-family:var(--mono)">0.096710</td>
+<td style="color:var(--red);font-weight:600">-3.98%</td>
+<td><span style="background:#2E2000;color:#FF9F0A;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;white-space:nowrap">濒临SL</span></td>
+<td><span style="display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;background:#2E2600;color:#FFD60A">WATCH</span></td>
+<td><div class="signal-trend"><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-NO" title="NO_TRADE"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span></div></td>
+<td style="font-family:var(--mono);color:var(--red)">0.093430</td>
+<td style="font-family:var(--mono);color:var(--green)">0.109165</td>
+<td style="font-family:var(--mono)">1.07</td>
+<td style="color:var(--red);font-weight:700">0</td>
+</tr>
+<tr>
 <td><strong>SWARMS</strong></td>
 <td style="color:var(--text-muted);font-size:11px">2026-05-31 00:02</td>
 <td>0.7天</td>
 <td><span class="scene-badge scene-S6">S6</span></td>
 <td style="font-family:var(--mono)">0.007414</td>
-<td style="font-family:var(--mono)">0.007166</td>
-<td style="color:var(--red);font-weight:600">-3.35%</td>
+<td style="font-family:var(--mono)">0.007175</td>
+<td style="color:var(--red);font-weight:600">-3.22%</td>
 <td><span style="background:#2E2600;color:#FFD60A;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;white-space:nowrap">回踩中</span></td>
 <td><span style="display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;background:#2E2600;color:#FFD60A">WATCH</span></td>
-<td><div class="signal-trend"><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-NO" title="NO_TRADE"></span><span class="signal-dot dot-NO" title="NO_TRADE"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-NO" title="NO_TRADE"></span><span class="signal-dot dot-WATCH" title="WATCH"></span></div></td>
+<td><div class="signal-trend"><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-NO" title="NO_TRADE"></span><span class="signal-dot dot-NO" title="NO_TRADE"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-NO" title="NO_TRADE"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span></div></td>
 <td style="font-family:var(--mono);color:var(--red)">0.005999</td>
 <td style="font-family:var(--mono);color:var(--green)">0.009671</td>
-<td style="font-family:var(--mono)">1.39</td>
+<td style="font-family:var(--mono)">1.35</td>
 <td style="color:var(--red);font-weight:700">0</td>
 </tr>
 <tr>
-<td><strong>SAPIEN</strong></td>
-<td style="color:var(--text-muted);font-size:11px">2026-05-30 04:02</td>
-<td>1.5天</td>
+<td><strong>SYRUP</strong></td>
+<td style="color:var(--text-muted);font-size:11px">2026-05-30 12:03</td>
+<td>1.2天</td>
 <td><span class="scene-badge scene-S6">S6</span></td>
-<td style="font-family:var(--mono)">0.100720</td>
-<td style="font-family:var(--mono)">0.098410</td>
-<td style="color:var(--red);font-weight:600">-2.29%</td>
-<td><span style="background:#2E2600;color:#FFD60A;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;white-space:nowrap">回踩中</span></td>
-<td><span style="display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;background:#2E2600;color:#FFD60A">WATCH</span></td>
-<td><div class="signal-trend"><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-NO" title="NO_TRADE"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span></div></td>
-<td style="font-family:var(--mono);color:var(--red)">0.093430</td>
-<td style="font-family:var(--mono);color:var(--green)">0.109165</td>
-<td style="font-family:var(--mono)">1.11</td>
-<td style="color:var(--red);font-weight:700">0</td>
-</tr>
-<tr>
-<td><strong>DEEP</strong></td>
-<td style="color:var(--text-muted);font-size:11px">2026-05-30 00:04</td>
-<td>1.7天</td>
-<td><span class="scene-badge scene-S1">S1</span></td>
-<td style="font-family:var(--mono)">0.029700</td>
-<td style="font-family:var(--mono)">0.029030</td>
-<td style="color:var(--red);font-weight:600">-2.26%</td>
+<td style="font-family:var(--mono)">0.163460</td>
+<td style="font-family:var(--mono)">0.160020</td>
+<td style="color:var(--red);font-weight:600">-2.10%</td>
 <td><span style="background:#2E2000;color:#FF9F0A;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;white-space:nowrap">濒临SL</span></td>
 <td><span style="display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;background:#2E2600;color:#FFD60A">WATCH</span></td>
-<td><div class="signal-trend"><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-NO" title="NO_TRADE"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span></div></td>
-<td style="font-family:var(--mono);color:var(--red)">0.027930</td>
-<td style="font-family:var(--mono);color:var(--green)">0.031851</td>
-<td style="font-family:var(--mono)">1.01</td>
-<td style="color:var(--red);font-weight:700">0</td>
-</tr>
-<tr>
-<td><strong>ATH</strong></td>
-<td style="color:var(--text-muted);font-size:11px">2026-05-30 00:04</td>
-<td>1.7天</td>
-<td><span class="scene-badge scene-S6">S6</span></td>
-<td style="font-family:var(--mono)">0.006006</td>
-<td style="font-family:var(--mono)">0.005875</td>
-<td style="color:var(--red);font-weight:600">-2.18%</td>
-<td><span style="background:#2E2000;color:#FF9F0A;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;white-space:nowrap">濒临SL</span></td>
-<td><span style="display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;background:#2E2600;color:#FFD60A">WATCH</span></td>
-<td><div class="signal-trend"><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-NO" title="NO_TRADE"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span></div></td>
-<td style="font-family:var(--mono);color:var(--red)">0.005631</td>
-<td style="font-family:var(--mono);color:var(--green)">0.006451</td>
-<td style="font-family:var(--mono)">1.13</td>
+<td><div class="signal-trend"><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span></div></td>
+<td style="font-family:var(--mono);color:var(--red)">0.154742</td>
+<td style="font-family:var(--mono);color:var(--green)">0.174100</td>
+<td style="font-family:var(--mono)">1.05</td>
 <td style="color:var(--red);font-weight:700">0</td>
 </tr>
 <tr>
@@ -6785,8 +6769,8 @@ tr:hover td { background: var(--bg-hover); }
 <td>1.7天</td>
 <td><span class="scene-badge scene-S6">S6</span></td>
 <td style="font-family:var(--mono)">0.068090</td>
-<td style="font-family:var(--mono)">0.067480</td>
-<td style="color:var(--red);font-weight:600">-0.90%</td>
+<td style="font-family:var(--mono)">0.067100</td>
+<td style="color:var(--red);font-weight:600">-1.45%</td>
 <td><span style="background:#2E2000;color:#FF9F0A;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;white-space:nowrap">濒临SL</span></td>
 <td><span style="display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;background:#2E2600;color:#FFD60A">WATCH</span></td>
 <td><div class="signal-trend"><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span></div></td>
@@ -6796,61 +6780,13 @@ tr:hover td { background: var(--bg-hover); }
 <td style="color:var(--red);font-weight:700">0</td>
 </tr>
 <tr>
-<td><strong>OP</strong></td>
-<td style="color:var(--text-muted);font-size:11px">2026-05-30 00:04</td>
-<td>1.7天</td>
-<td><span class="scene-badge scene-S6">S6</span></td>
-<td style="font-family:var(--mono)">0.120100</td>
-<td style="font-family:var(--mono)">0.119100</td>
-<td style="color:var(--red);font-weight:600">-0.83%</td>
-<td><span style="background:#0A1A3A;color:#5E9EFF;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;white-space:nowrap">入场区</span></td>
-<td><span style="display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;background:#2E2600;color:#FFD60A">WATCH</span></td>
-<td><div class="signal-trend"><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-NO" title="NO_TRADE"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span></div></td>
-<td style="font-family:var(--mono);color:var(--red)">0.113032</td>
-<td style="font-family:var(--mono);color:var(--green)">0.128300</td>
-<td style="font-family:var(--mono)">1.16</td>
-<td style="color:var(--red);font-weight:700">0</td>
-</tr>
-<tr>
-<td><strong>SYRUP</strong></td>
-<td style="color:var(--text-muted);font-size:11px">2026-05-30 12:03</td>
-<td>1.2天</td>
-<td><span class="scene-badge scene-S6">S6</span></td>
-<td style="font-family:var(--mono)">0.163460</td>
-<td style="font-family:var(--mono)">0.162200</td>
-<td style="color:var(--red);font-weight:600">-0.77%</td>
-<td><span style="background:#2E2000;color:#FF9F0A;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;white-space:nowrap">濒临SL</span></td>
-<td><span style="display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;background:#2E2600;color:#FFD60A">WATCH</span></td>
-<td><div class="signal-trend"><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span></div></td>
-<td style="font-family:var(--mono);color:var(--red)">0.154742</td>
-<td style="font-family:var(--mono);color:var(--green)">0.174100</td>
-<td style="font-family:var(--mono)">1.07</td>
-<td style="color:var(--red);font-weight:700">0</td>
-</tr>
-<tr>
-<td><strong>PIPPIN</strong></td>
-<td style="color:var(--text-muted);font-size:11px">2026-05-30 20:03</td>
-<td>0.9天</td>
-<td><span class="scene-badge scene-S6">S6</span></td>
-<td style="font-family:var(--mono)">0.019160</td>
-<td style="font-family:var(--mono)">0.019030</td>
-<td style="color:var(--red);font-weight:600">-0.68%</td>
-<td><span style="background:#0A1A3A;color:#5E9EFF;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;white-space:nowrap">入场区</span></td>
-<td><span style="display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;background:#2E2600;color:#FFD60A">WATCH</span></td>
-<td><div class="signal-trend"><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span></div></td>
-<td style="font-family:var(--mono);color:var(--red)">0.017970</td>
-<td style="font-family:var(--mono);color:var(--green)">0.020730</td>
-<td style="font-family:var(--mono)">1.32</td>
-<td style="color:var(--red);font-weight:700">0</td>
-</tr>
-<tr>
 <td><strong>KAS</strong></td>
 <td style="color:var(--text-muted);font-size:11px">2026-05-30 12:03</td>
 <td>1.2天</td>
 <td><span class="scene-badge scene-S2">S2</span></td>
 <td style="font-family:var(--mono)">0.030610</td>
-<td style="font-family:var(--mono)">0.030420</td>
-<td style="color:var(--red);font-weight:600">-0.62%</td>
+<td style="font-family:var(--mono)">0.030340</td>
+<td style="color:var(--red);font-weight:600">-0.88%</td>
 <td><span style="background:#2E2000;color:#FF9F0A;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;white-space:nowrap">濒临SL</span></td>
 <td><span style="display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;background:#2E2600;color:#FFD60A">WATCH</span></td>
 <td><div class="signal-trend"><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span></div></td>
@@ -6860,67 +6796,19 @@ tr:hover td { background: var(--bg-hover); }
 <td style="color:var(--red);font-weight:700">0</td>
 </tr>
 <tr>
-<td><strong>FIL</strong></td>
-<td style="color:var(--text-muted);font-size:11px">2026-05-30 04:02</td>
-<td>1.5天</td>
-<td><span class="scene-badge scene-S2">S2</span></td>
-<td style="font-family:var(--mono)">0.965000</td>
-<td style="font-family:var(--mono)">0.961000</td>
-<td style="color:var(--red);font-weight:600">-0.41%</td>
-<td><span style="background:#2E2000;color:#FF9F0A;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;white-space:nowrap">濒临SL</span></td>
-<td><span style="display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;background:#2E2600;color:#FFD60A">WATCH</span></td>
-<td><div class="signal-trend"><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-NO" title="NO_TRADE"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span></div></td>
-<td style="font-family:var(--mono);color:var(--red)">0.917390</td>
-<td style="font-family:var(--mono);color:var(--green)">1.0211</td>
-<td style="font-family:var(--mono)">1.18</td>
-<td style="color:var(--red);font-weight:700">0</td>
-</tr>
-<tr>
-<td><strong>MEW</strong></td>
-<td style="color:var(--text-muted);font-size:11px">2026-05-30 00:04</td>
-<td>1.7天</td>
-<td><span class="scene-badge scene-S6">S6</span></td>
-<td style="font-family:var(--mono)">0.000500</td>
-<td style="font-family:var(--mono)">0.000498</td>
-<td style="color:var(--red);font-weight:600">-0.34%</td>
-<td><span style="background:#0A1A3A;color:#5E9EFF;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;white-space:nowrap">入场区</span></td>
-<td><span style="display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;background:#2E2600;color:#FFD60A">WATCH</span></td>
-<td><div class="signal-trend"><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-NO" title="NO_TRADE"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span></div></td>
-<td style="font-family:var(--mono);color:var(--red)">0.000473</td>
-<td style="font-family:var(--mono);color:var(--green)">0.000535</td>
-<td style="font-family:var(--mono)">1.31</td>
-<td style="color:var(--red);font-weight:700">0</td>
-</tr>
-<tr>
 <td><strong>SPK</strong></td>
 <td style="color:var(--text-muted);font-size:11px">2026-05-29 20:02</td>
 <td>1.9天</td>
 <td><span class="scene-badge scene-S6">S6</span></td>
 <td style="font-family:var(--mono)">0.023980</td>
-<td style="font-family:var(--mono)">0.023900</td>
-<td style="color:var(--red);font-weight:600">-0.33%</td>
+<td style="font-family:var(--mono)">0.023930</td>
+<td style="color:var(--red);font-weight:600">-0.21%</td>
 <td><span style="background:#2E2000;color:#FF9F0A;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;white-space:nowrap">濒临SL</span></td>
 <td><span style="display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;background:#2E2600;color:#FFD60A">WATCH</span></td>
-<td><div class="signal-trend"><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-NO" title="NO_TRADE"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span></div></td>
+<td><div class="signal-trend"><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-NO" title="NO_TRADE"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span></div></td>
 <td style="font-family:var(--mono);color:var(--red)">0.022835</td>
 <td style="font-family:var(--mono);color:var(--green)">0.025886</td>
 <td style="font-family:var(--mono)">1.66</td>
-<td style="color:var(--red);font-weight:700">0</td>
-</tr>
-<tr>
-<td><strong>ALT</strong></td>
-<td style="color:var(--text-muted);font-size:11px">2026-05-30 16:03</td>
-<td>1.0天</td>
-<td><span class="scene-badge scene-S2">S2</span></td>
-<td style="font-family:var(--mono)">0.006926</td>
-<td style="font-family:var(--mono)">0.006916</td>
-<td style="color:var(--red);font-weight:600">-0.14%</td>
-<td><span style="background:#2E2000;color:#FF9F0A;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;white-space:nowrap">濒临SL</span></td>
-<td><span style="display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;background:#2E2600;color:#FFD60A">WATCH</span></td>
-<td><div class="signal-trend"><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-NO" title="NO_TRADE"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span></div></td>
-<td style="font-family:var(--mono);color:var(--red)">0.006607</td>
-<td style="font-family:var(--mono);color:var(--green)">0.007350</td>
-<td style="font-family:var(--mono)">1.33</td>
 <td style="color:var(--red);font-weight:700">0</td>
 </tr>
 <tr>
@@ -6929,11 +6817,11 @@ tr:hover td { background: var(--bg-hover); }
 <td>1.2天</td>
 <td><span class="scene-badge scene-S6">S6</span></td>
 <td style="font-family:var(--mono)">0.024630</td>
-<td style="font-family:var(--mono)">0.024690</td>
-<td style="color:var(--green);font-weight:600">+0.24%</td>
+<td style="font-family:var(--mono)">0.024580</td>
+<td style="color:var(--red);font-weight:600">-0.20%</td>
 <td><span style="background:#0A1A3A;color:#5E9EFF;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;white-space:nowrap">入场区</span></td>
 <td><span style="display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;background:#2E2600;color:#FFD60A">WATCH</span></td>
-<td><div class="signal-trend"><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-NO" title="NO_TRADE"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span></div></td>
+<td><div class="signal-trend"><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-NO" title="NO_TRADE"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span></div></td>
 <td style="font-family:var(--mono);color:var(--red)">0.022935</td>
 <td style="font-family:var(--mono);color:var(--green)">0.026834</td>
 <td style="font-family:var(--mono)">1.30</td>
@@ -6945,46 +6833,14 @@ tr:hover td { background: var(--bg-hover); }
 <td>1.9天</td>
 <td><span class="scene-badge scene-S2">S2</span></td>
 <td style="font-family:var(--mono)">0.059760</td>
-<td style="font-family:var(--mono)">0.060450</td>
-<td style="color:var(--green);font-weight:600">+1.15%</td>
-<td><span style="background:#2E2000;color:#FF9F0A;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;white-space:nowrap">濒临SL</span></td>
+<td style="font-family:var(--mono)">0.060620</td>
+<td style="color:var(--green);font-weight:600">+1.44%</td>
+<td><span style="background:#0A1A3A;color:#5E9EFF;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;white-space:nowrap">入场区</span></td>
 <td><span style="display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;background:#2E2600;color:#FFD60A">WATCH</span></td>
-<td><div class="signal-trend"><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-NO" title="NO_TRADE"></span><span class="signal-dot dot-NO" title="NO_TRADE"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span></div></td>
+<td><div class="signal-trend"><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-NO" title="NO_TRADE"></span><span class="signal-dot dot-NO" title="NO_TRADE"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span></div></td>
 <td style="font-family:var(--mono);color:var(--red)">0.057581</td>
 <td style="font-family:var(--mono);color:var(--green)">0.062773</td>
 <td style="font-family:var(--mono)">1.38</td>
-<td style="color:var(--red);font-weight:700">0</td>
-</tr>
-<tr>
-<td><strong>SPX</strong></td>
-<td style="color:var(--text-muted);font-size:11px">2026-05-30 00:04</td>
-<td>1.7天</td>
-<td><span class="scene-badge scene-S6">S6</span></td>
-<td style="font-family:var(--mono)">0.328300</td>
-<td style="font-family:var(--mono)">0.332100</td>
-<td style="color:var(--green);font-weight:600">+1.16%</td>
-<td><span style="background:#0A1A3A;color:#5E9EFF;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;white-space:nowrap">入场区</span></td>
-<td><span style="display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;background:#2E2600;color:#FFD60A">WATCH</span></td>
-<td><div class="signal-trend"><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span></div></td>
-<td style="font-family:var(--mono);color:var(--red)">0.308749</td>
-<td style="font-family:var(--mono);color:var(--green)">0.359706</td>
-<td style="font-family:var(--mono)">1.61</td>
-<td style="color:var(--red);font-weight:700">0</td>
-</tr>
-<tr>
-<td><strong>USELESS</strong></td>
-<td style="color:var(--text-muted);font-size:11px">2026-05-30 00:04</td>
-<td>1.7天</td>
-<td><span class="scene-badge scene-S6">S6</span></td>
-<td style="font-family:var(--mono)">0.070430</td>
-<td style="font-family:var(--mono)">0.071390</td>
-<td style="color:var(--green);font-weight:600">+1.36%</td>
-<td><span style="background:#0A1A3A;color:#5E9EFF;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;white-space:nowrap">入场区</span></td>
-<td><span style="display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;background:#2E2600;color:#FFD60A">WATCH</span></td>
-<td><div class="signal-trend"><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-NO" title="NO_TRADE"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span></div></td>
-<td style="font-family:var(--mono);color:var(--red)">0.064287</td>
-<td style="font-family:var(--mono);color:var(--green)">0.077268</td>
-<td style="font-family:var(--mono)">1.08</td>
 <td style="color:var(--red);font-weight:700">0</td>
 </tr>
 <tr>
@@ -6993,36 +6849,120 @@ tr:hover td { background: var(--bg-hover); }
 <td>1.2天</td>
 <td><span class="scene-badge scene-S6">S6</span></td>
 <td style="font-family:var(--mono)">0.008280</td>
-<td style="font-family:var(--mono)">0.008460</td>
-<td style="color:var(--green);font-weight:600">+2.17%</td>
-<td><span style="background:#0A2E14;color:#34C759;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;white-space:nowrap">盈利中</span></td>
+<td style="font-family:var(--mono)">0.008410</td>
+<td style="color:var(--green);font-weight:600">+1.57%</td>
+<td><span style="background:#0A1A3A;color:#5E9EFF;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;white-space:nowrap">入场区</span></td>
 <td><span style="display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;background:#2E2600;color:#FFD60A">WATCH</span></td>
-<td><div class="signal-trend"><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-NO" title="NO_TRADE"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span></div></td>
+<td><div class="signal-trend"><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-NO" title="NO_TRADE"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span><span class="signal-dot dot-WATCH" title="WATCH"></span></div></td>
 <td style="font-family:var(--mono);color:var(--red)">0.007811</td>
 <td style="font-family:var(--mono);color:var(--green)">0.008800</td>
 <td style="font-family:var(--mono)">1.11</td>
-<td style="color:var(--red);font-weight:700">0</td>
-</tr>
-<tr>
-<td><strong>AKT</strong></td>
-<td style="color:var(--text-muted);font-size:11px">2026-05-29 16:02</td>
-<td>2.0天</td>
-<td><span class="scene-badge scene-S6">S6</span></td>
-<td style="font-family:var(--mono)">0.816200</td>
-<td style="font-family:var(--mono)">0.777100</td>
-<td style="color:var(--red);font-weight:600">-4.79%</td>
-<td><span style="background:#2E2000;color:#FF9F0A;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;white-space:nowrap">濒临SL</span></td>
-<td><span style="display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;background:#1C1C1F;color:#8E8E93">NO_TRADE</span></td>
-<td><div class="signal-trend"><span class="signal-dot dot-NO" title="NO_TRADE"></span><span class="signal-dot dot-NO" title="NO_TRADE"></span><span class="signal-dot dot-NO" title="NO_TRADE"></span><span class="signal-dot dot-NO" title="NO_TRADE"></span><span class="signal-dot dot-NO" title="NO_TRADE"></span><span class="signal-dot dot-NO" title="NO_TRADE"></span><span class="signal-dot dot-NO" title="NO_TRADE"></span><span class="signal-dot dot-NO" title="NO_TRADE"></span></div></td>
-<td style="font-family:var(--mono);color:var(--red)">0.747046</td>
-<td style="font-family:var(--mono);color:var(--green)">0.907491</td>
-<td style="font-family:var(--mono)">0.57</td>
 <td style="color:var(--red);font-weight:700">0</td>
 </tr>
 </tbody></table></div>
 <div style="margin-top:24px;font-size:13px;font-weight:600;color:var(--text-secondary)">退出日志（最近30条）</div>
 <div class="table-wrap" style="margin-top:8px"><table>
 <thead><tr><th>代币</th><th>退出时间</th><th>类型</th><th>退出原因</th><th>入场价</th><th>退出价</th><th>盈亏%</th><th>在池天数</th></tr></thead><tbody>
+<tr>
+<td><strong>USELESS</strong></td>
+<td style="color:var(--text-muted);font-size:11px">2026-05-31 18:01</td>
+<td><span style="display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;background:#2E0E0C;color:#FF453A">退出观察池</span></td>
+<td style="max-width:300px;white-space:normal;font-size:11px">连续4次下跌+信号恶化</td>
+<td style="font-family:var(--mono)">0.070430</td>
+<td style="font-family:var(--mono)">0.070330</td>
+<td style="color:var(--red);font-weight:600">-0.14%</td>
+<td>1.7天</td>
+</tr>
+<tr>
+<td><strong>ATH</strong></td>
+<td style="color:var(--text-muted);font-size:11px">2026-05-31 18:01</td>
+<td><span style="display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;background:#2E0E0C;color:#FF453A">退出观察池</span></td>
+<td style="max-width:300px;white-space:normal;font-size:11px">连续4次下跌+信号恶化</td>
+<td style="font-family:var(--mono)">0.006006</td>
+<td style="font-family:var(--mono)">0.005846</td>
+<td style="color:var(--red);font-weight:600">-2.66%</td>
+<td>1.7天</td>
+</tr>
+<tr>
+<td><strong>OP</strong></td>
+<td style="color:var(--text-muted);font-size:11px">2026-05-31 18:01</td>
+<td><span style="display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;background:#2E0E0C;color:#FF453A">退出观察池</span></td>
+<td style="max-width:300px;white-space:normal;font-size:11px">连续4次下跌+信号恶化</td>
+<td style="font-family:var(--mono)">0.120100</td>
+<td style="font-family:var(--mono)">0.118800</td>
+<td style="color:var(--red);font-weight:600">-1.08%</td>
+<td>1.7天</td>
+</tr>
+<tr>
+<td><strong>SPX</strong></td>
+<td style="color:var(--text-muted);font-size:11px">2026-05-31 18:01</td>
+<td><span style="display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;background:#2E0E0C;color:#FF453A">退出观察池</span></td>
+<td style="max-width:300px;white-space:normal;font-size:11px">连续4次下跌+信号恶化</td>
+<td style="font-family:var(--mono)">0.328300</td>
+<td style="font-family:var(--mono)">0.329800</td>
+<td style="color:var(--green);font-weight:600">+0.46%</td>
+<td>1.7天</td>
+</tr>
+<tr>
+<td><strong>AKT</strong></td>
+<td style="color:var(--text-muted);font-size:11px">2026-05-31 18:01</td>
+<td><span style="display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;background:#2E0E0C;color:#FF453A">退出观察池</span></td>
+<td style="max-width:300px;white-space:normal;font-size:11px">连续4次下跌+信号恶化</td>
+<td style="font-family:var(--mono)">0.816200</td>
+<td style="font-family:var(--mono)">0.772300</td>
+<td style="color:var(--red);font-weight:600">-5.38%</td>
+<td>2.1天</td>
+</tr>
+<tr>
+<td><strong>DEEP</strong></td>
+<td style="color:var(--text-muted);font-size:11px">2026-05-31 18:01</td>
+<td><span style="display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;background:#2E0E0C;color:#FF453A">退出观察池</span></td>
+<td style="max-width:300px;white-space:normal;font-size:11px">连续4次下跌+信号恶化</td>
+<td style="font-family:var(--mono)">0.029700</td>
+<td style="font-family:var(--mono)">0.028910</td>
+<td style="color:var(--red);font-weight:600">-2.66%</td>
+<td>1.7天</td>
+</tr>
+<tr>
+<td><strong>MEW</strong></td>
+<td style="color:var(--text-muted);font-size:11px">2026-05-31 18:01</td>
+<td><span style="display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;background:#2E0E0C;color:#FF453A">退出观察池</span></td>
+<td style="max-width:300px;white-space:normal;font-size:11px">连续4次下跌+信号恶化</td>
+<td style="font-family:var(--mono)">0.000500</td>
+<td style="font-family:var(--mono)">0.000497</td>
+<td style="color:var(--red);font-weight:600">-0.52%</td>
+<td>1.7天</td>
+</tr>
+<tr>
+<td><strong>FIL</strong></td>
+<td style="color:var(--text-muted);font-size:11px">2026-05-31 18:01</td>
+<td><span style="display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;background:#2E0E0C;color:#FF453A">退出观察池</span></td>
+<td style="max-width:300px;white-space:normal;font-size:11px">连续4次下跌+信号恶化</td>
+<td style="font-family:var(--mono)">0.965000</td>
+<td style="font-family:var(--mono)">0.960000</td>
+<td style="color:var(--red);font-weight:600">-0.52%</td>
+<td>1.6天</td>
+</tr>
+<tr>
+<td><strong>PIPPIN</strong></td>
+<td style="color:var(--text-muted);font-size:11px">2026-05-31 18:01</td>
+<td><span style="display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;background:#2E0E0C;color:#FF453A">退出观察池</span></td>
+<td style="max-width:300px;white-space:normal;font-size:11px">连续4次下跌+信号恶化</td>
+<td style="font-family:var(--mono)">0.019160</td>
+<td style="font-family:var(--mono)">0.019000</td>
+<td style="color:var(--red);font-weight:600">-0.84%</td>
+<td>0.9天</td>
+</tr>
+<tr>
+<td><strong>ALT</strong></td>
+<td style="color:var(--text-muted);font-size:11px">2026-05-31 18:01</td>
+<td><span style="display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;background:#2E0E0C;color:#FF453A">退出观察池</span></td>
+<td style="max-width:300px;white-space:normal;font-size:11px">连续4次下跌+信号恶化</td>
+<td style="font-family:var(--mono)">0.006926</td>
+<td style="font-family:var(--mono)">0.006829</td>
+<td style="color:var(--red);font-weight:600">-1.40%</td>
+<td>1.1天</td>
+</tr>
 <tr>
 <td><strong>FHE</strong></td>
 <td style="color:var(--text-muted);font-size:11px">2026-05-31 15:01</td>
@@ -7223,186 +7163,54 @@ tr:hover td { background: var(--bg-hover); }
 <td style="color:var(--green);font-weight:600">+4.97%</td>
 <td>1.1天</td>
 </tr>
-<tr>
-<td><strong>QNT</strong></td>
-<td style="color:var(--text-muted);font-size:11px">2026-05-31 03:01</td>
-<td><span style="display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;background:#2E0E0C;color:#FF453A">退出观察池</span></td>
-<td style="max-width:300px;white-space:normal;font-size:11px">连续4次下跌+信号恶化</td>
-<td style="font-family:var(--mono)">71.2200</td>
-<td style="font-family:var(--mono)">71.4900</td>
-<td style="color:var(--green);font-weight:600">+0.38%</td>
-<td>0.8天</td>
-</tr>
-<tr>
-<td><strong>MUBARAK</strong></td>
-<td style="color:var(--text-muted);font-size:11px">2026-05-31 02:01</td>
-<td><span style="display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;background:#2E2600;color:#FFD60A">退出机会池</span></td>
-<td style="max-width:300px;white-space:normal;font-size:11px">退出机会池: offset=4.2% R:R=1.64</td>
-<td style="font-family:var(--mono)">0.012280</td>
-<td style="font-family:var(--mono)">0.012790</td>
-<td style="color:var(--green);font-weight:600">+4.15%</td>
-<td>1.1天</td>
-</tr>
-<tr>
-<td><strong>2Z</strong></td>
-<td style="color:var(--text-muted);font-size:11px">2026-05-31 02:01</td>
-<td><span style="display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;background:#2E0E0C;color:#FF453A">退出观察池</span></td>
-<td style="max-width:300px;white-space:normal;font-size:11px">连续3次NO_TRADE</td>
-<td style="font-family:var(--mono)">0.090170</td>
-<td style="font-family:var(--mono)">0.092870</td>
-<td style="color:var(--green);font-weight:600">+2.99%</td>
-<td>0.4天</td>
-</tr>
-<tr>
-<td><strong>ZEC</strong></td>
-<td style="color:var(--text-muted);font-size:11px">2026-05-31 02:01</td>
-<td><span style="display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;background:#2E0E0C;color:#FF453A">退出观察池</span></td>
-<td style="max-width:300px;white-space:normal;font-size:11px">连续3次NO_TRADE</td>
-<td style="font-family:var(--mono)">523.44</td>
-<td style="font-family:var(--mono)">540.04</td>
-<td style="color:var(--green);font-weight:600">+3.17%</td>
-<td>0.2天</td>
-</tr>
-<tr>
-<td><strong>UNI</strong></td>
-<td style="color:var(--text-muted);font-size:11px">2026-05-31 01:01</td>
-<td><span style="display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;background:#2E0E0C;color:#FF453A">退出观察池</span></td>
-<td style="max-width:300px;white-space:normal;font-size:11px">连续3次NO_TRADE</td>
-<td style="font-family:var(--mono)">2.9940</td>
-<td style="font-family:var(--mono)">3.0560</td>
-<td style="color:var(--green);font-weight:600">+2.07%</td>
-<td>1.2天</td>
-</tr>
-<tr>
-<td><strong>RUNE</strong></td>
-<td style="color:var(--text-muted);font-size:11px">2026-05-31 01:01</td>
-<td><span style="display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;background:#2E0E0C;color:#FF453A">退出观察池</span></td>
-<td style="max-width:300px;white-space:normal;font-size:11px">连续3次NO_TRADE</td>
-<td style="font-family:var(--mono)">0.420800</td>
-<td style="font-family:var(--mono)">0.428900</td>
-<td style="color:var(--green);font-weight:600">+1.92%</td>
-<td>1.5天</td>
-</tr>
-<tr>
-<td><strong>VIRTUAL</strong></td>
-<td style="color:var(--text-muted);font-size:11px">2026-05-31 01:01</td>
-<td><span style="display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;background:#2E0E0C;color:#FF453A">退出观察池</span></td>
-<td style="max-width:300px;white-space:normal;font-size:11px">连续3次NO_TRADE</td>
-<td style="font-family:var(--mono)">0.711700</td>
-<td style="font-family:var(--mono)">0.724700</td>
-<td style="color:var(--green);font-weight:600">+1.83%</td>
-<td>0.4天</td>
-</tr>
-<tr>
-<td><strong>ZEC</strong></td>
-<td style="color:var(--text-muted);font-size:11px">2026-05-31 01:01</td>
-<td><span style="display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;background:#2E2600;color:#FFD60A">退出机会池</span></td>
-<td style="max-width:300px;white-space:normal;font-size:11px">退出机会池: offset=1.9% R:R=1.37</td>
-<td style="font-family:var(--mono)">523.44</td>
-<td style="font-family:var(--mono)">533.41</td>
-<td style="color:var(--green);font-weight:600">+1.90%</td>
-<td>0.2天</td>
-</tr>
-<tr>
-<td><strong>UNI</strong></td>
-<td style="color:var(--text-muted);font-size:11px">2026-05-30 23:01</td>
-<td><span style="display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;background:#2E2600;color:#FFD60A">退出机会池</span></td>
-<td style="max-width:300px;white-space:normal;font-size:11px">退出机会池: offset=1.8% R:R=4.47</td>
-<td style="font-family:var(--mono)">2.9940</td>
-<td style="font-family:var(--mono)">3.0490</td>
-<td style="color:var(--green);font-weight:600">+1.84%</td>
-<td>1.1天</td>
-</tr>
-<tr>
-<td><strong>VIRTUAL</strong></td>
-<td style="color:var(--text-muted);font-size:11px">2026-05-30 23:01</td>
-<td><span style="display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;background:#2E2600;color:#FFD60A">退出机会池</span></td>
-<td style="max-width:300px;white-space:normal;font-size:11px">退出机会池: offset=2.9% R:R=1.61</td>
-<td style="font-family:var(--mono)">0.711700</td>
-<td style="font-family:var(--mono)">0.732100</td>
-<td style="color:var(--green);font-weight:600">+2.87%</td>
-<td>0.3天</td>
-</tr>
 </tbody></table></div>
 </div>
 <div id="tab-opp" class="tab-panel" style="display:none">
-<div style="margin-bottom:16px;font-size:13px;color:var(--text-secondary)">10 个代币等待审核</div>
+<div style="margin-bottom:16px;font-size:13px;color:var(--text-secondary)">6 个代币等待审核</div>
 <div class="card-grid">
 <div class="opp-card">
 <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px"><div><span class="opp-coin">FLUX</span><span style="margin-left:8px;font-size:11px;color:var(--text-muted)">首次: 2026-05-30 00:04</span></div><div style="text-align:right"><span style="font-weight:700;font-size:18px;color:var(--yellow)">WATCH</span><span style="margin-left:8px;font-size:11px;color:var(--text-muted)">P=60</span></div></div>
-<div class="opp-prices"><span class="opp-price-label">入场价</span><span class="opp-price-val">0.068090</span><span class="opp-price-label">现价</span><span class="opp-price-val">0.067480</span><span class="opp-price-label">偏移</span><span class="opp-price-val" style="color:var(--red)">-0.90%</span><span class="opp-price-label">止损</span><span class="opp-price-val" style="color:var(--red)">0.064725</span><span class="opp-price-label">TP1</span><span class="opp-price-val" style="color:var(--green)">0.073313</span><span class="opp-price-label">TP2</span><span class="opp-price-val" style="color:var(--green)">0.077230</span><span class="opp-price-label">TP3</span><span class="opp-price-val" style="color:var(--green)">0.081147</span><span class="opp-price-label">盈亏比</span><span class="opp-price-val" style="color:var(--green)">1.55</span><span class="opp-price-label">仓位</span><span class="opp-price-val">7.0%</span></div>
-<div style="margin:12px 0;padding:12px;background:var(--bg-hover);border-radius:var(--radius)"><div style="font-size:11px;color:var(--text-secondary);margin-bottom:6px">L1 · 基础评分 (观察池数据)</div><div style="display:flex;flex-wrap:wrap;gap:12px;font-size:12px;font-weight:600"><div><span style="color:var(--text-secondary)">L1评分</span> 45.0</div><div><span style="color:var(--text-secondary)">贝叶斯</span> 59.9%</div><div><span style="color:var(--text-secondary)">L1信号</span> WATCH</div><div><span style="color:var(--text-secondary)">L2判定</span> WATCH</div></div></div>
+<div class="opp-prices"><span class="opp-price-label">入场价</span><span class="opp-price-val">0.068090</span><span class="opp-price-label">现价</span><span class="opp-price-val">0.067100</span><span class="opp-price-label">偏移</span><span class="opp-price-val" style="color:var(--red)">-1.45%</span><span class="opp-price-label">止损</span><span class="opp-price-val" style="color:var(--red)">0.064725</span><span class="opp-price-label">TP1</span><span class="opp-price-val" style="color:var(--green)">0.073313</span><span class="opp-price-label">TP2</span><span class="opp-price-val" style="color:var(--green)">0.077230</span><span class="opp-price-label">TP3</span><span class="opp-price-val" style="color:var(--green)">0.081147</span><span class="opp-price-label">盈亏比</span><span class="opp-price-val" style="color:var(--green)">1.55</span><span class="opp-price-label">仓位</span><span class="opp-price-val">7.0%</span></div>
+<div style="margin:12px 0;padding:12px;background:var(--bg-hover);border-radius:var(--radius)"><div style="font-size:11px;color:var(--text-secondary);margin-bottom:6px">L1 · 基础评分 (观察池数据)</div><div style="display:flex;flex-wrap:wrap;gap:12px;font-size:12px;font-weight:600"><div><span style="color:var(--text-secondary)">L1评分</span> 45.0</div><div><span style="color:var(--text-secondary)">贝叶斯</span> 60.4%</div><div><span style="color:var(--text-secondary)">L1信号</span> WATCH</div><div><span style="color:var(--text-secondary)">L2判定</span> WATCH</div></div></div>
 <div style="margin:12px 0;font-size:12px;display:grid;grid-template-columns:1fr 1fr;gap:8px"><div><span style="color:var(--text-secondary)">形态:</span> <span style="color:var(--text-muted)">暂无形态数据</span></div><div><span style="color:var(--text-secondary)">验证:</span> <span style="color:var(--text-muted)">暂无验证数据</span></div></div>
 <div style="margin-top:8px;font-size:11px;color:var(--text-muted);display:flex;gap:16px"><span>场景: 主力拉升 (S6)</span></div>
-<div class="opp-reason">到达入场区 (-0.9%)</div>
+<div class="opp-reason">到达入场区 (-1.4%)</div>
 </div>
 <div class="opp-card">
 <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px"><div><span class="opp-coin">SPK</span><span style="margin-left:8px;font-size:11px;color:var(--text-muted)">首次: 2026-05-29 20:02</span></div><div style="text-align:right"><span style="font-weight:700;font-size:18px;color:var(--yellow)">WATCH</span><span style="margin-left:8px;font-size:11px;color:var(--text-muted)">P=55</span></div></div>
-<div class="opp-prices"><span class="opp-price-label">入场价</span><span class="opp-price-val">0.023980</span><span class="opp-price-label">现价</span><span class="opp-price-val">0.023900</span><span class="opp-price-label">偏移</span><span class="opp-price-val" style="color:var(--red)">-0.33%</span><span class="opp-price-label">止损</span><span class="opp-price-val" style="color:var(--red)">0.022835</span><span class="opp-price-label">TP1</span><span class="opp-price-val" style="color:var(--green)">0.025886</span><span class="opp-price-label">TP2</span><span class="opp-price-val" style="color:var(--green)">0.027315</span><span class="opp-price-label">TP3</span><span class="opp-price-val" style="color:var(--green)">0.028744</span><span class="opp-price-label">盈亏比</span><span class="opp-price-val" style="color:var(--green)">1.66</span><span class="opp-price-label">仓位</span><span class="opp-price-val">4.1%</span></div>
+<div class="opp-prices"><span class="opp-price-label">入场价</span><span class="opp-price-val">0.023980</span><span class="opp-price-label">现价</span><span class="opp-price-val">0.023930</span><span class="opp-price-label">偏移</span><span class="opp-price-val" style="color:var(--red)">-0.21%</span><span class="opp-price-label">止损</span><span class="opp-price-val" style="color:var(--red)">0.022835</span><span class="opp-price-label">TP1</span><span class="opp-price-val" style="color:var(--green)">0.025886</span><span class="opp-price-label">TP2</span><span class="opp-price-val" style="color:var(--green)">0.027315</span><span class="opp-price-label">TP3</span><span class="opp-price-val" style="color:var(--green)">0.028744</span><span class="opp-price-label">盈亏比</span><span class="opp-price-val" style="color:var(--green)">1.66</span><span class="opp-price-label">仓位</span><span class="opp-price-val">4.1%</span></div>
 <div style="margin:12px 0;padding:12px;background:var(--bg-hover);border-radius:var(--radius)"><div style="font-size:11px;color:var(--text-secondary);margin-bottom:6px">L1 · 基础评分 (观察池数据)</div><div style="display:flex;flex-wrap:wrap;gap:12px;font-size:12px;font-weight:600"><div><span style="color:var(--text-secondary)">L1评分</span> 45.0</div><div><span style="color:var(--text-secondary)">贝叶斯</span> 54.8%</div><div><span style="color:var(--text-secondary)">L1信号</span> WATCH</div><div><span style="color:var(--text-secondary)">L2判定</span> WATCH</div></div></div>
 <div style="margin:12px 0;font-size:12px;display:grid;grid-template-columns:1fr 1fr;gap:8px"><div><span style="color:var(--text-secondary)">形态:</span> <span style="color:var(--text-muted)">暂无形态数据</span></div><div><span style="color:var(--text-secondary)">验证:</span> <span style="color:var(--text-muted)">暂无验证数据</span></div></div>
 <div style="margin-top:8px;font-size:11px;color:var(--text-muted);display:flex;gap:16px"><span>场景: 主力拉升 (S6)</span></div>
-<div class="opp-reason">到达入场区 (-0.3%)</div>
-</div>
-<div class="opp-card">
-<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px"><div><span class="opp-coin">SPX</span><span style="margin-left:8px;font-size:11px;color:var(--text-muted)">首次: 2026-05-30 00:04</span></div><div style="text-align:right"><span style="font-weight:700;font-size:18px;color:var(--yellow)">WATCH</span><span style="margin-left:8px;font-size:11px;color:var(--text-muted)">P=55</span></div></div>
-<div class="opp-prices"><span class="opp-price-label">入场价</span><span class="opp-price-val">0.328300</span><span class="opp-price-label">现价</span><span class="opp-price-val">0.332100</span><span class="opp-price-label">偏移</span><span class="opp-price-val" style="color:var(--green)">+1.16%</span><span class="opp-price-label">止损</span><span class="opp-price-val" style="color:var(--red)">0.308749</span><span class="opp-price-label">TP1</span><span class="opp-price-val" style="color:var(--green)">0.359706</span><span class="opp-price-label">TP2</span><span class="opp-price-val" style="color:var(--green)">0.400525</span><span class="opp-price-label">TP3</span><span class="opp-price-val" style="color:var(--green)">0.431479</span><span class="opp-price-label">盈亏比</span><span class="opp-price-val" style="color:var(--green)">1.61</span><span class="opp-price-label">仓位</span><span class="opp-price-val">6.3%</span></div>
-<div style="margin:12px 0;padding:12px;background:var(--bg-hover);border-radius:var(--radius)"><div style="font-size:11px;color:var(--text-secondary);margin-bottom:6px">L1 · 基础评分 (观察池数据)</div><div style="display:flex;flex-wrap:wrap;gap:12px;font-size:12px;font-weight:600"><div><span style="color:var(--text-secondary)">L1评分</span> 45.0</div><div><span style="color:var(--text-secondary)">贝叶斯</span> 53.0%</div><div><span style="color:var(--text-secondary)">L1信号</span> WATCH</div><div><span style="color:var(--text-secondary)">L2判定</span> WATCH</div></div></div>
-<div style="margin:12px 0;font-size:12px;display:grid;grid-template-columns:1fr 1fr;gap:8px"><div><span style="color:var(--text-secondary)">形态:</span> <span style="color:var(--text-muted)">暂无形态数据</span></div><div><span style="color:var(--text-secondary)">验证:</span> <span style="color:var(--text-muted)">暂无验证数据</span></div></div>
-<div style="margin-top:8px;font-size:11px;color:var(--text-muted);display:flex;gap:16px"><span>场景: 主力拉升 (S6)</span></div>
-<div class="opp-reason">到达入场区 (+1.2%)</div>
-</div>
-<div class="opp-card">
-<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px"><div><span class="opp-coin">LUNA2</span><span style="margin-left:8px;font-size:11px;color:var(--text-muted)">首次: 2026-05-29 20:02</span></div><div style="text-align:right"><span style="font-weight:700;font-size:18px;color:var(--yellow)">WATCH</span><span style="margin-left:8px;font-size:11px;color:var(--text-muted)">P=50</span></div></div>
-<div class="opp-prices"><span class="opp-price-label">入场价</span><span class="opp-price-val">0.059760</span><span class="opp-price-label">现价</span><span class="opp-price-val">0.060450</span><span class="opp-price-label">偏移</span><span class="opp-price-val" style="color:var(--green)">+1.15%</span><span class="opp-price-label">止损</span><span class="opp-price-val" style="color:var(--red)">0.057581</span><span class="opp-price-label">TP1</span><span class="opp-price-val" style="color:var(--green)">0.062773</span><span class="opp-price-label">TP2</span><span class="opp-price-val" style="color:var(--green)">0.065033</span><span class="opp-price-label">TP3</span><span class="opp-price-val" style="color:var(--green)">0.067292</span><span class="opp-price-label">盈亏比</span><span class="opp-price-val" style="color:var(--yellow)">1.38</span><span class="opp-price-label">仓位</span><span class="opp-price-val">6.6%</span></div>
-<div style="margin:12px 0;padding:12px;background:var(--bg-hover);border-radius:var(--radius)"><div style="font-size:11px;color:var(--text-secondary);margin-bottom:6px">L1 · 基础评分 (观察池数据)</div><div style="display:flex;flex-wrap:wrap;gap:12px;font-size:12px;font-weight:600"><div><span style="color:var(--text-secondary)">L1评分</span> 45.0</div><div><span style="color:var(--text-secondary)">贝叶斯</span> 55.5%</div><div><span style="color:var(--text-secondary)">L1信号</span> WATCH</div><div><span style="color:var(--text-secondary)">L2判定</span> WATCH</div></div></div>
-<div style="margin:12px 0;font-size:12px;display:grid;grid-template-columns:1fr 1fr;gap:8px"><div><span style="color:var(--text-secondary)">形态:</span> <span style="color:var(--text-muted)">暂无形态数据</span></div><div><span style="color:var(--text-secondary)">验证:</span> <span style="color:var(--text-muted)">暂无验证数据</span></div></div>
-<div style="margin-top:8px;font-size:11px;color:var(--text-muted);display:flex;gap:16px"><span>场景: 空头出货信号 (S2)</span></div>
-<div class="opp-reason">到达入场区 (+1.1%)</div>
-</div>
-<div class="opp-card">
-<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px"><div><span class="opp-coin">MEW</span><span style="margin-left:8px;font-size:11px;color:var(--text-muted)">首次: 2026-05-30 00:04</span></div><div style="text-align:right"><span style="font-weight:700;font-size:18px;color:var(--yellow)">WATCH</span><span style="margin-left:8px;font-size:11px;color:var(--text-muted)">P=50</span></div></div>
-<div class="opp-prices"><span class="opp-price-label">入场价</span><span class="opp-price-val">0.000500</span><span class="opp-price-label">现价</span><span class="opp-price-val">0.000498</span><span class="opp-price-label">偏移</span><span class="opp-price-val" style="color:var(--red)">-0.34%</span><span class="opp-price-label">止损</span><span class="opp-price-val" style="color:var(--red)">0.000473</span><span class="opp-price-label">TP1</span><span class="opp-price-val" style="color:var(--green)">0.000535</span><span class="opp-price-label">TP2</span><span class="opp-price-val" style="color:var(--green)">0.000572</span><span class="opp-price-label">TP3</span><span class="opp-price-val" style="color:var(--green)">0.000602</span><span class="opp-price-label">盈亏比</span><span class="opp-price-val" style="color:var(--yellow)">1.31</span><span class="opp-price-label">仓位</span><span class="opp-price-val">3.4%</span></div>
-<div style="margin:12px 0;padding:12px;background:var(--bg-hover);border-radius:var(--radius)"><div style="font-size:11px;color:var(--text-secondary);margin-bottom:6px">L1 · 基础评分 (观察池数据)</div><div style="display:flex;flex-wrap:wrap;gap:12px;font-size:12px;font-weight:600"><div><span style="color:var(--text-secondary)">L1评分</span> 45.0</div><div><span style="color:var(--text-secondary)">贝叶斯</span> 55.3%</div><div><span style="color:var(--text-secondary)">L1信号</span> WATCH</div><div><span style="color:var(--text-secondary)">L2判定</span> WATCH</div></div></div>
-<div style="margin:12px 0;font-size:12px;display:grid;grid-template-columns:1fr 1fr;gap:8px"><div><span style="color:var(--text-secondary)">形态:</span> <span style="color:var(--text-muted)">暂无形态数据</span></div><div><span style="color:var(--text-secondary)">验证:</span> <span style="color:var(--text-muted)">暂无验证数据</span></div></div>
-<div style="margin-top:8px;font-size:11px;color:var(--text-muted);display:flex;gap:16px"><span>场景: 主力拉升 (S6)</span></div>
-<div class="opp-reason">到达入场区 (-0.3%)</div>
+<div class="opp-reason">到达入场区 (-0.2%)</div>
 </div>
 <div class="opp-card">
 <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px"><div><span class="opp-coin">KAS</span><span style="margin-left:8px;font-size:11px;color:var(--text-muted)">首次: 2026-05-30 12:03</span></div><div style="text-align:right"><span style="font-weight:700;font-size:18px;color:var(--yellow)">WATCH</span><span style="margin-left:8px;font-size:11px;color:var(--text-muted)">P=50</span></div></div>
-<div class="opp-prices"><span class="opp-price-label">入场价</span><span class="opp-price-val">0.030610</span><span class="opp-price-label">现价</span><span class="opp-price-val">0.030420</span><span class="opp-price-label">偏移</span><span class="opp-price-val" style="color:var(--red)">-0.62%</span><span class="opp-price-label">止损</span><span class="opp-price-val" style="color:var(--red)">0.029940</span><span class="opp-price-label">TP1</span><span class="opp-price-val" style="color:var(--green)">0.032263</span><span class="opp-price-label">TP2</span><span class="opp-price-val" style="color:var(--green)">0.033503</span><span class="opp-price-label">TP3</span><span class="opp-price-val" style="color:var(--green)">0.034742</span><span class="opp-price-label">盈亏比</span><span class="opp-price-val" style="color:var(--green)">2.47</span><span class="opp-price-label">仓位</span><span class="opp-price-val">3.4%</span></div>
-<div style="margin:12px 0;padding:12px;background:var(--bg-hover);border-radius:var(--radius)"><div style="font-size:11px;color:var(--text-secondary);margin-bottom:6px">L1 · 基础评分 (观察池数据)</div><div style="display:flex;flex-wrap:wrap;gap:12px;font-size:12px;font-weight:600"><div><span style="color:var(--text-secondary)">L1评分</span> 50.0</div><div><span style="color:var(--text-secondary)">贝叶斯</span> 48.0%</div><div><span style="color:var(--text-secondary)">L1信号</span> WATCH</div><div><span style="color:var(--text-secondary)">L2判定</span> WATCH</div></div></div>
+<div class="opp-prices"><span class="opp-price-label">入场价</span><span class="opp-price-val">0.030610</span><span class="opp-price-label">现价</span><span class="opp-price-val">0.030340</span><span class="opp-price-label">偏移</span><span class="opp-price-val" style="color:var(--red)">-0.88%</span><span class="opp-price-label">止损</span><span class="opp-price-val" style="color:var(--red)">0.029940</span><span class="opp-price-label">TP1</span><span class="opp-price-val" style="color:var(--green)">0.032263</span><span class="opp-price-label">TP2</span><span class="opp-price-val" style="color:var(--green)">0.033503</span><span class="opp-price-label">TP3</span><span class="opp-price-val" style="color:var(--green)">0.034742</span><span class="opp-price-label">盈亏比</span><span class="opp-price-val" style="color:var(--green)">2.47</span><span class="opp-price-label">仓位</span><span class="opp-price-val">3.4%</span></div>
+<div style="margin:12px 0;padding:12px;background:var(--bg-hover);border-radius:var(--radius)"><div style="font-size:11px;color:var(--text-secondary);margin-bottom:6px">L1 · 基础评分 (观察池数据)</div><div style="display:flex;flex-wrap:wrap;gap:12px;font-size:12px;font-weight:600"><div><span style="color:var(--text-secondary)">L1评分</span> 45.0</div><div><span style="color:var(--text-secondary)">贝叶斯</span> 51.7%</div><div><span style="color:var(--text-secondary)">L1信号</span> WATCH</div><div><span style="color:var(--text-secondary)">L2判定</span> WATCH</div></div></div>
 <div style="margin:12px 0;font-size:12px;display:grid;grid-template-columns:1fr 1fr;gap:8px"><div><span style="color:var(--text-secondary)">形态:</span> <span style="color:var(--text-muted)">暂无形态数据</span></div><div><span style="color:var(--text-secondary)">验证:</span> <span style="color:var(--text-muted)">暂无验证数据</span></div></div>
 <div style="margin-top:8px;font-size:11px;color:var(--text-muted);display:flex;gap:16px"><span>场景: 空头出货信号 (S2)</span></div>
-<div class="opp-reason">到达入场区 (-0.6%)</div>
+<div class="opp-reason">到达入场区 (-0.9%)</div>
+</div>
+<div class="opp-card">
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px"><div><span class="opp-coin">LUNA2</span><span style="margin-left:8px;font-size:11px;color:var(--text-muted)">首次: 2026-05-29 20:02</span></div><div style="text-align:right"><span style="font-weight:700;font-size:18px;color:var(--yellow)">WATCH</span><span style="margin-left:8px;font-size:11px;color:var(--text-muted)">P=35</span></div></div>
+<div class="opp-prices"><span class="opp-price-label">入场价</span><span class="opp-price-val">0.059760</span><span class="opp-price-label">现价</span><span class="opp-price-val">0.060620</span><span class="opp-price-label">偏移</span><span class="opp-price-val" style="color:var(--green)">+1.44%</span><span class="opp-price-label">止损</span><span class="opp-price-val" style="color:var(--red)">0.057581</span><span class="opp-price-label">TP1</span><span class="opp-price-val" style="color:var(--green)">0.062773</span><span class="opp-price-label">TP2</span><span class="opp-price-val" style="color:var(--green)">0.065033</span><span class="opp-price-label">TP3</span><span class="opp-price-val" style="color:var(--green)">0.067292</span><span class="opp-price-label">盈亏比</span><span class="opp-price-val" style="color:var(--yellow)">1.38</span><span class="opp-price-label">仓位</span><span class="opp-price-val">6.6%</span></div>
+<div style="margin:12px 0;padding:12px;background:var(--bg-hover);border-radius:var(--radius)"><div style="font-size:11px;color:var(--text-secondary);margin-bottom:6px">L1 · 基础评分 (观察池数据)</div><div style="display:flex;flex-wrap:wrap;gap:12px;font-size:12px;font-weight:600"><div><span style="color:var(--text-secondary)">L1评分</span> 45.0</div><div><span style="color:var(--text-secondary)">贝叶斯</span> 51.8%</div><div><span style="color:var(--text-secondary)">L1信号</span> WATCH</div><div><span style="color:var(--text-secondary)">L2判定</span> WATCH</div></div></div>
+<div style="margin:12px 0;font-size:12px;display:grid;grid-template-columns:1fr 1fr;gap:8px"><div><span style="color:var(--text-secondary)">形态:</span> <span style="color:var(--text-muted)">暂无形态数据</span></div><div><span style="color:var(--text-secondary)">验证:</span> <span style="color:var(--text-muted)">暂无验证数据</span></div></div>
+<div style="margin-top:8px;font-size:11px;color:var(--text-muted);display:flex;gap:16px"><span>场景: 空头出货信号 (S2)</span></div>
+<div class="opp-reason">到达入场区 (+1.4%)</div>
 </div>
 <div class="opp-card">
 <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px"><div><span class="opp-coin">MERL</span><span style="margin-left:8px;font-size:11px;color:var(--text-muted)">首次: 2026-05-30 12:03</span></div><div style="text-align:right"><span style="font-weight:700;font-size:18px;color:var(--yellow)">WATCH</span><span style="margin-left:8px;font-size:11px;color:var(--text-muted)">P=35</span></div></div>
-<div class="opp-prices"><span class="opp-price-label">入场价</span><span class="opp-price-val">0.024630</span><span class="opp-price-label">现价</span><span class="opp-price-val">0.024690</span><span class="opp-price-label">偏移</span><span class="opp-price-val" style="color:var(--green)">+0.24%</span><span class="opp-price-label">止损</span><span class="opp-price-val" style="color:var(--red)">0.022935</span><span class="opp-price-label">TP1</span><span class="opp-price-val" style="color:var(--green)">0.026834</span><span class="opp-price-label">TP2</span><span class="opp-price-val" style="color:var(--green)">0.029943</span><span class="opp-price-label">TP3</span><span class="opp-price-val" style="color:var(--green)">0.032219</span><span class="opp-price-label">盈亏比</span><span class="opp-price-val" style="color:var(--yellow)">1.30</span><span class="opp-price-label">仓位</span><span class="opp-price-val">5.2%</span></div>
-<div style="margin:12px 0;padding:12px;background:var(--bg-hover);border-radius:var(--radius)"><div style="font-size:11px;color:var(--text-secondary);margin-bottom:6px">L1 · 基础评分 (观察池数据)</div><div style="display:flex;flex-wrap:wrap;gap:12px;font-size:12px;font-weight:600"><div><span style="color:var(--text-secondary)">L1评分</span> 50.0</div><div><span style="color:var(--text-secondary)">贝叶斯</span> 49.7%</div><div><span style="color:var(--text-secondary)">L1信号</span> WATCH</div><div><span style="color:var(--text-secondary)">L2判定</span> WATCH</div></div></div>
+<div class="opp-prices"><span class="opp-price-label">入场价</span><span class="opp-price-val">0.024630</span><span class="opp-price-label">现价</span><span class="opp-price-val">0.024580</span><span class="opp-price-label">偏移</span><span class="opp-price-val" style="color:var(--red)">-0.20%</span><span class="opp-price-label">止损</span><span class="opp-price-val" style="color:var(--red)">0.022935</span><span class="opp-price-label">TP1</span><span class="opp-price-val" style="color:var(--green)">0.026834</span><span class="opp-price-label">TP2</span><span class="opp-price-val" style="color:var(--green)">0.029943</span><span class="opp-price-label">TP3</span><span class="opp-price-val" style="color:var(--green)">0.032219</span><span class="opp-price-label">盈亏比</span><span class="opp-price-val" style="color:var(--yellow)">1.30</span><span class="opp-price-label">仓位</span><span class="opp-price-val">5.2%</span></div>
+<div style="margin:12px 0;padding:12px;background:var(--bg-hover);border-radius:var(--radius)"><div style="font-size:11px;color:var(--text-secondary);margin-bottom:6px">L1 · 基础评分 (观察池数据)</div><div style="display:flex;flex-wrap:wrap;gap:12px;font-size:12px;font-weight:600"><div><span style="color:var(--text-secondary)">L1评分</span> 45.0</div><div><span style="color:var(--text-secondary)">贝叶斯</span> 52.3%</div><div><span style="color:var(--text-secondary)">L1信号</span> WATCH</div><div><span style="color:var(--text-secondary)">L2判定</span> WATCH</div></div></div>
 <div style="margin:12px 0;font-size:12px;display:grid;grid-template-columns:1fr 1fr;gap:8px"><div><span style="color:var(--text-secondary)">形态:</span> <span style="color:var(--text-muted)">暂无形态数据</span></div><div><span style="color:var(--text-secondary)">验证:</span> <span style="color:var(--text-muted)">暂无验证数据</span></div></div>
 <div style="margin-top:8px;font-size:11px;color:var(--text-muted);display:flex;gap:16px"><span>场景: 主力拉升 (S6)</span></div>
-<div class="opp-reason">到达入场区 (+0.2%)</div>
-</div>
-<div class="opp-card">
-<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px"><div><span class="opp-coin">ALT</span><span style="margin-left:8px;font-size:11px;color:var(--text-muted)">首次: 2026-05-30 16:03</span></div><div style="text-align:right"><span style="font-weight:700;font-size:18px;color:var(--yellow)">WATCH</span><span style="margin-left:8px;font-size:11px;color:var(--text-muted)">P=35</span></div></div>
-<div class="opp-prices"><span class="opp-price-label">入场价</span><span class="opp-price-val">0.006926</span><span class="opp-price-label">现价</span><span class="opp-price-val">0.006916</span><span class="opp-price-label">偏移</span><span class="opp-price-val" style="color:var(--red)">-0.14%</span><span class="opp-price-label">止损</span><span class="opp-price-val" style="color:var(--red)">0.006607</span><span class="opp-price-label">TP1</span><span class="opp-price-val" style="color:var(--green)">0.007350</span><span class="opp-price-label">TP2</span><span class="opp-price-val" style="color:var(--green)">0.007668</span><span class="opp-price-label">TP3</span><span class="opp-price-val" style="color:var(--green)">0.007986</span><span class="opp-price-label">盈亏比</span><span class="opp-price-val" style="color:var(--yellow)">1.33</span><span class="opp-price-label">仓位</span><span class="opp-price-val">3.4%</span></div>
-<div style="margin:12px 0;padding:12px;background:var(--bg-hover);border-radius:var(--radius)"><div style="font-size:11px;color:var(--text-secondary);margin-bottom:6px">L1 · 基础评分 (观察池数据)</div><div style="display:flex;flex-wrap:wrap;gap:12px;font-size:12px;font-weight:600"><div><span style="color:var(--text-secondary)">L1评分</span> 50.0</div><div><span style="color:var(--text-secondary)">贝叶斯</span> 49.3%</div><div><span style="color:var(--text-secondary)">L1信号</span> WATCH</div><div><span style="color:var(--text-secondary)">L2判定</span> WATCH</div></div></div>
-<div style="margin:12px 0;font-size:12px;display:grid;grid-template-columns:1fr 1fr;gap:8px"><div><span style="color:var(--text-secondary)">形态:</span> <span style="color:var(--text-muted)">暂无形态数据</span></div><div><span style="color:var(--text-secondary)">验证:</span> <span style="color:var(--text-muted)">暂无验证数据</span></div></div>
-<div style="margin-top:8px;font-size:11px;color:var(--text-muted);display:flex;gap:16px"><span>场景: 空头出货信号 (S2)</span></div>
-<div class="opp-reason">到达入场区 (-0.1%)</div>
-</div>
-<div class="opp-card">
-<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px"><div><span class="opp-coin">PIPPIN</span><span style="margin-left:8px;font-size:11px;color:var(--text-muted)">首次: 2026-05-30 20:03</span></div><div style="text-align:right"><span style="font-weight:700;font-size:18px;color:var(--yellow)">WATCH</span><span style="margin-left:8px;font-size:11px;color:var(--text-muted)">P=35</span></div></div>
-<div class="opp-prices"><span class="opp-price-label">入场价</span><span class="opp-price-val">0.019160</span><span class="opp-price-label">现价</span><span class="opp-price-val">0.019030</span><span class="opp-price-label">偏移</span><span class="opp-price-val" style="color:var(--red)">-0.68%</span><span class="opp-price-label">止损</span><span class="opp-price-val" style="color:var(--red)">0.017970</span><span class="opp-price-label">TP1</span><span class="opp-price-val" style="color:var(--green)">0.020730</span><span class="opp-price-label">TP2</span><span class="opp-price-val" style="color:var(--green)">0.021907</span><span class="opp-price-label">TP3</span><span class="opp-price-val" style="color:var(--green)">0.023085</span><span class="opp-price-label">盈亏比</span><span class="opp-price-val" style="color:var(--yellow)">1.32</span><span class="opp-price-label">仓位</span><span class="opp-price-val">5.2%</span></div>
-<div style="margin:12px 0;padding:12px;background:var(--bg-hover);border-radius:var(--radius)"><div style="font-size:11px;color:var(--text-secondary);margin-bottom:6px">L1 · 基础评分 (观察池数据)</div><div style="display:flex;flex-wrap:wrap;gap:12px;font-size:12px;font-weight:600"><div><span style="color:var(--text-secondary)">L1评分</span> 45.0</div><div><span style="color:var(--text-secondary)">贝叶斯</span> 50.4%</div><div><span style="color:var(--text-secondary)">L1信号</span> WATCH</div><div><span style="color:var(--text-secondary)">L2判定</span> WATCH</div></div></div>
-<div style="margin:12px 0;font-size:12px;display:grid;grid-template-columns:1fr 1fr;gap:8px"><div><span style="color:var(--text-secondary)">形态:</span> <span style="color:var(--text-muted)">暂无形态数据</span></div><div><span style="color:var(--text-secondary)">验证:</span> <span style="color:var(--text-muted)">暂无验证数据</span></div></div>
-<div style="margin-top:8px;font-size:11px;color:var(--text-muted);display:flex;gap:16px"><span>场景: 主力拉升 (S6)</span></div>
-<div class="opp-reason">到达入场区 (-0.7%)</div>
+<div class="opp-reason">到达入场区 (-0.2%)</div>
 </div>
 <div class="opp-card">
 <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px"><div><span class="opp-coin">SWARMS</span><span style="margin-left:8px;font-size:11px;color:var(--text-muted)">首次: 2026-05-31 00:02</span></div><div style="text-align:right"><span style="font-weight:700;font-size:18px;color:var(--yellow)">WATCH</span><span style="margin-left:8px;font-size:11px;color:var(--text-muted)">P=15</span></div></div>
-<div class="opp-prices"><span class="opp-price-label">入场价</span><span class="opp-price-val">0.007414</span><span class="opp-price-label">现价</span><span class="opp-price-val">0.007166</span><span class="opp-price-label">偏移</span><span class="opp-price-val" style="color:var(--red)">-3.35%</span><span class="opp-price-label">止损</span><span class="opp-price-val" style="color:var(--red)">0.005999</span><span class="opp-price-label">TP1</span><span class="opp-price-val" style="color:var(--green)">0.009671</span><span class="opp-price-label">TP2</span><span class="opp-price-val" style="color:var(--green)">0.011364</span><span class="opp-price-label">TP3</span><span class="opp-price-val" style="color:var(--green)">0.013056</span><span class="opp-price-label">盈亏比</span><span class="opp-price-val" style="color:var(--yellow)">1.39</span><span class="opp-price-label">仓位</span><span class="opp-price-val">9.1%</span></div>
+<div class="opp-prices"><span class="opp-price-label">入场价</span><span class="opp-price-val">0.007414</span><span class="opp-price-label">现价</span><span class="opp-price-val">0.007175</span><span class="opp-price-label">偏移</span><span class="opp-price-val" style="color:var(--red)">-3.22%</span><span class="opp-price-label">止损</span><span class="opp-price-val" style="color:var(--red)">0.005999</span><span class="opp-price-label">TP1</span><span class="opp-price-val" style="color:var(--green)">0.009671</span><span class="opp-price-label">TP2</span><span class="opp-price-val" style="color:var(--green)">0.011364</span><span class="opp-price-label">TP3</span><span class="opp-price-val" style="color:var(--green)">0.013056</span><span class="opp-price-label">盈亏比</span><span class="opp-price-val" style="color:var(--yellow)">1.35</span><span class="opp-price-label">仓位</span><span class="opp-price-val">9.1%</span></div>
 <div style="margin:12px 0;padding:12px;background:var(--bg-hover);border-radius:var(--radius)"><div style="font-size:11px;color:var(--text-secondary);margin-bottom:6px">L1 · 7维评分 · WS=79.7</div><div style="display:flex;align-items:center;gap:6px;font-size:11px"><span style="width:48px;color:var(--text-secondary)">OI矩阵</span><span style="flex:1;height:4px;background:var(--bg-hover);border-radius:2px"><span style="display:block;height:100%;width:80%;background:#34C759;border-radius:2px"></span></span><span style="width:24px;text-align:right;font-weight:600">80</span></div><div style="display:flex;align-items:center;gap:6px;font-size:11px"><span style="width:48px;color:var(--text-secondary)">RSI</span><span style="flex:1;height:4px;background:var(--bg-hover);border-radius:2px"><span style="display:block;height:100%;width:78%;background:#34C759;border-radius:2px"></span></span><span style="width:24px;text-align:right;font-weight:600">78</span></div><div style="display:flex;align-items:center;gap:6px;font-size:11px"><span style="width:48px;color:var(--text-secondary)">MACD</span><span style="flex:1;height:4px;background:var(--bg-hover);border-radius:2px"><span style="display:block;height:100%;width:88%;background:#34C759;border-radius:2px"></span></span><span style="width:24px;text-align:right;font-weight:600">88</span></div><div style="display:flex;align-items:center;gap:6px;font-size:11px"><span style="width:48px;color:var(--text-secondary)">布林带</span><span style="flex:1;height:4px;background:var(--bg-hover);border-radius:2px"><span style="display:block;height:100%;width:82%;background:#34C759;border-radius:2px"></span></span><span style="width:24px;text-align:right;font-weight:600">82</span></div><div style="display:flex;align-items:center;gap:6px;font-size:11px"><span style="width:48px;color:var(--text-secondary)">成交量</span><span style="flex:1;height:4px;background:var(--bg-hover);border-radius:2px"><span style="display:block;height:100%;width:95%;background:#34C759;border-radius:2px"></span></span><span style="width:24px;text-align:right;font-weight:600">95</span></div><div style="display:flex;align-items:center;gap:6px;font-size:11px"><span style="width:48px;color:var(--text-secondary)">比率</span><span style="flex:1;height:4px;background:var(--bg-hover);border-radius:2px"><span style="display:block;height:100%;width:92%;background:#34C759;border-radius:2px"></span></span><span style="width:24px;text-align:right;font-weight:600">92</span></div><div style="display:flex;align-items:center;gap:6px;font-size:11px"><span style="width:48px;color:var(--text-secondary)">趋势</span><span style="flex:1;height:4px;background:var(--bg-hover);border-radius:2px"><span style="display:block;height:100%;width:42%;background:#FFD60A;border-radius:2px"></span></span><span style="width:24px;text-align:right;font-weight:600">42</span></div></div>
 <div style="margin:12px 0;padding:12px;background:var(--accent-light);border-radius:var(--radius)"><div style="font-size:11px;color:var(--text-secondary);margin-bottom:6px">L2 · 高级分析</div><div style="display:flex;flex-wrap:wrap;gap:12px;font-size:12px;font-weight:600"><div><span style="color:var(--text-secondary)">贝叶斯</span> 1.6%</div><div><span style="color:var(--text-secondary)">MC盈利</span> 40.9%</div></div></div>
 <div style="margin:12px 0;font-size:12px;display:grid;grid-template-columns:1fr 1fr;gap:8px"><div><span style="color:var(--text-secondary)">形态:</span> <span style="font-weight:600">BEARISH (44)</span><span style="display:block;font-size:11px;color:var(--text-muted)">Double Top, Double Bottom</span></div><div><span style="color:var(--text-secondary)">验证:</span> <span style="font-weight:600;color:var(--red)">未通过</span></div></div>
@@ -7415,30 +7223,19 @@ tr:hover td { background: var(--bg-hover); }
 <div id="tab-sim" class="tab-panel" style="display:none">
 <div class="sim-grid">
 <div class="sim-section">
-<div class="sim-section-title"><span style="color:var(--accent)">观察池模拟</span><span style="font-size:12px;color:var(--text-muted)">2026-05-31 17:01</span></div>
-<div class="sim-kpis"><div class="sim-kpi"><div class="sim-kpi-val" style="color:var(--red)">-169.3U</div><div class="sim-kpi-label">总盈亏</div></div><div class="sim-kpi"><div class="sim-kpi-val" style="color:var(--red)">-16.9%</div><div class="sim-kpi-label">收益率</div></div><div class="sim-kpi"><div class="sim-kpi-val">830.6U</div><div class="sim-kpi-label">净值 (可用3U)</div></div><div class="sim-kpi"><div class="sim-kpi-val">16</div><div class="sim-kpi-label">持仓中</div></div><div class="sim-kpi"><div class="sim-kpi-val">149</div><div class="sim-kpi-label">总交易</div></div><div class="sim-kpi"><div class="sim-kpi-val" style="color:var(--red)">42%</div><div class="sim-kpi-label">胜率</div></div></div>
-<div style="margin-bottom:12px;font-size:11px;color:var(--text-secondary)">净值曲线 (72h)</div><div class="equity-sparkline"><div class="equity-bar up" style="height:39px" title="1000.0U"></div><div class="equity-bar down" style="height:37px" title="987.3U"></div><div class="equity-bar down" style="height:35px" title="979.4U"></div><div class="equity-bar down" style="height:16px" title="896.9U"></div><div class="equity-bar down" style="height:6px" title="853.1U"></div><div class="equity-bar up" style="height:10px" title="870.0U"></div><div class="equity-bar down" style="height:8px" title="859.8U"></div><div class="equity-bar down" style="height:6px" title="850.3U"></div><div class="equity-bar up" style="height:6px" title="850.3U"></div><div class="equity-bar up" style="height:7px" title="854.5U"></div><div class="equity-bar up" style="height:11px" title="872.8U"></div><div class="equity-bar up" style="height:11px" title="872.8U"></div><div class="equity-bar up" style="height:12px" title="878.4U"></div><div class="equity-bar down" style="height:10px" title="871.0U"></div><div class="equity-bar down" style="height:5px" title="848.9U"></div><div class="equity-bar up" style="height:5px" title="848.9U"></div><div class="equity-bar up" style="height:5px" title="848.9U"></div><div class="equity-bar down" style="height:5px" title="848.9U"></div><div class="equity-bar up" style="height:5px" title="848.9U"></div><div class="equity-bar up" style="height:5px" title="848.9U"></div><div class="equity-bar up" style="height:15px" title="893.5U"></div><div class="equity-bar up" style="height:15px" title="893.5U"></div><div class="equity-bar down" style="height:15px" title="893.5U"></div><div class="equity-bar down" style="height:15px" title="890.6U"></div><div class="equity-bar up" style="height:15px" title="890.6U"></div><div class="equity-bar up" style="height:15px" title="890.6U"></div><div class="equity-bar down" style="height:15px" title="890.6U"></div><div class="equity-bar up" style="height:15px" title="890.6U"></div><div class="equity-bar up" style="height:15px" title="890.6U"></div><div class="equity-bar down" style="height:12px" title="880.6U"></div><div class="equity-bar up" style="height:12px" title="880.6U"></div><div class="equity-bar down" style="height:11px" title="872.4U"></div><div class="equity-bar up" style="height:11px" title="872.4U"></div><div class="equity-bar up" style="height:11px" title="872.4U"></div><div class="equity-bar up" style="height:13px" title="882.6U"></div><div class="equity-bar up" style="height:13px" title="882.6U"></div><div class="equity-bar down" style="height:9px" title="865.0U"></div><div class="equity-bar up" style="height:9px" title="865.0U"></div><div class="equity-bar up" style="height:9px" title="865.0U"></div><div class="equity-bar down" style="height:9px" title="864.1U"></div><div class="equity-bar up" style="height:9px" title="864.1U"></div><div class="equity-bar up" style="height:9px" title="864.1U"></div><div class="equity-bar up" style="height:9px" title="864.1U"></div><div class="equity-bar up" style="height:9px" title="864.1U"></div><div class="equity-bar down" style="height:4px" title="828.1U"></div><div class="equity-bar up" style="height:4px" title="828.1U"></div><div class="equity-bar up" style="height:4px" title="828.1U"></div><div class="equity-bar down" style="height:4px" title="826.9U"></div><div class="equity-bar up" style="height:4px" title="826.9U"></div><div class="equity-bar up" style="height:4px" title="834.0U"></div><div class="equity-bar up" style="height:4px" title="836.6U"></div><div class="equity-bar down" style="height:4px" title="824.5U"></div><div class="equity-bar up" style="height:4px" title="824.5U"></div><div class="equity-bar up" style="height:4px" title="838.9U"></div><div class="equity-bar down" style="height:4px" title="823.6U"></div><div class="equity-bar up" style="height:6px" title="851.7U"></div><div class="equity-bar up" style="height:6px" title="851.7U"></div><div class="equity-bar up" style="height:15px" title="891.6U"></div><div class="equity-bar down" style="height:11px" title="873.5U"></div><div class="equity-bar up" style="height:13px" title="884.6U"></div><div class="equity-bar up" style="height:13px" title="884.6U"></div><div class="equity-bar down" style="height:13px" title="881.6U"></div><div class="equity-bar up" style="height:13px" title="881.6U"></div><div class="equity-bar up" style="height:13px" title="881.6U"></div><div class="equity-bar up" style="height:13px" title="881.6U"></div><div class="equity-bar down" style="height:13px" title="881.6U"></div><div class="equity-bar up" style="height:13px" title="881.6U"></div><div class="equity-bar up" style="height:13px" title="881.6U"></div><div class="equity-bar up" style="height:17px" title="901.2U"></div><div class="equity-bar up" style="height:19px" title="910.3U"></div><div class="equity-bar up" style="height:20px" title="914.0U"></div><div class="equity-bar up" style="height:21px" title="917.4U"></div><div class="equity-bar down" style="height:19px" title="911.9U"></div><div class="equity-bar up" style="height:19px" title="911.9U"></div><div class="equity-bar up" style="height:19px" title="911.9U"></div><div class="equity-bar up" style="height:20px" title="913.3U"></div><div class="equity-bar up" style="height:20px" title="913.3U"></div><div class="equity-bar up" style="height:20px" title="913.3U"></div><div class="equity-bar up" style="height:20px" title="916.1U"></div><div class="equity-bar up" style="height:20px" title="916.1U"></div><div class="equity-bar up" style="height:21px" title="919.7U"></div><div class="equity-bar up" style="height:22px" title="924.1U"></div><div class="equity-bar down" style="height:21px" title="918.6U"></div><div class="equity-bar down" style="height:21px" title="918.6U"></div><div class="equity-bar down" style="height:20px" title="915.0U"></div><div class="equity-bar down" style="height:18px" title="906.3U"></div><div class="equity-bar up" style="height:23px" title="925.5U"></div><div class="equity-bar up" style="height:23px" title="927.4U"></div><div class="equity-bar down" style="height:23px" title="926.5U"></div><div class="equity-bar down" style="height:22px" title="921.4U"></div><div class="equity-bar up" style="height:22px" title="921.4U"></div><div class="equity-bar down" style="height:20px" title="913.8U"></div><div class="equity-bar up" style="height:24px" title="931.8U"></div><div class="equity-bar down" style="height:24px" title="930.6U"></div><div class="equity-bar up" style="height:25px" title="935.6U"></div><div class="equity-bar up" style="height:25px" title="935.6U"></div><div class="equity-bar down" style="height:24px" title="932.4U"></div><div class="equity-bar down" style="height:22px" title="924.1U"></div><div class="equity-bar down" style="height:19px" title="911.0U"></div><div class="equity-bar up" style="height:19px" title="911.0U"></div><div class="equity-bar up" style="height:27px" title="943.2U"></div><div class="equity-bar up" style="height:29px" title="955.8U"></div><div class="equity-bar down" style="height:29px" title="951.8U"></div><div class="equity-bar up" style="height:32px" title="968.2U"></div><div class="equity-bar up" style="height:33px" title="970.1U"></div><div class="equity-bar down" style="height:26px" title="941.3U"></div><div class="equity-bar up" style="height:28px" title="950.8U"></div><div class="equity-bar up" style="height:28px" title="950.8U"></div><div class="equity-bar up" style="height:31px" title="962.4U"></div><div class="equity-bar up" style="height:35px" title="979.0U"></div><div class="equity-bar up" style="height:35px" title="981.9U"></div><div class="equity-bar up" style="height:35px" title="981.9U"></div><div class="equity-bar down" style="height:35px" title="981.9U"></div><div class="equity-bar up" style="height:35px" title="981.9U"></div><div class="equity-bar down" style="height:35px" title="981.9U"></div><div class="equity-bar up" style="height:35px" title="981.9U"></div><div class="equity-bar up" style="height:35px" title="981.9U"></div><div class="equity-bar up" style="height:44px" title="1017.8U"></div><div class="equity-bar down" style="height:41px" title="1008.2U"></div><div class="equity-bar up" style="height:41px" title="1008.2U"></div><div class="equity-bar up" style="height:41px" title="1008.3U"></div><div class="equity-bar up" style="height:45px" title="1022.9U"></div><div class="equity-bar down" style="height:41px" title="1006.1U"></div><div class="equity-bar down" style="height:40px" title="1001.2U"></div><div class="equity-bar up" style="height:40px" title="1001.2U"></div><div class="equity-bar up" style="height:40px" title="1001.2U"></div><div class="equity-bar up" style="height:40px" title="1001.2U"></div><div class="equity-bar up" style="height:40px" title="1001.2U"></div><div class="equity-bar up" style="height:40px" title="1001.2U"></div><div class="equity-bar up" style="height:40px" title="1001.2U"></div><div class="equity-bar down" style="height:38px" title="995.4U"></div><div class="equity-bar down" style="height:38px" title="995.4U"></div><div class="equity-bar up" style="height:38px" title="995.4U"></div><div class="equity-bar down" style="height:34px" title="974.9U"></div><div class="equity-bar up" style="height:34px" title="974.9U"></div><div class="equity-bar down" style="height:30px" title="956.3U"></div><div class="equity-bar up" style="height:30px" title="956.3U"></div><div class="equity-bar up" style="height:31px" title="961.0U"></div><div class="equity-bar up" style="height:31px" title="961.0U"></div><div class="equity-bar down" style="height:30px" title="956.7U"></div><div class="equity-bar up" style="height:30px" title="956.7U"></div><div class="equity-bar down" style="height:26px" title="940.0U"></div><div class="equity-bar up" style="height:26px" title="940.0U"></div><div class="equity-bar up" style="height:26px" title="940.0U"></div><div class="equity-bar up" style="height:26px" title="940.0U"></div><div class="equity-bar down" style="height:22px" title="921.9U"></div><div class="equity-bar up" style="height:22px" title="921.9U"></div><div class="equity-bar up" style="height:22px" title="921.9U"></div><div class="equity-bar up" style="height:22px" title="921.9U"></div><div class="equity-bar up" style="height:22px" title="921.9U"></div><div class="equity-bar up" style="height:22px" title="924.3U"></div><div class="equity-bar up" style="height:30px" title="959.5U"></div><div class="equity-bar up" style="height:37px" title="988.2U"></div><div class="equity-bar up" style="height:37px" title="991.2U"></div><div class="equity-bar up" style="height:37px" title="991.2U"></div><div class="equity-bar up" style="height:37px" title="991.2U"></div><div class="equity-bar up" style="height:37px" title="991.2U"></div><div class="equity-bar down" style="height:37px" title="989.9U"></div><div class="equity-bar up" style="height:53px" title="1060.3U"></div><div class="equity-bar up" style="height:53px" title="1060.3U"></div><div class="equity-bar up" style="height:53px" title="1060.3U"></div><div class="equity-bar down" style="height:53px" title="1057.5U"></div><div class="equity-bar up" style="height:53px" title="1057.5U"></div><div class="equity-bar up" style="height:53px" title="1058.4U"></div><div class="equity-bar down" style="height:52px" title="1056.1U"></div><div class="equity-bar up" style="height:52px" title="1056.1U"></div><div class="equity-bar up" style="height:56px" title="1070.7U"></div><div class="equity-bar down" style="height:55px" title="1070.7U"></div><div class="equity-bar down" style="height:53px" title="1059.5U"></div><div class="equity-bar up" style="height:53px" title="1059.5U"></div><div class="equity-bar down" style="height:43px" title="1017.1U"></div><div class="equity-bar up" style="height:44px" title="1017.9U"></div><div class="equity-bar down" style="height:43px" title="1015.4U"></div><div class="equity-bar down" style="height:42px" title="1011.1U"></div><div class="equity-bar down" style="height:39px" title="997.6U"></div><div class="equity-bar up" style="height:40px" title="1000.4U"></div><div class="equity-bar down" style="height:39px" title="997.2U"></div><div class="equity-bar up" style="height:39px" title="997.3U"></div><div class="equity-bar up" style="height:39px" title="997.3U"></div><div class="equity-bar up" style="height:39px" title="997.3U"></div><div class="equity-bar down" style="height:39px" title="997.2U"></div><div class="equity-bar up" style="height:39px" title="997.3U"></div><div class="equity-bar down" style="height:37px" title="987.3U"></div><div class="equity-bar up" style="height:37px" title="987.3U"></div><div class="equity-bar up" style="height:37px" title="987.3U"></div><div class="equity-bar down" style="height:36px" title="983.9U"></div><div class="equity-bar up" style="height:36px" title="983.9U"></div><div class="equity-bar up" style="height:36px" title="983.9U"></div><div class="equity-bar down" style="height:35px" title="979.2U"></div><div class="equity-bar down" style="height:33px" title="972.8U"></div><div class="equity-bar up" style="height:33px" title="972.8U"></div><div class="equity-bar up" style="height:33px" title="972.8U"></div><div class="equity-bar down" style="height:24px" title="929.6U"></div><div class="equity-bar up" style="height:24px" title="929.6U"></div><div class="equity-bar up" style="height:24px" title="929.6U"></div><div class="equity-bar up" style="height:24px" title="929.6U"></div><div class="equity-bar down" style="height:19px" title="911.7U"></div><div class="equity-bar up" style="height:23px" title="926.4U"></div><div class="equity-bar up" style="height:23px" title="926.4U"></div><div class="equity-bar down" style="height:18px" title="903.5U"></div><div class="equity-bar down" style="height:17px" title="900.0U"></div><div class="equity-bar down" style="height:17px" title="899.8U"></div><div class="equity-bar down" style="height:17px" title="899.0U"></div><div class="equity-bar down" style="height:15px" title="893.3U"></div><div class="equity-bar down" style="height:15px" title="892.1U"></div><div class="equity-bar up" style="height:15px" title="892.1U"></div><div class="equity-bar down" style="height:15px" title="891.0U"></div><div class="equity-bar up" style="height:15px" title="891.0U"></div><div class="equity-bar up" style="height:15px" title="891.0U"></div><div class="equity-bar up" style="height:15px" title="891.0U"></div><div class="equity-bar up" style="height:15px" title="891.0U"></div><div class="equity-bar down" style="height:11px" title="876.5U"></div><div class="equity-bar up" style="height:11px" title="876.5U"></div><div class="equity-bar up" style="height:14px" title="886.9U"></div><div class="equity-bar down" style="height:11px" title="873.6U"></div><div class="equity-bar up" style="height:11px" title="873.6U"></div><div class="equity-bar up" style="height:11px" title="876.1U"></div><div class="equity-bar up" style="height:12px" title="879.7U"></div><div class="equity-bar up" style="height:12px" title="879.7U"></div><div class="equity-bar up" style="height:12px" title="879.7U"></div><div class="equity-bar up" style="height:12px" title="879.7U"></div><div class="equity-bar up" style="height:12px" title="879.7U"></div><div class="equity-bar up" style="height:12px" title="879.7U"></div><div class="equity-bar up" style="height:12px" title="879.7U"></div><div class="equity-bar up" style="height:12px" title="879.7U"></div><div class="equity-bar up" style="height:12px" title="879.7U"></div><div class="equity-bar up" style="height:12px" title="879.7U"></div><div class="equity-bar up" style="height:12px" title="879.7U"></div><div class="equity-bar down" style="height:12px" title="879.7U"></div><div class="equity-bar up" style="height:13px" title="885.4U"></div><div class="equity-bar up" style="height:13px" title="885.4U"></div><div class="equity-bar down" style="height:9px" title="867.3U"></div><div class="equity-bar down" style="height:9px" title="863.4U"></div><div class="equity-bar down" style="height:8px" title="861.2U"></div><div class="equity-bar down" style="height:8px" title="861.2U"></div><div class="equity-bar up" style="height:8px" title="861.2U"></div><div class="equity-bar down" style="height:4px" title="841.7U"></div><div class="equity-bar up" style="height:4px" title="841.7U"></div><div class="equity-bar up" style="height:4px" title="841.7U"></div><div class="equity-bar up" style="height:4px" title="841.7U"></div><div class="equity-bar up" style="height:14px" title="886.6U"></div><div class="equity-bar down" style="height:5px" title="846.9U"></div><div class="equity-bar up" style="height:7px" title="855.1U"></div><div class="equity-bar up" style="height:7px" title="855.1U"></div><div class="equity-bar down" style="height:4px" title="834.3U"></div><div class="equity-bar up" style="height:4px" title="834.3U"></div><div class="equity-bar up" style="height:4px" title="834.3U"></div><div class="equity-bar up" style="height:4px" title="837.3U"></div><div class="equity-bar up" style="height:4px" title="837.3U"></div><div class="equity-bar down" style="height:4px" title="833.5U"></div><div class="equity-bar up" style="height:6px" title="852.1U"></div><div class="equity-bar up" style="height:11px" title="872.8U"></div><div class="equity-bar up" style="height:14px" title="887.5U"></div><div class="equity-bar up" style="height:14px" title="887.8U"></div><div class="equity-bar up" style="height:14px" title="887.8U"></div><div class="equity-bar down" style="height:14px" title="887.8U"></div><div class="equity-bar up" style="height:14px" title="887.8U"></div><div class="equity-bar down" style="height:7px" title="858.2U"></div><div class="equity-bar up" style="height:7px" title="858.2U"></div><div class="equity-bar up" style="height:7px" title="858.2U"></div><div class="equity-bar down" style="height:7px" title="858.2U"></div><div class="equity-bar up" style="height:7px" title="858.2U"></div><div class="equity-bar up" style="height:7px" title="858.2U"></div><div class="equity-bar down" style="height:6px" title="851.9U"></div><div class="equity-bar up" style="height:6px" title="851.9U"></div><div class="equity-bar up" style="height:6px" title="851.9U"></div><div class="equity-bar up" style="height:6px" title="851.9U"></div><div class="equity-bar down" style="height:4px" title="842.9U"></div><div class="equity-bar up" style="height:4px" title="843.0U"></div><div class="equity-bar up" style="height:4px" title="843.0U"></div><div class="equity-bar down" style="height:4px" title="839.0U"></div><div class="equity-bar up" style="height:5px" title="847.4U"></div><div class="equity-bar up" style="height:7px" title="856.7U"></div><div class="equity-bar down" style="height:7px" title="854.8U"></div><div class="equity-bar up" style="height:8px" title="861.5U"></div><div class="equity-bar down" style="height:5px" title="849.6U"></div><div class="equity-bar down" style="height:4px" title="840.2U"></div><div class="equity-bar down" style="height:4px" title="827.0U"></div><div class="equity-bar up" style="height:5px" title="849.3U"></div><div class="equity-bar down" style="height:4px" title="830.9U"></div><div class="equity-bar up" style="height:4px" title="830.9U"></div><div class="equity-bar up" style="height:7px" title="858.5U"></div><div class="equity-bar down" style="height:4px" title="845.3U"></div><div class="equity-bar down" style="height:4px" title="845.3U"></div></div>
+<div class="sim-section-title"><span style="color:var(--accent)">观察池模拟</span><span style="font-size:12px;color:var(--text-muted)">2026-05-31 18:01</span></div>
+<div class="sim-kpis"><div class="sim-kpi"><div class="sim-kpi-val" style="color:var(--red)">-176.2U</div><div class="sim-kpi-label">总盈亏</div></div><div class="sim-kpi"><div class="sim-kpi-val" style="color:var(--red)">-17.6%</div><div class="sim-kpi-label">收益率</div></div><div class="sim-kpi"><div class="sim-kpi-val">823.8U</div><div class="sim-kpi-label">净值 (可用418U)</div></div><div class="sim-kpi"><div class="sim-kpi-val">8</div><div class="sim-kpi-label">持仓中</div></div><div class="sim-kpi"><div class="sim-kpi-val">157</div><div class="sim-kpi-label">总交易</div></div><div class="sim-kpi"><div class="sim-kpi-val" style="color:var(--red)">40%</div><div class="sim-kpi-label">胜率</div></div></div>
+<div style="margin-bottom:12px;font-size:11px;color:var(--text-secondary)">净值曲线 (72h)</div><div class="equity-sparkline"><div class="equity-bar up" style="height:39px" title="1000.0U"></div><div class="equity-bar down" style="height:37px" title="987.3U"></div><div class="equity-bar down" style="height:35px" title="979.4U"></div><div class="equity-bar down" style="height:16px" title="896.9U"></div><div class="equity-bar down" style="height:6px" title="853.1U"></div><div class="equity-bar up" style="height:10px" title="870.0U"></div><div class="equity-bar down" style="height:8px" title="859.8U"></div><div class="equity-bar down" style="height:6px" title="850.3U"></div><div class="equity-bar up" style="height:6px" title="850.3U"></div><div class="equity-bar up" style="height:7px" title="854.5U"></div><div class="equity-bar up" style="height:11px" title="872.8U"></div><div class="equity-bar up" style="height:11px" title="872.8U"></div><div class="equity-bar up" style="height:12px" title="878.4U"></div><div class="equity-bar down" style="height:10px" title="871.0U"></div><div class="equity-bar down" style="height:5px" title="848.9U"></div><div class="equity-bar up" style="height:5px" title="848.9U"></div><div class="equity-bar up" style="height:5px" title="848.9U"></div><div class="equity-bar down" style="height:5px" title="848.9U"></div><div class="equity-bar up" style="height:5px" title="848.9U"></div><div class="equity-bar up" style="height:5px" title="848.9U"></div><div class="equity-bar up" style="height:15px" title="893.5U"></div><div class="equity-bar up" style="height:15px" title="893.5U"></div><div class="equity-bar down" style="height:15px" title="893.5U"></div><div class="equity-bar down" style="height:15px" title="890.6U"></div><div class="equity-bar up" style="height:15px" title="890.6U"></div><div class="equity-bar up" style="height:15px" title="890.6U"></div><div class="equity-bar down" style="height:15px" title="890.6U"></div><div class="equity-bar up" style="height:15px" title="890.6U"></div><div class="equity-bar up" style="height:15px" title="890.6U"></div><div class="equity-bar down" style="height:12px" title="880.6U"></div><div class="equity-bar up" style="height:12px" title="880.6U"></div><div class="equity-bar down" style="height:11px" title="872.4U"></div><div class="equity-bar up" style="height:11px" title="872.4U"></div><div class="equity-bar up" style="height:11px" title="872.4U"></div><div class="equity-bar up" style="height:13px" title="882.6U"></div><div class="equity-bar up" style="height:13px" title="882.6U"></div><div class="equity-bar down" style="height:9px" title="865.0U"></div><div class="equity-bar up" style="height:9px" title="865.0U"></div><div class="equity-bar up" style="height:9px" title="865.0U"></div><div class="equity-bar down" style="height:9px" title="864.1U"></div><div class="equity-bar up" style="height:9px" title="864.1U"></div><div class="equity-bar up" style="height:9px" title="864.1U"></div><div class="equity-bar up" style="height:9px" title="864.1U"></div><div class="equity-bar up" style="height:9px" title="864.1U"></div><div class="equity-bar down" style="height:4px" title="828.1U"></div><div class="equity-bar up" style="height:4px" title="828.1U"></div><div class="equity-bar up" style="height:4px" title="828.1U"></div><div class="equity-bar down" style="height:4px" title="826.9U"></div><div class="equity-bar up" style="height:4px" title="826.9U"></div><div class="equity-bar up" style="height:4px" title="834.0U"></div><div class="equity-bar up" style="height:4px" title="836.6U"></div><div class="equity-bar down" style="height:4px" title="824.5U"></div><div class="equity-bar up" style="height:4px" title="824.5U"></div><div class="equity-bar up" style="height:4px" title="838.9U"></div><div class="equity-bar down" style="height:4px" title="823.6U"></div><div class="equity-bar up" style="height:6px" title="851.7U"></div><div class="equity-bar up" style="height:6px" title="851.7U"></div><div class="equity-bar up" style="height:15px" title="891.6U"></div><div class="equity-bar down" style="height:11px" title="873.5U"></div><div class="equity-bar up" style="height:13px" title="884.6U"></div><div class="equity-bar up" style="height:13px" title="884.6U"></div><div class="equity-bar down" style="height:13px" title="881.6U"></div><div class="equity-bar up" style="height:13px" title="881.6U"></div><div class="equity-bar up" style="height:13px" title="881.6U"></div><div class="equity-bar up" style="height:13px" title="881.6U"></div><div class="equity-bar down" style="height:13px" title="881.6U"></div><div class="equity-bar up" style="height:13px" title="881.6U"></div><div class="equity-bar up" style="height:13px" title="881.6U"></div><div class="equity-bar up" style="height:17px" title="901.2U"></div><div class="equity-bar up" style="height:19px" title="910.3U"></div><div class="equity-bar up" style="height:20px" title="914.0U"></div><div class="equity-bar up" style="height:21px" title="917.4U"></div><div class="equity-bar down" style="height:19px" title="911.9U"></div><div class="equity-bar up" style="height:19px" title="911.9U"></div><div class="equity-bar up" style="height:19px" title="911.9U"></div><div class="equity-bar up" style="height:20px" title="913.3U"></div><div class="equity-bar up" style="height:20px" title="913.3U"></div><div class="equity-bar up" style="height:20px" title="913.3U"></div><div class="equity-bar up" style="height:20px" title="916.1U"></div><div class="equity-bar up" style="height:20px" title="916.1U"></div><div class="equity-bar up" style="height:21px" title="919.7U"></div><div class="equity-bar up" style="height:22px" title="924.1U"></div><div class="equity-bar down" style="height:21px" title="918.6U"></div><div class="equity-bar down" style="height:21px" title="918.6U"></div><div class="equity-bar down" style="height:20px" title="915.0U"></div><div class="equity-bar down" style="height:18px" title="906.3U"></div><div class="equity-bar up" style="height:23px" title="925.5U"></div><div class="equity-bar up" style="height:23px" title="927.4U"></div><div class="equity-bar down" style="height:23px" title="926.5U"></div><div class="equity-bar down" style="height:22px" title="921.4U"></div><div class="equity-bar up" style="height:22px" title="921.4U"></div><div class="equity-bar down" style="height:20px" title="913.8U"></div><div class="equity-bar up" style="height:24px" title="931.8U"></div><div class="equity-bar down" style="height:24px" title="930.6U"></div><div class="equity-bar up" style="height:25px" title="935.6U"></div><div class="equity-bar up" style="height:25px" title="935.6U"></div><div class="equity-bar down" style="height:24px" title="932.4U"></div><div class="equity-bar down" style="height:22px" title="924.1U"></div><div class="equity-bar down" style="height:19px" title="911.0U"></div><div class="equity-bar up" style="height:19px" title="911.0U"></div><div class="equity-bar up" style="height:27px" title="943.2U"></div><div class="equity-bar up" style="height:29px" title="955.8U"></div><div class="equity-bar down" style="height:29px" title="951.8U"></div><div class="equity-bar up" style="height:32px" title="968.2U"></div><div class="equity-bar up" style="height:33px" title="970.1U"></div><div class="equity-bar down" style="height:26px" title="941.3U"></div><div class="equity-bar up" style="height:28px" title="950.8U"></div><div class="equity-bar up" style="height:28px" title="950.8U"></div><div class="equity-bar up" style="height:31px" title="962.4U"></div><div class="equity-bar up" style="height:35px" title="979.0U"></div><div class="equity-bar up" style="height:35px" title="981.9U"></div><div class="equity-bar up" style="height:35px" title="981.9U"></div><div class="equity-bar down" style="height:35px" title="981.9U"></div><div class="equity-bar up" style="height:35px" title="981.9U"></div><div class="equity-bar down" style="height:35px" title="981.9U"></div><div class="equity-bar up" style="height:35px" title="981.9U"></div><div class="equity-bar up" style="height:35px" title="981.9U"></div><div class="equity-bar up" style="height:44px" title="1017.8U"></div><div class="equity-bar down" style="height:41px" title="1008.2U"></div><div class="equity-bar up" style="height:41px" title="1008.2U"></div><div class="equity-bar up" style="height:41px" title="1008.3U"></div><div class="equity-bar up" style="height:45px" title="1022.9U"></div><div class="equity-bar down" style="height:41px" title="1006.1U"></div><div class="equity-bar down" style="height:40px" title="1001.2U"></div><div class="equity-bar up" style="height:40px" title="1001.2U"></div><div class="equity-bar up" style="height:40px" title="1001.2U"></div><div class="equity-bar up" style="height:40px" title="1001.2U"></div><div class="equity-bar up" style="height:40px" title="1001.2U"></div><div class="equity-bar up" style="height:40px" title="1001.2U"></div><div class="equity-bar up" style="height:40px" title="1001.2U"></div><div class="equity-bar down" style="height:38px" title="995.4U"></div><div class="equity-bar down" style="height:38px" title="995.4U"></div><div class="equity-bar up" style="height:38px" title="995.4U"></div><div class="equity-bar down" style="height:34px" title="974.9U"></div><div class="equity-bar up" style="height:34px" title="974.9U"></div><div class="equity-bar down" style="height:30px" title="956.3U"></div><div class="equity-bar up" style="height:30px" title="956.3U"></div><div class="equity-bar up" style="height:31px" title="961.0U"></div><div class="equity-bar up" style="height:31px" title="961.0U"></div><div class="equity-bar down" style="height:30px" title="956.7U"></div><div class="equity-bar up" style="height:30px" title="956.7U"></div><div class="equity-bar down" style="height:26px" title="940.0U"></div><div class="equity-bar up" style="height:26px" title="940.0U"></div><div class="equity-bar up" style="height:26px" title="940.0U"></div><div class="equity-bar up" style="height:26px" title="940.0U"></div><div class="equity-bar down" style="height:22px" title="921.9U"></div><div class="equity-bar up" style="height:22px" title="921.9U"></div><div class="equity-bar up" style="height:22px" title="921.9U"></div><div class="equity-bar up" style="height:22px" title="921.9U"></div><div class="equity-bar up" style="height:22px" title="921.9U"></div><div class="equity-bar up" style="height:22px" title="924.3U"></div><div class="equity-bar up" style="height:30px" title="959.5U"></div><div class="equity-bar up" style="height:37px" title="988.2U"></div><div class="equity-bar up" style="height:37px" title="991.2U"></div><div class="equity-bar up" style="height:37px" title="991.2U"></div><div class="equity-bar up" style="height:37px" title="991.2U"></div><div class="equity-bar up" style="height:37px" title="991.2U"></div><div class="equity-bar down" style="height:37px" title="989.9U"></div><div class="equity-bar up" style="height:53px" title="1060.3U"></div><div class="equity-bar up" style="height:53px" title="1060.3U"></div><div class="equity-bar up" style="height:53px" title="1060.3U"></div><div class="equity-bar down" style="height:53px" title="1057.5U"></div><div class="equity-bar up" style="height:53px" title="1057.5U"></div><div class="equity-bar up" style="height:53px" title="1058.4U"></div><div class="equity-bar down" style="height:52px" title="1056.1U"></div><div class="equity-bar up" style="height:52px" title="1056.1U"></div><div class="equity-bar up" style="height:56px" title="1070.7U"></div><div class="equity-bar down" style="height:55px" title="1070.7U"></div><div class="equity-bar down" style="height:53px" title="1059.5U"></div><div class="equity-bar up" style="height:53px" title="1059.5U"></div><div class="equity-bar down" style="height:43px" title="1017.1U"></div><div class="equity-bar up" style="height:44px" title="1017.9U"></div><div class="equity-bar down" style="height:43px" title="1015.4U"></div><div class="equity-bar down" style="height:42px" title="1011.1U"></div><div class="equity-bar down" style="height:39px" title="997.6U"></div><div class="equity-bar up" style="height:40px" title="1000.4U"></div><div class="equity-bar down" style="height:39px" title="997.2U"></div><div class="equity-bar up" style="height:39px" title="997.3U"></div><div class="equity-bar up" style="height:39px" title="997.3U"></div><div class="equity-bar up" style="height:39px" title="997.3U"></div><div class="equity-bar down" style="height:39px" title="997.2U"></div><div class="equity-bar up" style="height:39px" title="997.3U"></div><div class="equity-bar down" style="height:37px" title="987.3U"></div><div class="equity-bar up" style="height:37px" title="987.3U"></div><div class="equity-bar up" style="height:37px" title="987.3U"></div><div class="equity-bar down" style="height:36px" title="983.9U"></div><div class="equity-bar up" style="height:36px" title="983.9U"></div><div class="equity-bar up" style="height:36px" title="983.9U"></div><div class="equity-bar down" style="height:35px" title="979.2U"></div><div class="equity-bar down" style="height:33px" title="972.8U"></div><div class="equity-bar up" style="height:33px" title="972.8U"></div><div class="equity-bar up" style="height:33px" title="972.8U"></div><div class="equity-bar down" style="height:24px" title="929.6U"></div><div class="equity-bar up" style="height:24px" title="929.6U"></div><div class="equity-bar up" style="height:24px" title="929.6U"></div><div class="equity-bar up" style="height:24px" title="929.6U"></div><div class="equity-bar down" style="height:19px" title="911.7U"></div><div class="equity-bar up" style="height:23px" title="926.4U"></div><div class="equity-bar up" style="height:23px" title="926.4U"></div><div class="equity-bar down" style="height:18px" title="903.5U"></div><div class="equity-bar down" style="height:17px" title="900.0U"></div><div class="equity-bar down" style="height:17px" title="899.8U"></div><div class="equity-bar down" style="height:17px" title="899.0U"></div><div class="equity-bar down" style="height:15px" title="893.3U"></div><div class="equity-bar down" style="height:15px" title="892.1U"></div><div class="equity-bar up" style="height:15px" title="892.1U"></div><div class="equity-bar down" style="height:15px" title="891.0U"></div><div class="equity-bar up" style="height:15px" title="891.0U"></div><div class="equity-bar up" style="height:15px" title="891.0U"></div><div class="equity-bar up" style="height:15px" title="891.0U"></div><div class="equity-bar up" style="height:15px" title="891.0U"></div><div class="equity-bar down" style="height:11px" title="876.5U"></div><div class="equity-bar up" style="height:11px" title="876.5U"></div><div class="equity-bar up" style="height:14px" title="886.9U"></div><div class="equity-bar down" style="height:11px" title="873.6U"></div><div class="equity-bar up" style="height:11px" title="873.6U"></div><div class="equity-bar up" style="height:11px" title="876.1U"></div><div class="equity-bar up" style="height:12px" title="879.7U"></div><div class="equity-bar up" style="height:12px" title="879.7U"></div><div class="equity-bar up" style="height:12px" title="879.7U"></div><div class="equity-bar up" style="height:12px" title="879.7U"></div><div class="equity-bar up" style="height:12px" title="879.7U"></div><div class="equity-bar up" style="height:12px" title="879.7U"></div><div class="equity-bar up" style="height:12px" title="879.7U"></div><div class="equity-bar up" style="height:12px" title="879.7U"></div><div class="equity-bar up" style="height:12px" title="879.7U"></div><div class="equity-bar up" style="height:12px" title="879.7U"></div><div class="equity-bar up" style="height:12px" title="879.7U"></div><div class="equity-bar down" style="height:12px" title="879.7U"></div><div class="equity-bar up" style="height:13px" title="885.4U"></div><div class="equity-bar up" style="height:13px" title="885.4U"></div><div class="equity-bar down" style="height:9px" title="867.3U"></div><div class="equity-bar down" style="height:9px" title="863.4U"></div><div class="equity-bar down" style="height:8px" title="861.2U"></div><div class="equity-bar down" style="height:8px" title="861.2U"></div><div class="equity-bar up" style="height:8px" title="861.2U"></div><div class="equity-bar down" style="height:4px" title="841.7U"></div><div class="equity-bar up" style="height:4px" title="841.7U"></div><div class="equity-bar up" style="height:4px" title="841.7U"></div><div class="equity-bar up" style="height:4px" title="841.7U"></div><div class="equity-bar up" style="height:14px" title="886.6U"></div><div class="equity-bar down" style="height:5px" title="846.9U"></div><div class="equity-bar up" style="height:7px" title="855.1U"></div><div class="equity-bar up" style="height:7px" title="855.1U"></div><div class="equity-bar down" style="height:4px" title="834.3U"></div><div class="equity-bar up" style="height:4px" title="834.3U"></div><div class="equity-bar up" style="height:4px" title="834.3U"></div><div class="equity-bar up" style="height:4px" title="837.3U"></div><div class="equity-bar up" style="height:4px" title="837.3U"></div><div class="equity-bar down" style="height:4px" title="833.5U"></div><div class="equity-bar up" style="height:6px" title="852.1U"></div><div class="equity-bar up" style="height:11px" title="872.8U"></div><div class="equity-bar up" style="height:14px" title="887.5U"></div><div class="equity-bar up" style="height:14px" title="887.8U"></div><div class="equity-bar up" style="height:14px" title="887.8U"></div><div class="equity-bar down" style="height:14px" title="887.8U"></div><div class="equity-bar up" style="height:14px" title="887.8U"></div><div class="equity-bar down" style="height:7px" title="858.2U"></div><div class="equity-bar up" style="height:7px" title="858.2U"></div><div class="equity-bar up" style="height:7px" title="858.2U"></div><div class="equity-bar down" style="height:7px" title="858.2U"></div><div class="equity-bar up" style="height:7px" title="858.2U"></div><div class="equity-bar up" style="height:7px" title="858.2U"></div><div class="equity-bar down" style="height:6px" title="851.9U"></div><div class="equity-bar up" style="height:6px" title="851.9U"></div><div class="equity-bar up" style="height:6px" title="851.9U"></div><div class="equity-bar up" style="height:6px" title="851.9U"></div><div class="equity-bar down" style="height:4px" title="842.9U"></div><div class="equity-bar up" style="height:4px" title="843.0U"></div><div class="equity-bar up" style="height:4px" title="843.0U"></div><div class="equity-bar down" style="height:4px" title="839.0U"></div><div class="equity-bar up" style="height:5px" title="847.4U"></div><div class="equity-bar up" style="height:7px" title="856.7U"></div><div class="equity-bar down" style="height:7px" title="854.8U"></div><div class="equity-bar up" style="height:8px" title="861.5U"></div><div class="equity-bar down" style="height:5px" title="849.6U"></div><div class="equity-bar down" style="height:4px" title="840.2U"></div><div class="equity-bar down" style="height:4px" title="827.0U"></div><div class="equity-bar up" style="height:5px" title="849.3U"></div><div class="equity-bar down" style="height:4px" title="830.9U"></div><div class="equity-bar up" style="height:4px" title="830.9U"></div><div class="equity-bar up" style="height:7px" title="858.5U"></div><div class="equity-bar down" style="height:4px" title="845.3U"></div><div class="equity-bar down" style="height:4px" title="845.3U"></div><div class="equity-bar down" style="height:4px" title="830.6U"></div><div class="equity-bar up" style="height:4px" title="830.6U"></div><div class="equity-bar down" style="height:4px" title="830.6U"></div><div class="equity-bar up" style="height:4px" title="830.6U"></div><div class="equity-bar up" style="height:4px" title="830.6U"></div><div class="equity-bar up" style="height:4px" title="830.6U"></div><div class="equity-bar up" style="height:4px" title="830.6U"></div><div class="equity-bar up" style="height:4px" title="830.6U"></div></div>
 <div style="font-size:13px;font-weight:600;margin:16px 0 8px;color:var(--text-secondary)">当前持仓</div>
 <div class="table-wrap"><table>
 <thead><tr><th>代币</th><th>入场价</th><th>现价</th><th>数量</th><th>保证金</th><th>未实现盈亏</th><th>止损</th><th>止盈</th><th>场景</th></tr></thead><tbody>
 <tr>
-<td><strong>AKT</strong></td>
-<td style="font-family:var(--mono)">0.816200</td>
-<td style="font-family:var(--mono)">0.777100</td>
-<td>273</td>
-<td>74U</td>
-<td style="color:var(--red);font-weight:600">-10.66U (-14.4%)</td>
-<td style="font-family:var(--mono);color:var(--red)">0.747046</td>
-<td style="font-family:var(--mono);color:var(--green)">0.907491</td>
-<td>S6</td>
-</tr>
-<tr>
 <td><strong>LUNA2</strong></td>
 <td style="font-family:var(--mono)">0.059760</td>
-<td style="font-family:var(--mono)">0.060450</td>
+<td style="font-family:var(--mono)">0.060620</td>
 <td>2773</td>
 <td>55U</td>
-<td style="color:var(--green);font-weight:600">+1.91U (+3.5%)</td>
+<td style="color:var(--green);font-weight:600">+2.38U (+4.3%)</td>
 <td style="font-family:var(--mono);color:var(--red)">0.057581</td>
 <td style="font-family:var(--mono);color:var(--green)">0.062773</td>
 <td>S2</td>
@@ -7446,43 +7243,21 @@ tr:hover td { background: var(--bg-hover); }
 <tr>
 <td><strong>SPK</strong></td>
 <td style="font-family:var(--mono)">0.023980</td>
-<td style="font-family:var(--mono)">0.023900</td>
+<td style="font-family:var(--mono)">0.023930</td>
 <td>6255</td>
 <td>50U</td>
-<td style="color:var(--red);font-weight:600">-0.50U (-1.0%)</td>
+<td style="color:var(--red);font-weight:600">-0.31U (-0.6%)</td>
 <td style="font-family:var(--mono);color:var(--red)">0.022835</td>
 <td style="font-family:var(--mono);color:var(--green)">0.025886</td>
 <td>S6</td>
 </tr>
 <tr>
-<td><strong>DEEP</strong></td>
-<td style="font-family:var(--mono)">0.029700</td>
-<td style="font-family:var(--mono)">0.029030</td>
-<td>5051</td>
-<td>50U</td>
-<td style="color:var(--red);font-weight:600">-3.38U (-6.8%)</td>
-<td style="font-family:var(--mono);color:var(--red)">0.027930</td>
-<td style="font-family:var(--mono);color:var(--green)">0.031851</td>
-<td>S1</td>
-</tr>
-<tr>
-<td><strong>ATH</strong></td>
-<td style="font-family:var(--mono)">0.006006</td>
-<td style="font-family:var(--mono)">0.005875</td>
-<td>24975</td>
-<td>50U</td>
-<td style="color:var(--red);font-weight:600">-3.27U (-6.5%)</td>
-<td style="font-family:var(--mono);color:var(--red)">0.005631</td>
-<td style="font-family:var(--mono);color:var(--green)">0.006451</td>
-<td>S6</td>
-</tr>
-<tr>
 <td><strong>FLUX</strong></td>
 <td style="font-family:var(--mono)">0.068090</td>
-<td style="font-family:var(--mono)">0.067480</td>
+<td style="font-family:var(--mono)">0.067100</td>
 <td>2636</td>
 <td>60U</td>
-<td style="color:var(--red);font-weight:600">-1.61U (-2.7%)</td>
+<td style="color:var(--red);font-weight:600">-2.61U (-4.4%)</td>
 <td style="font-family:var(--mono);color:var(--red)">0.064725</td>
 <td style="font-family:var(--mono);color:var(--green)">0.073313</td>
 <td>S6</td>
@@ -7490,10 +7265,10 @@ tr:hover td { background: var(--bg-hover); }
 <tr>
 <td><strong>SAPIEN</strong></td>
 <td style="font-family:var(--mono)">0.100720</td>
-<td style="font-family:var(--mono)">0.098410</td>
+<td style="font-family:var(--mono)">0.096710</td>
 <td>1489</td>
 <td>50U</td>
-<td style="color:var(--red);font-weight:600">-3.44U (-6.9%)</td>
+<td style="color:var(--red);font-weight:600">-5.97U (-11.9%)</td>
 <td style="font-family:var(--mono);color:var(--red)">0.093430</td>
 <td style="font-family:var(--mono);color:var(--green)">0.109165</td>
 <td>S6</td>
@@ -7501,10 +7276,10 @@ tr:hover td { background: var(--bg-hover); }
 <tr>
 <td><strong>MERL</strong></td>
 <td style="font-family:var(--mono)">0.024630</td>
-<td style="font-family:var(--mono)">0.024690</td>
+<td style="font-family:var(--mono)">0.024580</td>
 <td>6090</td>
 <td>50U</td>
-<td style="color:var(--green);font-weight:600">+0.37U (+0.7%)</td>
+<td style="color:var(--red);font-weight:600">-0.30U (-0.6%)</td>
 <td style="font-family:var(--mono);color:var(--red)">0.022935</td>
 <td style="font-family:var(--mono);color:var(--green)">0.026834</td>
 <td>S6</td>
@@ -7512,10 +7287,10 @@ tr:hover td { background: var(--bg-hover); }
 <tr>
 <td><strong>SYRUP</strong></td>
 <td style="font-family:var(--mono)">0.163460</td>
-<td style="font-family:var(--mono)">0.162200</td>
+<td style="font-family:var(--mono)">0.160020</td>
 <td>918</td>
 <td>50U</td>
-<td style="color:var(--red);font-weight:600">-1.16U (-2.3%)</td>
+<td style="color:var(--red);font-weight:600">-3.16U (-6.3%)</td>
 <td style="font-family:var(--mono);color:var(--red)">0.154742</td>
 <td style="font-family:var(--mono);color:var(--green)">0.174100</td>
 <td>S6</td>
@@ -7523,10 +7298,10 @@ tr:hover td { background: var(--bg-hover); }
 <tr>
 <td><strong>KAS</strong></td>
 <td style="font-family:var(--mono)">0.030610</td>
-<td style="font-family:var(--mono)">0.030420</td>
+<td style="font-family:var(--mono)">0.030340</td>
 <td>4900</td>
 <td>50U</td>
-<td style="color:var(--red);font-weight:600">-0.93U (-1.9%)</td>
+<td style="color:var(--red);font-weight:600">-1.32U (-2.6%)</td>
 <td style="font-family:var(--mono);color:var(--red)">0.029940</td>
 <td style="font-family:var(--mono);color:var(--green)">0.032263</td>
 <td>S2</td>
@@ -7534,73 +7309,82 @@ tr:hover td { background: var(--bg-hover); }
 <tr>
 <td><strong>MANTRA</strong></td>
 <td style="font-family:var(--mono)">0.008280</td>
-<td style="font-family:var(--mono)">0.008460</td>
+<td style="font-family:var(--mono)">0.008410</td>
 <td>18116</td>
 <td>50U</td>
-<td style="color:var(--green);font-weight:600">+3.26U (+6.5%)</td>
+<td style="color:var(--green);font-weight:600">+2.36U (+4.7%)</td>
 <td style="font-family:var(--mono);color:var(--red)">0.007811</td>
 <td style="font-family:var(--mono);color:var(--green)">0.008800</td>
 <td>S6</td>
-</tr>
-<tr>
-<td><strong>MEW</strong></td>
-<td style="font-family:var(--mono)">0.000500</td>
-<td style="font-family:var(--mono)">0.000498</td>
-<td>300000</td>
-<td>50U</td>
-<td style="color:var(--red);font-weight:600">-0.51U (-1.0%)</td>
-<td style="font-family:var(--mono);color:var(--red)">0.000473</td>
-<td style="font-family:var(--mono);color:var(--green)">0.000535</td>
-<td>S6</td>
-</tr>
-<tr>
-<td><strong>ALT</strong></td>
-<td style="font-family:var(--mono)">0.006926</td>
-<td style="font-family:var(--mono)">0.006916</td>
-<td>21658</td>
-<td>50U</td>
-<td style="color:var(--red);font-weight:600">-0.22U (-0.4%)</td>
-<td style="font-family:var(--mono);color:var(--red)">0.006607</td>
-<td style="font-family:var(--mono);color:var(--green)">0.007350</td>
-<td>S2</td>
-</tr>
-<tr>
-<td><strong>PIPPIN</strong></td>
-<td style="font-family:var(--mono)">0.019160</td>
-<td style="font-family:var(--mono)">0.019030</td>
-<td>7829</td>
-<td>50U</td>
-<td style="color:var(--red);font-weight:600">-1.02U (-2.0%)</td>
-<td style="font-family:var(--mono);color:var(--red)">0.017970</td>
-<td style="font-family:var(--mono);color:var(--green)">0.020730</td>
-<td>S6</td>
-</tr>
-<tr>
-<td><strong>OP</strong></td>
-<td style="font-family:var(--mono)">0.120100</td>
-<td style="font-family:var(--mono)">0.119100</td>
-<td>1249</td>
-<td>50U</td>
-<td style="color:var(--red);font-weight:600">-1.25U (-2.5%)</td>
-<td style="font-family:var(--mono);color:var(--red)">0.113032</td>
-<td style="font-family:var(--mono);color:var(--green)">0.128300</td>
-<td>S6</td>
-</tr>
-<tr>
-<td><strong>FIL</strong></td>
-<td style="font-family:var(--mono)">0.965000</td>
-<td style="font-family:var(--mono)">0.961000</td>
-<td>193</td>
-<td>62U</td>
-<td style="color:var(--red);font-weight:600">-0.77U (-1.2%)</td>
-<td style="font-family:var(--mono);color:var(--red)">0.917390</td>
-<td style="font-family:var(--mono);color:var(--green)">1.0211</td>
-<td>S2</td>
 </tr>
 </tbody></table></div>
 <div style="font-size:13px;font-weight:600;margin:16px 0 8px;color:var(--text-secondary)">最近交易</div>
 <div class="table-wrap"><table>
 <thead><tr><th>代币</th><th>入场</th><th>出场</th><th>盈亏</th><th>原因</th><th>持仓天数</th></tr></thead><tbody>
+<tr>
+<td><strong>AKT</strong></td>
+<td style="font-size:11px">2026-05-29</td>
+<td style="font-size:11px">2026-05-31</td>
+<td style="color:var(--red);font-weight:600">-10.66U (-14.4%)</td>
+<td style="font-size:11px">退出观察池</td>
+<td>2.1天</td>
+</tr>
+<tr>
+<td><strong>DEEP</strong></td>
+<td style="font-size:11px">2026-05-30</td>
+<td style="font-size:11px">2026-05-31</td>
+<td style="color:var(--red);font-weight:600">-3.38U (-6.8%)</td>
+<td style="font-size:11px">退出观察池</td>
+<td>1.2天</td>
+</tr>
+<tr>
+<td><strong>ATH</strong></td>
+<td style="font-size:11px">2026-05-30</td>
+<td style="font-size:11px">2026-05-31</td>
+<td style="color:var(--red);font-weight:600">-3.27U (-6.5%)</td>
+<td style="font-size:11px">退出观察池</td>
+<td>1.2天</td>
+</tr>
+<tr>
+<td><strong>MEW</strong></td>
+<td style="font-size:11px">2026-05-31</td>
+<td style="font-size:11px">2026-05-31</td>
+<td style="color:var(--red);font-weight:600">-0.51U (-1.0%)</td>
+<td style="font-size:11px">退出观察池</td>
+<td>0.5天</td>
+</tr>
+<tr>
+<td><strong>ALT</strong></td>
+<td style="font-size:11px">2026-05-31</td>
+<td style="font-size:11px">2026-05-31</td>
+<td style="color:var(--red);font-weight:600">-0.22U (-0.4%)</td>
+<td style="font-size:11px">退出观察池</td>
+<td>0.3天</td>
+</tr>
+<tr>
+<td><strong>PIPPIN</strong></td>
+<td style="font-size:11px">2026-05-31</td>
+<td style="font-size:11px">2026-05-31</td>
+<td style="color:var(--red);font-weight:600">-1.02U (-2.0%)</td>
+<td style="font-size:11px">退出观察池</td>
+<td>0.3天</td>
+</tr>
+<tr>
+<td><strong>OP</strong></td>
+<td style="font-size:11px">2026-05-31</td>
+<td style="font-size:11px">2026-05-31</td>
+<td style="color:var(--red);font-weight:600">-1.25U (-2.5%)</td>
+<td style="font-size:11px">退出观察池</td>
+<td>0.1天</td>
+</tr>
+<tr>
+<td><strong>FIL</strong></td>
+<td style="font-size:11px">2026-05-31</td>
+<td style="font-size:11px">2026-05-31</td>
+<td style="color:var(--red);font-weight:600">-0.77U (-1.2%)</td>
+<td style="font-size:11px">退出观察池</td>
+<td>0.1天</td>
+</tr>
 <tr>
 <td><strong>EVAA</strong></td>
 <td style="font-size:11px">2026-05-30</td>
@@ -7617,86 +7401,22 @@ tr:hover td { background: var(--bg-hover); }
 <td style="font-size:11px">止损触发</td>
 <td>0.2天</td>
 </tr>
-<tr>
-<td><strong>EIGEN</strong></td>
-<td style="font-size:11px">2026-05-29</td>
-<td style="font-size:11px">2026-05-31</td>
-<td style="color:var(--red);font-weight:600">-3.69U (-6.0%)</td>
-<td style="font-size:11px">退出观察池</td>
-<td>1.7天</td>
-</tr>
-<tr>
-<td><strong>1000BONK</strong></td>
-<td style="font-size:11px">2026-05-30</td>
-<td style="font-size:11px">2026-05-31</td>
-<td style="color:var(--red);font-weight:600">-2.10U (-4.2%)</td>
-<td style="font-size:11px">退出观察池</td>
-<td>0.7天</td>
-</tr>
-<tr>
-<td><strong>MUBARAK</strong></td>
-<td style="font-size:11px">2026-05-30</td>
-<td style="font-size:11px">2026-05-31</td>
-<td style="color:var(--green);font-weight:600">+7.03U (+12.5%)</td>
-<td style="font-size:11px">退出观察池</td>
-<td>0.7天</td>
-</tr>
-<tr>
-<td><strong>RUNE</strong></td>
-<td style="font-size:11px">2026-05-29</td>
-<td style="font-size:11px">2026-05-31</td>
-<td style="color:var(--green);font-weight:600">+2.35U (+4.7%)</td>
-<td style="font-size:11px">退出观察池</td>
-<td>1.5天</td>
-</tr>
-<tr>
-<td><strong>SKYAI</strong></td>
-<td style="font-size:11px">2026-05-29</td>
-<td style="font-size:11px">2026-05-30</td>
-<td style="color:var(--red);font-weight:600">-15.74U (-31.5%)</td>
-<td style="font-size:11px">退出观察池</td>
-<td>1.5天</td>
-</tr>
-<tr>
-<td><strong>DOGS</strong></td>
-<td style="font-size:11px">2026-05-30</td>
-<td style="font-size:11px">2026-05-30</td>
-<td style="color:var(--red);font-weight:600">-1.70U (-3.0%)</td>
-<td style="font-size:11px">退出观察池</td>
-<td>0.1天</td>
-</tr>
-<tr>
-<td><strong>BLESS</strong></td>
-<td style="font-size:11px">2026-05-29</td>
-<td style="font-size:11px">2026-05-30</td>
-<td style="color:var(--green);font-weight:600">+6.49U (+13.0%)</td>
-<td style="font-size:11px">退出观察池</td>
-<td>1.1天</td>
-</tr>
-<tr>
-<td><strong>ON</strong></td>
-<td style="font-size:11px">2026-05-29</td>
-<td style="font-size:11px">2026-05-30</td>
-<td style="color:var(--green);font-weight:600">+3.21U (+6.4%)</td>
-<td style="font-size:11px">退出观察池</td>
-<td>1.1天</td>
-</tr>
 </tbody></table></div>
 </div>
 <div class="sim-section">
-<div class="sim-section-title"><span style="color:var(--red)">机会池模拟</span><span style="font-size:12px;color:var(--text-muted)">2026-05-31 17:01</span></div>
-<div class="sim-kpis"><div class="sim-kpi"><div class="sim-kpi-val" style="color:var(--red)">-86.6U</div><div class="sim-kpi-label">总盈亏</div></div><div class="sim-kpi"><div class="sim-kpi-val" style="color:var(--red)"> -8.7%</div><div class="sim-kpi-label">收益率</div></div><div class="sim-kpi"><div class="sim-kpi-val">913.4U</div><div class="sim-kpi-label">净值 (可用478U)</div></div><div class="sim-kpi"><div class="sim-kpi-val">8</div><div class="sim-kpi-label">持仓中</div></div><div class="sim-kpi"><div class="sim-kpi-val">123</div><div class="sim-kpi-label">总交易</div></div><div class="sim-kpi"><div class="sim-kpi-val" style="color:var(--red)">42%</div><div class="sim-kpi-label">胜率</div></div></div>
-<div style="margin-bottom:12px;font-size:11px;color:var(--text-secondary)">净值曲线 (72h)</div><div class="equity-sparkline"><div class="equity-bar up" style="height:56px" title="1000.0U"></div><div class="equity-bar down" style="height:45px" title="969.9U"></div><div class="equity-bar down" style="height:37px" title="946.8U"></div><div class="equity-bar down" style="height:13px" title="875.0U"></div><div class="equity-bar up" style="height:16px" title="884.7U"></div><div class="equity-bar up" style="height:19px" title="891.3U"></div><div class="equity-bar up" style="height:21px" title="897.0U"></div><div class="equity-bar up" style="height:23px" title="905.1U"></div><div class="equity-bar down" style="height:22px" title="900.2U"></div><div class="equity-bar down" style="height:21px" title="899.2U"></div><div class="equity-bar up" style="height:23px" title="903.1U"></div><div class="equity-bar down" style="height:21px" title="898.7U"></div><div class="equity-bar up" style="height:22px" title="900.5U"></div><div class="equity-bar up" style="height:23px" title="904.4U"></div><div class="equity-bar up" style="height:24px" title="906.2U"></div><div class="equity-bar down" style="height:21px" title="897.9U"></div><div class="equity-bar up" style="height:22px" title="901.9U"></div><div class="equity-bar down" style="height:22px" title="900.6U"></div><div class="equity-bar down" style="height:21px" title="898.6U"></div><div class="equity-bar down" style="height:16px" title="884.6U"></div><div class="equity-bar down" style="height:13px" title="873.6U"></div><div class="equity-bar down" style="height:12px" title="872.5U"></div><div class="equity-bar up" style="height:13px" title="874.3U"></div><div class="equity-bar up" style="height:13px" title="874.3U"></div><div class="equity-bar up" style="height:13px" title="874.3U"></div><div class="equity-bar up" style="height:14px" title="877.4U"></div><div class="equity-bar up" style="height:14px" title="877.4U"></div><div class="equity-bar up" style="height:16px" title="882.9U"></div><div class="equity-bar up" style="height:20px" title="896.2U"></div><div class="equity-bar up" style="height:20px" title="896.2U"></div><div class="equity-bar down" style="height:19px" title="892.8U"></div><div class="equity-bar down" style="height:19px" title="892.8U"></div><div class="equity-bar up" style="height:19px" title="893.5U"></div><div class="equity-bar up" style="height:19px" title="893.5U"></div><div class="equity-bar up" style="height:19px" title="893.5U"></div><div class="equity-bar up" style="height:19px" title="893.5U"></div><div class="equity-bar up" style="height:19px" title="893.5U"></div><div class="equity-bar up" style="height:21px" title="897.0U"></div><div class="equity-bar up" style="height:21px" title="897.0U"></div><div class="equity-bar up" style="height:21px" title="898.0U"></div><div class="equity-bar up" style="height:21px" title="898.0U"></div><div class="equity-bar up" style="height:21px" title="898.0U"></div><div class="equity-bar down" style="height:20px" title="895.5U"></div><div class="equity-bar up" style="height:20px" title="895.5U"></div><div class="equity-bar down" style="height:17px" title="886.6U"></div><div class="equity-bar up" style="height:17px" title="886.6U"></div><div class="equity-bar up" style="height:17px" title="886.6U"></div><div class="equity-bar up" style="height:17px" title="886.6U"></div><div class="equity-bar up" style="height:18px" title="888.8U"></div><div class="equity-bar up" style="height:18px" title="888.8U"></div><div class="equity-bar up" style="height:18px" title="888.8U"></div><div class="equity-bar down" style="height:18px" title="888.4U"></div><div class="equity-bar up" style="height:21px" title="899.5U"></div><div class="equity-bar up" style="height:21px" title="899.5U"></div><div class="equity-bar up" style="height:23px" title="905.4U"></div><div class="equity-bar down" style="height:17px" title="886.8U"></div><div class="equity-bar up" style="height:17px" title="886.8U"></div><div class="equity-bar down" style="height:17px" title="885.0U"></div><div class="equity-bar down" style="height:16px" title="882.4U"></div><div class="equity-bar up" style="height:16px" title="882.4U"></div><div class="equity-bar up" style="height:16px" title="882.4U"></div><div class="equity-bar up" style="height:16px" title="882.4U"></div><div class="equity-bar up" style="height:16px" title="882.4U"></div><div class="equity-bar up" style="height:16px" title="882.4U"></div><div class="equity-bar up" style="height:16px" title="883.6U"></div><div class="equity-bar down" style="height:11px" title="869.2U"></div><div class="equity-bar up" style="height:12px" title="871.8U"></div><div class="equity-bar up" style="height:18px" title="888.4U"></div><div class="equity-bar up" style="height:18px" title="890.8U"></div><div class="equity-bar up" style="height:20px" title="894.1U"></div><div class="equity-bar up" style="height:20px" title="895.0U"></div><div class="equity-bar up" style="height:21px" title="896.8U"></div><div class="equity-bar down" style="height:21px" title="896.8U"></div><div class="equity-bar down" style="height:20px" title="896.5U"></div><div class="equity-bar up" style="height:22px" title="900.5U"></div><div class="equity-bar down" style="height:21px" title="898.4U"></div><div class="equity-bar down" style="height:21px" title="897.9U"></div><div class="equity-bar up" style="height:23px" title="904.3U"></div><div class="equity-bar up" style="height:23px" title="904.3U"></div><div class="equity-bar down" style="height:17px" title="886.1U"></div><div class="equity-bar up" style="height:17px" title="886.1U"></div><div class="equity-bar down" style="height:17px" title="885.1U"></div><div class="equity-bar up" style="height:23px" title="904.7U"></div><div class="equity-bar up" style="height:23px" title="904.7U"></div><div class="equity-bar down" style="height:19px" title="893.7U"></div><div class="equity-bar down" style="height:16px" title="883.1U"></div><div class="equity-bar up" style="height:16px" title="883.1U"></div><div class="equity-bar down" style="height:15px" title="879.6U"></div><div class="equity-bar up" style="height:15px" title="879.6U"></div><div class="equity-bar up" style="height:20px" title="894.7U"></div><div class="equity-bar up" style="height:20px" title="894.7U"></div><div class="equity-bar up" style="height:20px" title="896.0U"></div><div class="equity-bar up" style="height:20px" title="896.0U"></div><div class="equity-bar down" style="height:19px" title="893.5U"></div><div class="equity-bar up" style="height:19px" title="893.5U"></div><div class="equity-bar down" style="height:18px" title="889.6U"></div><div class="equity-bar down" style="height:18px" title="889.6U"></div><div class="equity-bar up" style="height:18px" title="889.6U"></div><div class="equity-bar down" style="height:18px" title="888.8U"></div><div class="equity-bar up" style="height:18px" title="888.8U"></div><div class="equity-bar up" style="height:19px" title="892.7U"></div><div class="equity-bar up" style="height:19px" title="892.7U"></div><div class="equity-bar up" style="height:19px" title="892.7U"></div><div class="equity-bar up" style="height:19px" title="892.7U"></div><div class="equity-bar up" style="height:19px" title="892.7U"></div><div class="equity-bar up" style="height:19px" title="892.7U"></div><div class="equity-bar up" style="height:19px" title="892.7U"></div><div class="equity-bar up" style="height:19px" title="892.7U"></div><div class="equity-bar up" style="height:19px" title="892.7U"></div><div class="equity-bar up" style="height:19px" title="892.7U"></div><div class="equity-bar up" style="height:19px" title="892.7U"></div><div class="equity-bar down" style="height:4px" title="849.2U"></div><div class="equity-bar up" style="height:4px" title="849.2U"></div><div class="equity-bar up" style="height:9px" title="862.6U"></div><div class="equity-bar down" style="height:7px" title="857.0U"></div><div class="equity-bar up" style="height:7px" title="857.0U"></div><div class="equity-bar down" style="height:7px" title="856.9U"></div><div class="equity-bar down" style="height:4px" title="849.1U"></div><div class="equity-bar down" style="height:4px" title="849.1U"></div><div class="equity-bar up" style="height:4px" title="849.1U"></div><div class="equity-bar up" style="height:4px" title="849.1U"></div><div class="equity-bar up" style="height:4px" title="849.1U"></div><div class="equity-bar down" style="height:4px" title="834.7U"></div><div class="equity-bar up" style="height:4px" title="834.7U"></div><div class="equity-bar up" style="height:4px" title="834.7U"></div><div class="equity-bar up" style="height:4px" title="842.1U"></div><div class="equity-bar up" style="height:4px" title="846.5U"></div><div class="equity-bar up" style="height:5px" title="849.6U"></div><div class="equity-bar up" style="height:9px" title="863.9U"></div><div class="equity-bar up" style="height:9px" title="863.9U"></div><div class="equity-bar up" style="height:9px" title="863.9U"></div><div class="equity-bar up" style="height:33px" title="933.8U"></div><div class="equity-bar up" style="height:35px" title="940.1U"></div><div class="equity-bar down" style="height:26px" title="912.6U"></div><div class="equity-bar up" style="height:26px" title="912.6U"></div><div class="equity-bar down" style="height:24px" title="906.4U"></div><div class="equity-bar up" style="height:24px" title="906.4U"></div><div class="equity-bar up" style="height:24px" title="906.4U"></div><div class="equity-bar down" style="height:22px" title="900.0U"></div><div class="equity-bar up" style="height:22px" title="900.0U"></div><div class="equity-bar up" style="height:22px" title="900.0U"></div><div class="equity-bar down" style="height:20px" title="894.1U"></div><div class="equity-bar up" style="height:20px" title="894.1U"></div><div class="equity-bar down" style="height:20px" title="894.1U"></div><div class="equity-bar down" style="height:18px" title="889.6U"></div><div class="equity-bar up" style="height:18px" title="889.6U"></div><div class="equity-bar up" style="height:18px" title="889.6U"></div><div class="equity-bar down" style="height:16px" title="882.2U"></div><div class="equity-bar down" style="height:15px" title="880.4U"></div><div class="equity-bar up" style="height:15px" title="880.4U"></div><div class="equity-bar down" style="height:14px" title="878.6U"></div><div class="equity-bar down" style="height:11px" title="869.7U"></div><div class="equity-bar up" style="height:11px" title="869.7U"></div><div class="equity-bar down" style="height:10px" title="866.8U"></div><div class="equity-bar down" style="height:10px" title="866.6U"></div><div class="equity-bar down" style="height:9px" title="863.9U"></div><div class="equity-bar up" style="height:9px" title="863.9U"></div><div class="equity-bar up" style="height:9px" title="863.9U"></div><div class="equity-bar up" style="height:11px" title="867.8U"></div><div class="equity-bar up" style="height:11px" title="867.8U"></div><div class="equity-bar up" style="height:11px" title="867.8U"></div><div class="equity-bar down" style="height:11px" title="867.4U"></div><div class="equity-bar up" style="height:11px" title="870.0U"></div><div class="equity-bar down" style="height:11px" title="870.0U"></div><div class="equity-bar down" style="height:9px" title="863.5U"></div><div class="equity-bar up" style="height:9px" title="863.5U"></div><div class="equity-bar up" style="height:10px" title="867.1U"></div><div class="equity-bar up" style="height:10px" title="867.1U"></div><div class="equity-bar down" style="height:8px" title="860.5U"></div><div class="equity-bar up" style="height:9px" title="861.4U"></div><div class="equity-bar up" style="height:9px" title="861.4U"></div><div class="equity-bar up" style="height:9px" title="861.4U"></div><div class="equity-bar up" style="height:9px" title="861.4U"></div><div class="equity-bar up" style="height:9px" title="861.4U"></div><div class="equity-bar up" style="height:10px" title="865.6U"></div><div class="equity-bar up" style="height:10px" title="865.6U"></div><div class="equity-bar up" style="height:10px" title="865.6U"></div><div class="equity-bar down" style="height:9px" title="864.0U"></div><div class="equity-bar up" style="height:9px" title="864.0U"></div><div class="equity-bar down" style="height:5px" title="851.9U"></div><div class="equity-bar up" style="height:5px" title="851.9U"></div><div class="equity-bar up" style="height:5px" title="851.9U"></div><div class="equity-bar up" style="height:5px" title="851.9U"></div><div class="equity-bar up" style="height:5px" title="851.9U"></div><div class="equity-bar up" style="height:5px" title="851.9U"></div><div class="equity-bar down" style="height:4px" title="836.3U"></div><div class="equity-bar up" style="height:4px" title="836.3U"></div><div class="equity-bar up" style="height:4px" title="836.3U"></div><div class="equity-bar up" style="height:4px" title="836.3U"></div><div class="equity-bar up" style="height:4px" title="836.3U"></div><div class="equity-bar up" style="height:4px" title="836.3U"></div><div class="equity-bar up" style="height:4px" title="842.1U"></div><div class="equity-bar up" style="height:4px" title="842.1U"></div><div class="equity-bar down" style="height:4px" title="842.1U"></div><div class="equity-bar up" style="height:23px" title="904.8U"></div><div class="equity-bar up" style="height:23px" title="904.8U"></div><div class="equity-bar down" style="height:11px" title="868.8U"></div><div class="equity-bar up" style="height:11px" title="868.8U"></div><div class="equity-bar down" style="height:10px" title="866.9U"></div><div class="equity-bar up" style="height:15px" title="880.8U"></div><div class="equity-bar up" style="height:15px" title="880.8U"></div><div class="equity-bar down" style="height:11px" title="868.9U"></div><div class="equity-bar up" style="height:11px" title="868.9U"></div><div class="equity-bar up" style="height:11px" title="868.9U"></div><div class="equity-bar up" style="height:11px" title="869.4U"></div><div class="equity-bar down" style="height:11px" title="869.4U"></div><div class="equity-bar up" style="height:17px" title="886.1U"></div><div class="equity-bar up" style="height:17px" title="886.1U"></div><div class="equity-bar up" style="height:24px" title="908.4U"></div><div class="equity-bar up" style="height:24px" title="908.4U"></div><div class="equity-bar down" style="height:24px" title="908.4U"></div><div class="equity-bar up" style="height:24px" title="908.4U"></div><div class="equity-bar up" style="height:24px" title="908.4U"></div><div class="equity-bar up" style="height:28px" title="919.7U"></div><div class="equity-bar up" style="height:28px" title="919.7U"></div><div class="equity-bar up" style="height:28px" title="919.7U"></div><div class="equity-bar up" style="height:30px" title="923.5U"></div><div class="equity-bar up" style="height:30px" title="923.5U"></div><div class="equity-bar up" style="height:30px" title="923.5U"></div><div class="equity-bar up" style="height:30px" title="923.5U"></div><div class="equity-bar up" style="height:30px" title="923.5U"></div><div class="equity-bar down" style="height:30px" title="923.5U"></div><div class="equity-bar down" style="height:22px" title="902.0U"></div><div class="equity-bar up" style="height:22px" title="902.0U"></div><div class="equity-bar up" style="height:26px" title="913.8U"></div><div class="equity-bar down" style="height:26px" title="911.5U"></div><div class="equity-bar up" style="height:26px" title="911.5U"></div><div class="equity-bar up" style="height:26px" title="911.5U"></div><div class="equity-bar down" style="height:25px" title="909.3U"></div><div class="equity-bar up" style="height:25px" title="909.3U"></div><div class="equity-bar up" style="height:25px" title="909.6U"></div><div class="equity-bar up" style="height:25px" title="909.6U"></div><div class="equity-bar down" style="height:25px" title="909.2U"></div><div class="equity-bar up" style="height:25px" title="910.4U"></div><div class="equity-bar up" style="height:30px" title="924.6U"></div><div class="equity-bar down" style="height:30px" title="924.6U"></div><div class="equity-bar up" style="height:30px" title="924.6U"></div><div class="equity-bar up" style="height:31px" title="926.5U"></div><div class="equity-bar down" style="height:28px" title="920.0U"></div><div class="equity-bar up" style="height:28px" title="920.0U"></div><div class="equity-bar down" style="height:26px" title="912.6U"></div><div class="equity-bar up" style="height:26px" title="912.6U"></div><div class="equity-bar up" style="height:26px" title="912.6U"></div><div class="equity-bar up" style="height:30px" title="925.3U"></div><div class="equity-bar up" style="height:30px" title="925.3U"></div><div class="equity-bar up" style="height:34px" title="935.2U"></div><div class="equity-bar up" style="height:34px" title="935.2U"></div><div class="equity-bar down" style="height:29px" title="923.1U"></div></div>
+<div class="sim-section-title"><span style="color:var(--red)">机会池模拟</span><span style="font-size:12px;color:var(--text-muted)">2026-05-31 18:01</span></div>
+<div class="sim-kpis"><div class="sim-kpi"><div class="sim-kpi-val" style="color:var(--red)">-88.2U</div><div class="sim-kpi-label">总盈亏</div></div><div class="sim-kpi"><div class="sim-kpi-val" style="color:var(--red)"> -8.8%</div><div class="sim-kpi-label">收益率</div></div><div class="sim-kpi"><div class="sim-kpi-val">911.8U</div><div class="sim-kpi-label">净值 (可用627U)</div></div><div class="sim-kpi"><div class="sim-kpi-val">5</div><div class="sim-kpi-label">持仓中</div></div><div class="sim-kpi"><div class="sim-kpi-val">126</div><div class="sim-kpi-label">总交易</div></div><div class="sim-kpi"><div class="sim-kpi-val" style="color:var(--red)">41%</div><div class="sim-kpi-label">胜率</div></div></div>
+<div style="margin-bottom:12px;font-size:11px;color:var(--text-secondary)">净值曲线 (72h)</div><div class="equity-sparkline"><div class="equity-bar up" style="height:56px" title="1000.0U"></div><div class="equity-bar down" style="height:45px" title="969.9U"></div><div class="equity-bar down" style="height:37px" title="946.8U"></div><div class="equity-bar down" style="height:13px" title="875.0U"></div><div class="equity-bar up" style="height:16px" title="884.7U"></div><div class="equity-bar up" style="height:19px" title="891.3U"></div><div class="equity-bar up" style="height:21px" title="897.0U"></div><div class="equity-bar up" style="height:23px" title="905.1U"></div><div class="equity-bar down" style="height:22px" title="900.2U"></div><div class="equity-bar down" style="height:21px" title="899.2U"></div><div class="equity-bar up" style="height:23px" title="903.1U"></div><div class="equity-bar down" style="height:21px" title="898.7U"></div><div class="equity-bar up" style="height:22px" title="900.5U"></div><div class="equity-bar up" style="height:23px" title="904.4U"></div><div class="equity-bar up" style="height:24px" title="906.2U"></div><div class="equity-bar down" style="height:21px" title="897.9U"></div><div class="equity-bar up" style="height:22px" title="901.9U"></div><div class="equity-bar down" style="height:22px" title="900.6U"></div><div class="equity-bar down" style="height:21px" title="898.6U"></div><div class="equity-bar down" style="height:16px" title="884.6U"></div><div class="equity-bar down" style="height:13px" title="873.6U"></div><div class="equity-bar down" style="height:12px" title="872.5U"></div><div class="equity-bar up" style="height:13px" title="874.3U"></div><div class="equity-bar up" style="height:13px" title="874.3U"></div><div class="equity-bar up" style="height:13px" title="874.3U"></div><div class="equity-bar up" style="height:14px" title="877.4U"></div><div class="equity-bar up" style="height:14px" title="877.4U"></div><div class="equity-bar up" style="height:16px" title="882.9U"></div><div class="equity-bar up" style="height:20px" title="896.2U"></div><div class="equity-bar up" style="height:20px" title="896.2U"></div><div class="equity-bar down" style="height:19px" title="892.8U"></div><div class="equity-bar down" style="height:19px" title="892.8U"></div><div class="equity-bar up" style="height:19px" title="893.5U"></div><div class="equity-bar up" style="height:19px" title="893.5U"></div><div class="equity-bar up" style="height:19px" title="893.5U"></div><div class="equity-bar up" style="height:19px" title="893.5U"></div><div class="equity-bar up" style="height:19px" title="893.5U"></div><div class="equity-bar up" style="height:21px" title="897.0U"></div><div class="equity-bar up" style="height:21px" title="897.0U"></div><div class="equity-bar up" style="height:21px" title="898.0U"></div><div class="equity-bar up" style="height:21px" title="898.0U"></div><div class="equity-bar up" style="height:21px" title="898.0U"></div><div class="equity-bar down" style="height:20px" title="895.5U"></div><div class="equity-bar up" style="height:20px" title="895.5U"></div><div class="equity-bar down" style="height:17px" title="886.6U"></div><div class="equity-bar up" style="height:17px" title="886.6U"></div><div class="equity-bar up" style="height:17px" title="886.6U"></div><div class="equity-bar up" style="height:17px" title="886.6U"></div><div class="equity-bar up" style="height:18px" title="888.8U"></div><div class="equity-bar up" style="height:18px" title="888.8U"></div><div class="equity-bar up" style="height:18px" title="888.8U"></div><div class="equity-bar down" style="height:18px" title="888.4U"></div><div class="equity-bar up" style="height:21px" title="899.5U"></div><div class="equity-bar up" style="height:21px" title="899.5U"></div><div class="equity-bar up" style="height:23px" title="905.4U"></div><div class="equity-bar down" style="height:17px" title="886.8U"></div><div class="equity-bar up" style="height:17px" title="886.8U"></div><div class="equity-bar down" style="height:17px" title="885.0U"></div><div class="equity-bar down" style="height:16px" title="882.4U"></div><div class="equity-bar up" style="height:16px" title="882.4U"></div><div class="equity-bar up" style="height:16px" title="882.4U"></div><div class="equity-bar up" style="height:16px" title="882.4U"></div><div class="equity-bar up" style="height:16px" title="882.4U"></div><div class="equity-bar up" style="height:16px" title="882.4U"></div><div class="equity-bar up" style="height:16px" title="883.6U"></div><div class="equity-bar down" style="height:11px" title="869.2U"></div><div class="equity-bar up" style="height:12px" title="871.8U"></div><div class="equity-bar up" style="height:18px" title="888.4U"></div><div class="equity-bar up" style="height:18px" title="890.8U"></div><div class="equity-bar up" style="height:20px" title="894.1U"></div><div class="equity-bar up" style="height:20px" title="895.0U"></div><div class="equity-bar up" style="height:21px" title="896.8U"></div><div class="equity-bar down" style="height:21px" title="896.8U"></div><div class="equity-bar down" style="height:20px" title="896.5U"></div><div class="equity-bar up" style="height:22px" title="900.5U"></div><div class="equity-bar down" style="height:21px" title="898.4U"></div><div class="equity-bar down" style="height:21px" title="897.9U"></div><div class="equity-bar up" style="height:23px" title="904.3U"></div><div class="equity-bar up" style="height:23px" title="904.3U"></div><div class="equity-bar down" style="height:17px" title="886.1U"></div><div class="equity-bar up" style="height:17px" title="886.1U"></div><div class="equity-bar down" style="height:17px" title="885.1U"></div><div class="equity-bar up" style="height:23px" title="904.7U"></div><div class="equity-bar up" style="height:23px" title="904.7U"></div><div class="equity-bar down" style="height:19px" title="893.7U"></div><div class="equity-bar down" style="height:16px" title="883.1U"></div><div class="equity-bar up" style="height:16px" title="883.1U"></div><div class="equity-bar down" style="height:15px" title="879.6U"></div><div class="equity-bar up" style="height:15px" title="879.6U"></div><div class="equity-bar up" style="height:20px" title="894.7U"></div><div class="equity-bar up" style="height:20px" title="894.7U"></div><div class="equity-bar up" style="height:20px" title="896.0U"></div><div class="equity-bar up" style="height:20px" title="896.0U"></div><div class="equity-bar down" style="height:19px" title="893.5U"></div><div class="equity-bar up" style="height:19px" title="893.5U"></div><div class="equity-bar down" style="height:18px" title="889.6U"></div><div class="equity-bar down" style="height:18px" title="889.6U"></div><div class="equity-bar up" style="height:18px" title="889.6U"></div><div class="equity-bar down" style="height:18px" title="888.8U"></div><div class="equity-bar up" style="height:18px" title="888.8U"></div><div class="equity-bar up" style="height:19px" title="892.7U"></div><div class="equity-bar up" style="height:19px" title="892.7U"></div><div class="equity-bar up" style="height:19px" title="892.7U"></div><div class="equity-bar up" style="height:19px" title="892.7U"></div><div class="equity-bar up" style="height:19px" title="892.7U"></div><div class="equity-bar up" style="height:19px" title="892.7U"></div><div class="equity-bar up" style="height:19px" title="892.7U"></div><div class="equity-bar up" style="height:19px" title="892.7U"></div><div class="equity-bar up" style="height:19px" title="892.7U"></div><div class="equity-bar up" style="height:19px" title="892.7U"></div><div class="equity-bar up" style="height:19px" title="892.7U"></div><div class="equity-bar down" style="height:4px" title="849.2U"></div><div class="equity-bar up" style="height:4px" title="849.2U"></div><div class="equity-bar up" style="height:9px" title="862.6U"></div><div class="equity-bar down" style="height:7px" title="857.0U"></div><div class="equity-bar up" style="height:7px" title="857.0U"></div><div class="equity-bar down" style="height:7px" title="856.9U"></div><div class="equity-bar down" style="height:4px" title="849.1U"></div><div class="equity-bar down" style="height:4px" title="849.1U"></div><div class="equity-bar up" style="height:4px" title="849.1U"></div><div class="equity-bar up" style="height:4px" title="849.1U"></div><div class="equity-bar up" style="height:4px" title="849.1U"></div><div class="equity-bar down" style="height:4px" title="834.7U"></div><div class="equity-bar up" style="height:4px" title="834.7U"></div><div class="equity-bar up" style="height:4px" title="834.7U"></div><div class="equity-bar up" style="height:4px" title="842.1U"></div><div class="equity-bar up" style="height:4px" title="846.5U"></div><div class="equity-bar up" style="height:5px" title="849.6U"></div><div class="equity-bar up" style="height:9px" title="863.9U"></div><div class="equity-bar up" style="height:9px" title="863.9U"></div><div class="equity-bar up" style="height:9px" title="863.9U"></div><div class="equity-bar up" style="height:33px" title="933.8U"></div><div class="equity-bar up" style="height:35px" title="940.1U"></div><div class="equity-bar down" style="height:26px" title="912.6U"></div><div class="equity-bar up" style="height:26px" title="912.6U"></div><div class="equity-bar down" style="height:24px" title="906.4U"></div><div class="equity-bar up" style="height:24px" title="906.4U"></div><div class="equity-bar up" style="height:24px" title="906.4U"></div><div class="equity-bar down" style="height:22px" title="900.0U"></div><div class="equity-bar up" style="height:22px" title="900.0U"></div><div class="equity-bar up" style="height:22px" title="900.0U"></div><div class="equity-bar down" style="height:20px" title="894.1U"></div><div class="equity-bar up" style="height:20px" title="894.1U"></div><div class="equity-bar down" style="height:20px" title="894.1U"></div><div class="equity-bar down" style="height:18px" title="889.6U"></div><div class="equity-bar up" style="height:18px" title="889.6U"></div><div class="equity-bar up" style="height:18px" title="889.6U"></div><div class="equity-bar down" style="height:16px" title="882.2U"></div><div class="equity-bar down" style="height:15px" title="880.4U"></div><div class="equity-bar up" style="height:15px" title="880.4U"></div><div class="equity-bar down" style="height:14px" title="878.6U"></div><div class="equity-bar down" style="height:11px" title="869.7U"></div><div class="equity-bar up" style="height:11px" title="869.7U"></div><div class="equity-bar down" style="height:10px" title="866.8U"></div><div class="equity-bar down" style="height:10px" title="866.6U"></div><div class="equity-bar down" style="height:9px" title="863.9U"></div><div class="equity-bar up" style="height:9px" title="863.9U"></div><div class="equity-bar up" style="height:9px" title="863.9U"></div><div class="equity-bar up" style="height:11px" title="867.8U"></div><div class="equity-bar up" style="height:11px" title="867.8U"></div><div class="equity-bar up" style="height:11px" title="867.8U"></div><div class="equity-bar down" style="height:11px" title="867.4U"></div><div class="equity-bar up" style="height:11px" title="870.0U"></div><div class="equity-bar down" style="height:11px" title="870.0U"></div><div class="equity-bar down" style="height:9px" title="863.5U"></div><div class="equity-bar up" style="height:9px" title="863.5U"></div><div class="equity-bar up" style="height:10px" title="867.1U"></div><div class="equity-bar up" style="height:10px" title="867.1U"></div><div class="equity-bar down" style="height:8px" title="860.5U"></div><div class="equity-bar up" style="height:9px" title="861.4U"></div><div class="equity-bar up" style="height:9px" title="861.4U"></div><div class="equity-bar up" style="height:9px" title="861.4U"></div><div class="equity-bar up" style="height:9px" title="861.4U"></div><div class="equity-bar up" style="height:9px" title="861.4U"></div><div class="equity-bar up" style="height:10px" title="865.6U"></div><div class="equity-bar up" style="height:10px" title="865.6U"></div><div class="equity-bar up" style="height:10px" title="865.6U"></div><div class="equity-bar down" style="height:9px" title="864.0U"></div><div class="equity-bar up" style="height:9px" title="864.0U"></div><div class="equity-bar down" style="height:5px" title="851.9U"></div><div class="equity-bar up" style="height:5px" title="851.9U"></div><div class="equity-bar up" style="height:5px" title="851.9U"></div><div class="equity-bar up" style="height:5px" title="851.9U"></div><div class="equity-bar up" style="height:5px" title="851.9U"></div><div class="equity-bar up" style="height:5px" title="851.9U"></div><div class="equity-bar down" style="height:4px" title="836.3U"></div><div class="equity-bar up" style="height:4px" title="836.3U"></div><div class="equity-bar up" style="height:4px" title="836.3U"></div><div class="equity-bar up" style="height:4px" title="836.3U"></div><div class="equity-bar up" style="height:4px" title="836.3U"></div><div class="equity-bar up" style="height:4px" title="836.3U"></div><div class="equity-bar up" style="height:4px" title="842.1U"></div><div class="equity-bar up" style="height:4px" title="842.1U"></div><div class="equity-bar down" style="height:4px" title="842.1U"></div><div class="equity-bar up" style="height:23px" title="904.8U"></div><div class="equity-bar up" style="height:23px" title="904.8U"></div><div class="equity-bar down" style="height:11px" title="868.8U"></div><div class="equity-bar up" style="height:11px" title="868.8U"></div><div class="equity-bar down" style="height:10px" title="866.9U"></div><div class="equity-bar up" style="height:15px" title="880.8U"></div><div class="equity-bar up" style="height:15px" title="880.8U"></div><div class="equity-bar down" style="height:11px" title="868.9U"></div><div class="equity-bar up" style="height:11px" title="868.9U"></div><div class="equity-bar up" style="height:11px" title="868.9U"></div><div class="equity-bar up" style="height:11px" title="869.4U"></div><div class="equity-bar down" style="height:11px" title="869.4U"></div><div class="equity-bar up" style="height:17px" title="886.1U"></div><div class="equity-bar up" style="height:17px" title="886.1U"></div><div class="equity-bar up" style="height:24px" title="908.4U"></div><div class="equity-bar up" style="height:24px" title="908.4U"></div><div class="equity-bar down" style="height:24px" title="908.4U"></div><div class="equity-bar up" style="height:24px" title="908.4U"></div><div class="equity-bar up" style="height:24px" title="908.4U"></div><div class="equity-bar up" style="height:28px" title="919.7U"></div><div class="equity-bar up" style="height:28px" title="919.7U"></div><div class="equity-bar up" style="height:28px" title="919.7U"></div><div class="equity-bar up" style="height:30px" title="923.5U"></div><div class="equity-bar up" style="height:30px" title="923.5U"></div><div class="equity-bar up" style="height:30px" title="923.5U"></div><div class="equity-bar up" style="height:30px" title="923.5U"></div><div class="equity-bar up" style="height:30px" title="923.5U"></div><div class="equity-bar down" style="height:30px" title="923.5U"></div><div class="equity-bar down" style="height:22px" title="902.0U"></div><div class="equity-bar up" style="height:22px" title="902.0U"></div><div class="equity-bar up" style="height:26px" title="913.8U"></div><div class="equity-bar down" style="height:26px" title="911.5U"></div><div class="equity-bar up" style="height:26px" title="911.5U"></div><div class="equity-bar up" style="height:26px" title="911.5U"></div><div class="equity-bar down" style="height:25px" title="909.3U"></div><div class="equity-bar up" style="height:25px" title="909.3U"></div><div class="equity-bar up" style="height:25px" title="909.6U"></div><div class="equity-bar up" style="height:25px" title="909.6U"></div><div class="equity-bar down" style="height:25px" title="909.2U"></div><div class="equity-bar up" style="height:25px" title="910.4U"></div><div class="equity-bar up" style="height:30px" title="924.6U"></div><div class="equity-bar down" style="height:30px" title="924.6U"></div><div class="equity-bar up" style="height:30px" title="924.6U"></div><div class="equity-bar up" style="height:31px" title="926.5U"></div><div class="equity-bar down" style="height:28px" title="920.0U"></div><div class="equity-bar up" style="height:28px" title="920.0U"></div><div class="equity-bar down" style="height:26px" title="912.6U"></div><div class="equity-bar up" style="height:26px" title="912.6U"></div><div class="equity-bar up" style="height:26px" title="912.6U"></div><div class="equity-bar up" style="height:30px" title="925.3U"></div><div class="equity-bar up" style="height:30px" title="925.3U"></div><div class="equity-bar up" style="height:34px" title="935.2U"></div><div class="equity-bar up" style="height:34px" title="935.2U"></div><div class="equity-bar down" style="height:29px" title="923.1U"></div><div class="equity-bar down" style="height:26px" title="913.4U"></div><div class="equity-bar up" style="height:26px" title="913.4U"></div><div class="equity-bar up" style="height:26px" title="913.4U"></div></div>
 <div style="font-size:13px;font-weight:600;margin:16px 0 8px;color:var(--text-secondary)">当前持仓</div>
 <div class="table-wrap"><table>
 <thead><tr><th>代币</th><th>入场价</th><th>现价</th><th>数量</th><th>保证金</th><th>未实现盈亏</th><th>止损</th><th>止盈</th><th>场景</th></tr></thead><tbody>
 <tr>
 <td><strong>FLUX</strong></td>
 <td style="font-family:var(--mono)">0.068090</td>
-<td style="font-family:var(--mono)">0.067480</td>
+<td style="font-family:var(--mono)">0.067100</td>
 <td>2824</td>
 <td>64U</td>
-<td style="color:var(--red);font-weight:600">-1.72U (-2.7%)</td>
+<td style="color:var(--red);font-weight:600">-2.80U (-4.4%)</td>
 <td style="font-family:var(--mono);color:var(--red)">0.064725</td>
 <td style="font-family:var(--mono);color:var(--green)">0.073313</td>
 <td>S6</td>
@@ -7704,43 +7424,21 @@ tr:hover td { background: var(--bg-hover); }
 <tr>
 <td><strong>KAS</strong></td>
 <td style="font-family:var(--mono)">0.030610</td>
-<td style="font-family:var(--mono)">0.030420</td>
+<td style="font-family:var(--mono)">0.030340</td>
 <td>4900</td>
 <td>50U</td>
-<td style="color:var(--red);font-weight:600">-0.93U (-1.9%)</td>
+<td style="color:var(--red);font-weight:600">-1.32U (-2.6%)</td>
 <td style="font-family:var(--mono);color:var(--red)">0.029940</td>
 <td style="font-family:var(--mono);color:var(--green)">0.032263</td>
 <td>S2</td>
 </tr>
 <tr>
-<td><strong>ALT</strong></td>
-<td style="font-family:var(--mono)">0.006926</td>
-<td style="font-family:var(--mono)">0.006916</td>
-<td>21658</td>
-<td>50U</td>
-<td style="color:var(--red);font-weight:600">-0.22U (-0.4%)</td>
-<td style="font-family:var(--mono);color:var(--red)">0.006607</td>
-<td style="font-family:var(--mono);color:var(--green)">0.007350</td>
-<td>S2</td>
-</tr>
-<tr>
-<td><strong>PIPPIN</strong></td>
-<td style="font-family:var(--mono)">0.019160</td>
-<td style="font-family:var(--mono)">0.019030</td>
-<td>7829</td>
-<td>50U</td>
-<td style="color:var(--red);font-weight:600">-1.02U (-2.0%)</td>
-<td style="font-family:var(--mono);color:var(--red)">0.017970</td>
-<td style="font-family:var(--mono);color:var(--green)">0.020730</td>
-<td>S6</td>
-</tr>
-<tr>
 <td><strong>SWARMS</strong></td>
 <td style="font-family:var(--mono)">0.007414</td>
-<td style="font-family:var(--mono)">0.007166</td>
+<td style="font-family:var(--mono)">0.007175</td>
 <td>33971</td>
 <td>84U</td>
-<td style="color:var(--red);font-weight:600">-8.42U (-10.0%)</td>
+<td style="color:var(--red);font-weight:600">-8.12U (-9.7%)</td>
 <td style="font-family:var(--mono);color:var(--red)">0.005999</td>
 <td style="font-family:var(--mono);color:var(--green)">0.009671</td>
 <td>S6</td>
@@ -7748,32 +7446,21 @@ tr:hover td { background: var(--bg-hover); }
 <tr>
 <td><strong>SPK</strong></td>
 <td style="font-family:var(--mono)">0.023980</td>
-<td style="font-family:var(--mono)">0.023900</td>
+<td style="font-family:var(--mono)">0.023930</td>
 <td>6255</td>
 <td>50U</td>
-<td style="color:var(--red);font-weight:600">-0.50U (-1.0%)</td>
+<td style="color:var(--red);font-weight:600">-0.31U (-0.6%)</td>
 <td style="font-family:var(--mono);color:var(--red)">0.022835</td>
 <td style="font-family:var(--mono);color:var(--green)">0.025886</td>
 <td>S6</td>
 </tr>
 <tr>
-<td><strong>MEW</strong></td>
-<td style="font-family:var(--mono)">0.000500</td>
-<td style="font-family:var(--mono)">0.000498</td>
-<td>300000</td>
-<td>50U</td>
-<td style="color:var(--red);font-weight:600">-0.51U (-1.0%)</td>
-<td style="font-family:var(--mono);color:var(--red)">0.000473</td>
-<td style="font-family:var(--mono);color:var(--green)">0.000535</td>
-<td>S6</td>
-</tr>
-<tr>
 <td><strong>MERL</strong></td>
 <td style="font-family:var(--mono)">0.024630</td>
-<td style="font-family:var(--mono)">0.024690</td>
+<td style="font-family:var(--mono)">0.024580</td>
 <td>6090</td>
 <td>50U</td>
-<td style="color:var(--green);font-weight:600">+0.37U (+0.7%)</td>
+<td style="color:var(--red);font-weight:600">-0.30U (-0.6%)</td>
 <td style="font-family:var(--mono);color:var(--red)">0.022935</td>
 <td style="font-family:var(--mono);color:var(--green)">0.026834</td>
 <td>S6</td>
@@ -7782,6 +7469,30 @@ tr:hover td { background: var(--bg-hover); }
 <div style="font-size:13px;font-weight:600;margin:16px 0 8px;color:var(--text-secondary)">最近交易</div>
 <div class="table-wrap"><table>
 <thead><tr><th>代币</th><th>入场</th><th>出场</th><th>盈亏</th><th>原因</th><th>持仓天数</th></tr></thead><tbody>
+<tr>
+<td><strong>ALT</strong></td>
+<td style="font-size:11px">2026-05-30</td>
+<td style="font-size:11px">2026-05-31</td>
+<td style="color:var(--red);font-weight:600">-0.22U (-0.4%)</td>
+<td style="font-size:11px">退出机会池</td>
+<td>1.0天</td>
+</tr>
+<tr>
+<td><strong>PIPPIN</strong></td>
+<td style="font-size:11px">2026-05-30</td>
+<td style="font-size:11px">2026-05-31</td>
+<td style="color:var(--red);font-weight:600">-1.02U (-2.0%)</td>
+<td style="font-size:11px">退出机会池</td>
+<td>0.9天</td>
+</tr>
+<tr>
+<td><strong>MEW</strong></td>
+<td style="font-size:11px">2026-05-31</td>
+<td style="font-size:11px">2026-05-31</td>
+<td style="color:var(--red);font-weight:600">-0.51U (-1.0%)</td>
+<td style="font-size:11px">退出机会池</td>
+<td>0.5天</td>
+</tr>
 <tr>
 <td><strong>FHE</strong></td>
 <td style="font-size:11px">2026-05-30</td>
@@ -7838,30 +7549,6 @@ tr:hover td { background: var(--bg-hover); }
 <td style="font-size:11px">退出机会池</td>
 <td>0.7天</td>
 </tr>
-<tr>
-<td><strong>MUBARAK</strong></td>
-<td style="font-size:11px">2026-05-30</td>
-<td style="font-size:11px">2026-05-31</td>
-<td style="color:var(--green);font-weight:600">+7.87U (+13.7%)</td>
-<td style="font-size:11px">退出机会池</td>
-<td>0.7天</td>
-</tr>
-<tr>
-<td><strong>ZEC</strong></td>
-<td style="font-size:11px">2026-05-30</td>
-<td style="font-size:11px">2026-05-31</td>
-<td style="color:var(--green);font-weight:600">+1.88U (+3.7%)</td>
-<td style="font-size:11px">退出机会池</td>
-<td>0.2天</td>
-</tr>
-<tr>
-<td><strong>VIRTUAL</strong></td>
-<td style="font-size:11px">2026-05-30</td>
-<td style="font-size:11px">2026-05-30</td>
-<td style="color:var(--green);font-weight:600">+1.12U (+2.2%)</td>
-<td style="font-size:11px">退出机会池</td>
-<td>0.2天</td>
-</tr>
 </tbody></table></div>
 </div>
 </div>
@@ -7872,21 +7559,21 @@ tr:hover td { background: var(--bg-hover); }
 <div class="status-item"><span class="status-label">代币列表</span><span class="status-val" style="color:var(--green)">46.4 KB</span></div>
 <div class="status-item"><span class="status-label">扫描结果</span><span class="status-val" style="color:var(--green)">231.0 KB</span></div>
 <div class="status-item"><span class="status-label">深度分析</span><span class="status-val" style="color:var(--green)">415.0 KB</span></div>
-<div class="status-item"><span class="status-label">观察池</span><span class="status-val" style="color:var(--green)">216.8 KB</span></div>
-<div class="status-item"><span class="status-label">观察扫描</span><span class="status-val" style="color:var(--green)">3.6 KB</span></div>
-<div class="status-item"><span class="status-label">机会池</span><span class="status-val" style="color:var(--green)">31.6 KB</span></div>
-<div class="status-item"><span class="status-label">模拟-观察</span><span class="status-val" style="color:var(--green)">79.0 KB</span></div>
-<div class="status-item"><span class="status-label">模拟-机会</span><span class="status-val" style="color:var(--green)">63.6 KB</span></div>
+<div class="status-item"><span class="status-label">观察池</span><span class="status-val" style="color:var(--green)">138.8 KB</span></div>
+<div class="status-item"><span class="status-label">观察扫描</span><span class="status-val" style="color:var(--green)">3.7 KB</span></div>
+<div class="status-item"><span class="status-label">机会池</span><span class="status-val" style="color:var(--green)">19.0 KB</span></div>
+<div class="status-item"><span class="status-label">模拟-观察</span><span class="status-val" style="color:var(--green)">78.4 KB</span></div>
+<div class="status-item"><span class="status-label">模拟-机会</span><span class="status-val" style="color:var(--green)">63.3 KB</span></div>
 </div>
 <div class="status-card"><div class="status-title">最近运行</div>
 <div class="status-item"><span class="status-label">全量扫描</span><span class="status-val">2026-05-31 16:01</span></div>
 <div class="status-item"><span class="status-label">扫描代币</span><span class="status-val">528/528 正常</span></div>
 <div class="status-item"><span class="status-label">深度分析</span><span class="status-val">2026-05-31 16:02</span></div>
-<div class="status-item"><span class="status-label">观察池</span><span class="status-val">更新: 2026-05-31 17:01</span></div>
-<div class="status-item"><span class="status-label">机会池</span><span class="status-val">更新: 2026-05-31 17:01</span></div>
+<div class="status-item"><span class="status-label">观察池</span><span class="status-val">更新: 2026-05-31 18:01</span></div>
+<div class="status-item"><span class="status-label">机会池</span><span class="status-val">更新: 2026-05-31 18:01</span></div>
 </div>
 <div class="status-card"><div class="status-title">系统</div>
-<div class="status-item"><span class="status-label">面板生成时间</span><span class="status-val">2026-05-31 17:01</span></div>
+<div class="status-item"><span class="status-label">面板生成时间</span><span class="status-val">2026-05-31 18:01</span></div>
 <div class="status-item"><span class="status-label">Python版本</span><span class="status-val">3.13.13</span></div>
 </div>
 </div>
